@@ -18,7 +18,7 @@ for(const S of SETS){
     const cv=document.createElement('canvas');root.appendChild(cv);
     Promise.all([fetch(id+'.json').then(r=>r.json()),new Promise(res=>{const im=new Image();im.onload=()=>res(im);im.src=id+'.png';})]).then(([j,im])=>{
       const F=j.frames,fps=j.meta.pixelfx.fps,N=F.length,loop=j.meta.pixelfx.loop,gap=loop?0:24,w=F[0].frame.w,hh=F[0].frame.h,py=j.meta.pixelfx.pivot[1];
-      cv.width=w;cv.height=hh;const ctx=cv.getContext('2d');ctx.imageSmoothingEnabled=false;const t0=performance.now();
+      cv.width=w;cv.height=hh;cv.style.maxWidth=Math.min(900,w*4)+'px';const ctx=cv.getContext('2d');ctx.imageSmoothingEnabled=false;const t0=performance.now();
       (function tick(now){const i=Math.floor((now-t0)/1000*fps)%(N+gap),f=F[Math.min(i,N-1)].frame;ctx.fillStyle='#15131f';ctx.fillRect(0,0,w,hh);ctx.fillStyle='#2a2540';ctx.fillRect(0,py,w,hh-py);ctx.fillStyle='#3a3454';ctx.fillRect(0,py,w,1);ctx.drawImage(im,f.x,f.y,f.w,f.h,0,0,f.w,f.h);requestAnimationFrame(tick);})(t0);
     });
   }
