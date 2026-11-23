@@ -1,0 +1,15 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>브란 인형 시험</title>
+<style>body{margin:0;background:#14161c;color:#eee;font-family:system-ui,"Noto Sans KR",sans-serif}h1{font-size:18px;margin:14px 14px 4px}p{margin:4px 14px 12px;font-size:13px;color:#b8bcc8;line-height:1.5}canvas,img{display:block;width:100%;max-width:1044px;height:auto;image-rendering:pixelated;background:#15131f}#msg{margin:8px 14px;font-size:13px;color:#e9cc84}</style></head><body>
+<h1>브란 인형 시험 — 통나무 내려찍기</h1>
+<p>그림이 아니라 뼈대로 움직이는 작은 도트 인형(키 약 40점)에 브란의 곰 두건·수염·망토·통나무를 입혔습니다. 화면을 누르면 멈추고, 다시 누르면 이어집니다.</p>
+<canvas id="c" width="348" height="208"></canvas><div id="msg">불러오는 중…</div>
+<p>가까이서 본 자세들:</p><img src="zoom.png" alt="자세 확대">
+<script>
+const cv=document.getElementById('c'),ctx=cv.getContext('2d'),msg=document.getElementById('msg');ctx.imageSmoothingEnabled=false;
+let playing=true,t0=0,paused=0;
+Promise.all([fetch('sheet.json').then(r=>r.json()),new Promise(res=>{const im=new Image();im.onload=()=>res(im);im.src='sheet.png';})]).then(([j,im])=>{
+  const F=j.frames,fps=j.meta.pixelfx.fps,N=F.length,gap=20;msg.textContent='재생 중 (화면을 누르면 멈춤)';t0=performance.now();
+  function tick(now){ if(playing){ const i=Math.floor((now-t0)/1000*fps)%(N+gap), f=F[Math.min(i,N-1)].frame; ctx.fillStyle='#15131f';ctx.fillRect(0,0,348,208);ctx.fillStyle='#2a2540';ctx.fillRect(0,170,348,38);ctx.fillStyle='#3a3454';ctx.fillRect(0,170,348,1);ctx.drawImage(im,f.x,f.y,f.w,f.h,0,0,f.w,f.h);} requestAnimationFrame(tick);} requestAnimationFrame(tick);
+  cv.addEventListener('click',()=>{ if(playing){paused=performance.now()-t0;playing=false;msg.textContent='멈춤 (누르면 이어서)';} else {t0=performance.now()-paused;playing=true;msg.textContent='재생 중 (화면을 누르면 멈춤)';} });
+});
+</script></body></html>

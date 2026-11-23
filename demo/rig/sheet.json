@@ -1,0 +1,3605 @@
+{
+ "frames": [
+  {
+   "filename": "bran-smash 0",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 1",
+   "frame": {
+    "x": 348,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 2",
+   "frame": {
+    "x": 696,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 3",
+   "frame": {
+    "x": 1044,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 4",
+   "frame": {
+    "x": 1392,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 5",
+   "frame": {
+    "x": 1740,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 6",
+   "frame": {
+    "x": 2088,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 7",
+   "frame": {
+    "x": 2436,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 8",
+   "frame": {
+    "x": 2784,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 9",
+   "frame": {
+    "x": 3132,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 10",
+   "frame": {
+    "x": 0,
+    "y": 208,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 11",
+   "frame": {
+    "x": 348,
+    "y": 208,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 12",
+   "frame": {
+    "x": 696,
+    "y": 208,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 13",
+   "frame": {
+    "x": 1044,
+    "y": 208,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 14",
+   "frame": {
+    "x": 1392,
+    "y": 208,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 15",
+   "frame": {
+    "x": 1740,
+    "y": 208,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 16",
+   "frame": {
+    "x": 2088,
+    "y": 208,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 17",
+   "frame": {
+    "x": 2436,
+    "y": 208,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 18",
+   "frame": {
+    "x": 2784,
+    "y": 208,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 19",
+   "frame": {
+    "x": 3132,
+    "y": 208,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 20",
+   "frame": {
+    "x": 0,
+    "y": 416,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 21",
+   "frame": {
+    "x": 348,
+    "y": 416,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 22",
+   "frame": {
+    "x": 696,
+    "y": 416,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 23",
+   "frame": {
+    "x": 1044,
+    "y": 416,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 24",
+   "frame": {
+    "x": 1392,
+    "y": 416,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 25",
+   "frame": {
+    "x": 1740,
+    "y": 416,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 26",
+   "frame": {
+    "x": 2088,
+    "y": 416,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 27",
+   "frame": {
+    "x": 2436,
+    "y": 416,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 28",
+   "frame": {
+    "x": 2784,
+    "y": 416,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 29",
+   "frame": {
+    "x": 3132,
+    "y": 416,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 30",
+   "frame": {
+    "x": 0,
+    "y": 624,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 31",
+   "frame": {
+    "x": 348,
+    "y": 624,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 32",
+   "frame": {
+    "x": 696,
+    "y": 624,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 33",
+   "frame": {
+    "x": 1044,
+    "y": 624,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 34",
+   "frame": {
+    "x": 1392,
+    "y": 624,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 35",
+   "frame": {
+    "x": 1740,
+    "y": 624,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 36",
+   "frame": {
+    "x": 2088,
+    "y": 624,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 37",
+   "frame": {
+    "x": 2436,
+    "y": 624,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 38",
+   "frame": {
+    "x": 2784,
+    "y": 624,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 39",
+   "frame": {
+    "x": 3132,
+    "y": 624,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 40",
+   "frame": {
+    "x": 0,
+    "y": 832,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 41",
+   "frame": {
+    "x": 348,
+    "y": 832,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 42",
+   "frame": {
+    "x": 696,
+    "y": 832,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 43",
+   "frame": {
+    "x": 1044,
+    "y": 832,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 44",
+   "frame": {
+    "x": 1392,
+    "y": 832,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 45",
+   "frame": {
+    "x": 1740,
+    "y": 832,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 46",
+   "frame": {
+    "x": 2088,
+    "y": 832,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 47",
+   "frame": {
+    "x": 2436,
+    "y": 832,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 48",
+   "frame": {
+    "x": 2784,
+    "y": 832,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 49",
+   "frame": {
+    "x": 3132,
+    "y": 832,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 50",
+   "frame": {
+    "x": 0,
+    "y": 1040,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 51",
+   "frame": {
+    "x": 348,
+    "y": 1040,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 52",
+   "frame": {
+    "x": 696,
+    "y": 1040,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 53",
+   "frame": {
+    "x": 1044,
+    "y": 1040,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 54",
+   "frame": {
+    "x": 1392,
+    "y": 1040,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 55",
+   "frame": {
+    "x": 1740,
+    "y": 1040,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 56",
+   "frame": {
+    "x": 2088,
+    "y": 1040,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 57",
+   "frame": {
+    "x": 2436,
+    "y": 1040,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 58",
+   "frame": {
+    "x": 2784,
+    "y": 1040,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 59",
+   "frame": {
+    "x": 3132,
+    "y": 1040,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 60",
+   "frame": {
+    "x": 0,
+    "y": 1248,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 61",
+   "frame": {
+    "x": 348,
+    "y": 1248,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 62",
+   "frame": {
+    "x": 696,
+    "y": 1248,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 63",
+   "frame": {
+    "x": 1044,
+    "y": 1248,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 64",
+   "frame": {
+    "x": 1392,
+    "y": 1248,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 65",
+   "frame": {
+    "x": 1740,
+    "y": 1248,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 66",
+   "frame": {
+    "x": 2088,
+    "y": 1248,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 67",
+   "frame": {
+    "x": 2436,
+    "y": 1248,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 68",
+   "frame": {
+    "x": 2784,
+    "y": 1248,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 69",
+   "frame": {
+    "x": 3132,
+    "y": 1248,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 70",
+   "frame": {
+    "x": 0,
+    "y": 1456,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 71",
+   "frame": {
+    "x": 348,
+    "y": 1456,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 72",
+   "frame": {
+    "x": 696,
+    "y": 1456,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 73",
+   "frame": {
+    "x": 1044,
+    "y": 1456,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 74",
+   "frame": {
+    "x": 1392,
+    "y": 1456,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 75",
+   "frame": {
+    "x": 1740,
+    "y": 1456,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 76",
+   "frame": {
+    "x": 2088,
+    "y": 1456,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 77",
+   "frame": {
+    "x": 2436,
+    "y": 1456,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 78",
+   "frame": {
+    "x": 2784,
+    "y": 1456,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 79",
+   "frame": {
+    "x": 3132,
+    "y": 1456,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 80",
+   "frame": {
+    "x": 0,
+    "y": 1664,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 81",
+   "frame": {
+    "x": 348,
+    "y": 1664,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 82",
+   "frame": {
+    "x": 696,
+    "y": 1664,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 83",
+   "frame": {
+    "x": 1044,
+    "y": 1664,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 84",
+   "frame": {
+    "x": 1392,
+    "y": 1664,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 85",
+   "frame": {
+    "x": 1740,
+    "y": 1664,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 86",
+   "frame": {
+    "x": 2088,
+    "y": 1664,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 87",
+   "frame": {
+    "x": 2436,
+    "y": 1664,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 88",
+   "frame": {
+    "x": 2784,
+    "y": 1664,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 89",
+   "frame": {
+    "x": 3132,
+    "y": 1664,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 90",
+   "frame": {
+    "x": 0,
+    "y": 1872,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 91",
+   "frame": {
+    "x": 348,
+    "y": 1872,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 92",
+   "frame": {
+    "x": 696,
+    "y": 1872,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 93",
+   "frame": {
+    "x": 1044,
+    "y": 1872,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 94",
+   "frame": {
+    "x": 1392,
+    "y": 1872,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 95",
+   "frame": {
+    "x": 1740,
+    "y": 1872,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 96",
+   "frame": {
+    "x": 2088,
+    "y": 1872,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 97",
+   "frame": {
+    "x": 2436,
+    "y": 1872,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 98",
+   "frame": {
+    "x": 2784,
+    "y": 1872,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 99",
+   "frame": {
+    "x": 3132,
+    "y": 1872,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 100",
+   "frame": {
+    "x": 0,
+    "y": 2080,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 101",
+   "frame": {
+    "x": 348,
+    "y": 2080,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 102",
+   "frame": {
+    "x": 696,
+    "y": 2080,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 103",
+   "frame": {
+    "x": 1044,
+    "y": 2080,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 104",
+   "frame": {
+    "x": 1392,
+    "y": 2080,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 105",
+   "frame": {
+    "x": 1740,
+    "y": 2080,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 106",
+   "frame": {
+    "x": 2088,
+    "y": 2080,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 107",
+   "frame": {
+    "x": 2436,
+    "y": 2080,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 108",
+   "frame": {
+    "x": 2784,
+    "y": 2080,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 109",
+   "frame": {
+    "x": 3132,
+    "y": 2080,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 110",
+   "frame": {
+    "x": 0,
+    "y": 2288,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 111",
+   "frame": {
+    "x": 348,
+    "y": 2288,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 112",
+   "frame": {
+    "x": 696,
+    "y": 2288,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 113",
+   "frame": {
+    "x": 1044,
+    "y": 2288,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 114",
+   "frame": {
+    "x": 1392,
+    "y": 2288,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 115",
+   "frame": {
+    "x": 1740,
+    "y": 2288,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 116",
+   "frame": {
+    "x": 2088,
+    "y": 2288,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 117",
+   "frame": {
+    "x": 2436,
+    "y": 2288,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 118",
+   "frame": {
+    "x": 2784,
+    "y": 2288,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 119",
+   "frame": {
+    "x": 3132,
+    "y": 2288,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 120",
+   "frame": {
+    "x": 0,
+    "y": 2496,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 121",
+   "frame": {
+    "x": 348,
+    "y": 2496,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 122",
+   "frame": {
+    "x": 696,
+    "y": 2496,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 123",
+   "frame": {
+    "x": 1044,
+    "y": 2496,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 124",
+   "frame": {
+    "x": 1392,
+    "y": 2496,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 125",
+   "frame": {
+    "x": 1740,
+    "y": 2496,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 126",
+   "frame": {
+    "x": 2088,
+    "y": 2496,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 127",
+   "frame": {
+    "x": 2436,
+    "y": 2496,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 128",
+   "frame": {
+    "x": 2784,
+    "y": 2496,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 129",
+   "frame": {
+    "x": 3132,
+    "y": 2496,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 130",
+   "frame": {
+    "x": 0,
+    "y": 2704,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 131",
+   "frame": {
+    "x": 348,
+    "y": 2704,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 132",
+   "frame": {
+    "x": 696,
+    "y": 2704,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 133",
+   "frame": {
+    "x": 1044,
+    "y": 2704,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 134",
+   "frame": {
+    "x": 1392,
+    "y": 2704,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 135",
+   "frame": {
+    "x": 1740,
+    "y": 2704,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 136",
+   "frame": {
+    "x": 2088,
+    "y": 2704,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 137",
+   "frame": {
+    "x": 2436,
+    "y": 2704,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 138",
+   "frame": {
+    "x": 2784,
+    "y": 2704,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 139",
+   "frame": {
+    "x": 3132,
+    "y": 2704,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 140",
+   "frame": {
+    "x": 0,
+    "y": 2912,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 141",
+   "frame": {
+    "x": 348,
+    "y": 2912,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 142",
+   "frame": {
+    "x": 696,
+    "y": 2912,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 143",
+   "frame": {
+    "x": 1044,
+    "y": 2912,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 144",
+   "frame": {
+    "x": 1392,
+    "y": 2912,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 145",
+   "frame": {
+    "x": 1740,
+    "y": 2912,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 146",
+   "frame": {
+    "x": 2088,
+    "y": 2912,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 147",
+   "frame": {
+    "x": 2436,
+    "y": 2912,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 148",
+   "frame": {
+    "x": 2784,
+    "y": 2912,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 149",
+   "frame": {
+    "x": 3132,
+    "y": 2912,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-smash 150",
+   "frame": {
+    "x": 0,
+    "y": 3120,
+    "w": 348,
+    "h": 208
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 348,
+    "h": 208
+   },
+   "sourceSize": {
+    "w": 348,
+    "h": 208
+   },
+   "duration": 33
+  }
+ ],
+ "meta": {
+  "app": "https://github.com/patch-gg/pixelfx",
+  "version": "1",
+  "image": "bran-smash.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 3480,
+   "h": 3328
+  },
+  "scale": "1",
+  "frameTags": [
+   {
+    "name": "bran-smash",
+    "from": 0,
+    "to": 150,
+    "direction": "forward"
+   }
+  ],
+  "pixelfx": {
+   "id": "gaje/bran-smash",
+   "name": "Bran smash",
+   "fps": 30,
+   "loop": false,
+   "frames": 151,
+   "frameSize": [
+    348,
+    208
+   ],
+   "pivot": [
+    102,
+    170
+   ],
+   "columns": 10,
+   "act": {
+    "windup": 0.9,
+    "recovery": 0,
+    "onBody": false,
+    "targets": [
+     70,
+     112
+    ],
+    "hits": [
+     {
+      "t": 0.15,
+      "freeze": 0.2,
+      "shake": 0.4,
+      "amp": 3,
+      "push": 0
+     },
+     {
+      "t": 0.35,
+      "freeze": 0.06,
+      "shake": 0,
+      "amp": 0,
+      "push": 3,
+      "at": 0
+     },
+     {
+      "t": 0.49,
+      "freeze": 0.05,
+      "shake": 0,
+      "amp": 0,
+      "push": 3,
+      "at": 1
+     }
+    ],
+    "poses": [
+     {
+      "t": -0.9,
+      "how": "smooth",
+      "pose": {
+       "crouch": 4,
+       "fx": 11,
+       "fy": -20,
+       "bx": 9,
+       "by": -21,
+       "ffx": 7,
+       "fbx": -7,
+       "weapon": "log",
+       "two": true,
+       "sa": 0.55,
+       "lean": 1,
+       "x": -3
+      }
+     },
+     {
+      "t": -0.52,
+      "how": "smooth",
+      "pose": {
+       "crouch": 6,
+       "fx": 16,
+       "fy": -27,
+       "bx": 9,
+       "by": -21,
+       "ffx": 7,
+       "fbx": -7,
+       "weapon": "log",
+       "two": true,
+       "sa": -0.9,
+       "lean": -1,
+       "x": -3
+      }
+     },
+     {
+      "t": -0.24,
+      "how": "smooth",
+      "pose": {
+       "crouch": 0,
+       "fx": 2,
+       "fy": -42,
+       "bx": 9,
+       "by": -21,
+       "ffx": 8,
+       "fbx": -5,
+       "weapon": "log",
+       "two": true,
+       "sa": -2.15,
+       "lean": -4,
+       "x": -3,
+       "ffy": -8,
+       "toeB": true
+      }
+     },
+     {
+      "t": -0.03,
+      "how": "smooth",
+      "pose": {
+       "crouch": 0,
+       "fx": 2,
+       "fy": -42,
+       "bx": 9,
+       "by": -21,
+       "ffx": 8,
+       "fbx": -5,
+       "weapon": "log",
+       "two": true,
+       "sa": -2.15,
+       "lean": -5,
+       "x": -3,
+       "ffy": -8,
+       "toeB": true,
+       "y": -3
+      }
+     },
+     {
+      "t": 0.06,
+      "how": "snap",
+      "pose": {
+       "crouch": -1,
+       "fx": 13,
+       "fy": -42,
+       "bx": 9,
+       "by": -21,
+       "ffx": 11,
+       "fbx": -7,
+       "weapon": "log",
+       "two": true,
+       "sa": -1.2,
+       "lean": 2,
+       "x": 0,
+       "y": -4,
+       "ffy": -8,
+       "ghost": 1
+      }
+     },
+     {
+      "t": 0.11,
+      "how": "snap",
+      "pose": {
+       "crouch": 3,
+       "fx": 19,
+       "fy": -30,
+       "bx": 9,
+       "by": -21,
+       "ffx": 13,
+       "fbx": -7,
+       "weapon": "log",
+       "two": true,
+       "sa": -0.15,
+       "lean": 6,
+       "x": 0,
+       "y": -1,
+       "ghost": 1
+      }
+     },
+     {
+      "t": 0.15,
+      "how": "snap",
+      "pose": {
+       "crouch": 8,
+       "fx": 14,
+       "fy": -18,
+       "bx": 9,
+       "by": -21,
+       "ffx": 11,
+       "fbx": -10,
+       "weapon": "log",
+       "two": true,
+       "sa": 0.62,
+       "lean": 7,
+       "x": -1
+      }
+     },
+     {
+      "t": 0.75,
+      "how": "smooth",
+      "pose": {
+       "crouch": 7,
+       "fx": 14,
+       "fy": -18,
+       "bx": 9,
+       "by": -21,
+       "ffx": 11,
+       "fbx": -10,
+       "weapon": "log",
+       "two": true,
+       "sa": 0.62,
+       "lean": 6,
+       "x": -1
+      }
+     },
+     {
+      "t": 1.2,
+      "how": "smooth",
+      "pose": {
+       "crouch": 5,
+       "fx": 14,
+       "fy": -24,
+       "bx": 9,
+       "by": -21,
+       "ffx": 7,
+       "fbx": -7,
+       "weapon": "log",
+       "two": true,
+       "sa": 0.3,
+       "lean": 2,
+       "x": -2
+      }
+     },
+     {
+      "t": 1.7,
+      "how": "smooth",
+      "pose": {
+       "crouch": 4,
+       "fx": 11,
+       "fy": -20,
+       "bx": 9,
+       "by": -21,
+       "ffx": 7,
+       "fbx": -7,
+       "weapon": "log",
+       "two": true,
+       "sa": 0.55,
+       "lean": 1,
+       "x": -3
+      }
+     },
+     {
+      "t": 3.6,
+      "how": "smooth",
+      "pose": {
+       "crouch": 4,
+       "fx": 11,
+       "fy": -20,
+       "bx": 9,
+       "by": -21,
+       "ffx": 7,
+       "fbx": -7,
+       "weapon": "log",
+       "two": true,
+       "sa": 0.55,
+       "lean": 1,
+       "x": -3
+      }
+     }
+    ]
+   }
+  }
+ }
+}
