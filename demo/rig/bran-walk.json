@@ -1,0 +1,1216 @@
+{
+ "frames": [
+  {
+   "filename": "bran-walk 0",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 1",
+   "frame": {
+    "x": 124,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 2",
+   "frame": {
+    "x": 248,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 3",
+   "frame": {
+    "x": 372,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 4",
+   "frame": {
+    "x": 496,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 5",
+   "frame": {
+    "x": 620,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 6",
+   "frame": {
+    "x": 744,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 7",
+   "frame": {
+    "x": 0,
+    "y": 96,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 8",
+   "frame": {
+    "x": 124,
+    "y": 96,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 9",
+   "frame": {
+    "x": 248,
+    "y": 96,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 10",
+   "frame": {
+    "x": 372,
+    "y": 96,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 11",
+   "frame": {
+    "x": 496,
+    "y": 96,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 12",
+   "frame": {
+    "x": 620,
+    "y": 96,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 13",
+   "frame": {
+    "x": 744,
+    "y": 96,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 14",
+   "frame": {
+    "x": 0,
+    "y": 192,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 15",
+   "frame": {
+    "x": 124,
+    "y": 192,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 16",
+   "frame": {
+    "x": 248,
+    "y": 192,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 17",
+   "frame": {
+    "x": 372,
+    "y": 192,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 18",
+   "frame": {
+    "x": 496,
+    "y": 192,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 19",
+   "frame": {
+    "x": 620,
+    "y": 192,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 20",
+   "frame": {
+    "x": 744,
+    "y": 192,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 21",
+   "frame": {
+    "x": 0,
+    "y": 288,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 22",
+   "frame": {
+    "x": 124,
+    "y": 288,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 23",
+   "frame": {
+    "x": 248,
+    "y": 288,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 24",
+   "frame": {
+    "x": 372,
+    "y": 288,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 25",
+   "frame": {
+    "x": 496,
+    "y": 288,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 26",
+   "frame": {
+    "x": 620,
+    "y": 288,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 27",
+   "frame": {
+    "x": 744,
+    "y": 288,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 28",
+   "frame": {
+    "x": 0,
+    "y": 384,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 29",
+   "frame": {
+    "x": 124,
+    "y": 384,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 30",
+   "frame": {
+    "x": 248,
+    "y": 384,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 31",
+   "frame": {
+    "x": 372,
+    "y": 384,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 32",
+   "frame": {
+    "x": 496,
+    "y": 384,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 33",
+   "frame": {
+    "x": 620,
+    "y": 384,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 34",
+   "frame": {
+    "x": 744,
+    "y": 384,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 35",
+   "frame": {
+    "x": 0,
+    "y": 480,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 36",
+   "frame": {
+    "x": 124,
+    "y": 480,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 37",
+   "frame": {
+    "x": 248,
+    "y": 480,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 38",
+   "frame": {
+    "x": 372,
+    "y": 480,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 39",
+   "frame": {
+    "x": 496,
+    "y": 480,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 40",
+   "frame": {
+    "x": 620,
+    "y": 480,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 41",
+   "frame": {
+    "x": 744,
+    "y": 480,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 42",
+   "frame": {
+    "x": 0,
+    "y": 576,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 43",
+   "frame": {
+    "x": 124,
+    "y": 576,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 44",
+   "frame": {
+    "x": 248,
+    "y": 576,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 45",
+   "frame": {
+    "x": 372,
+    "y": 576,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 46",
+   "frame": {
+    "x": 496,
+    "y": 576,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 47",
+   "frame": {
+    "x": 620,
+    "y": 576,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-walk 48",
+   "frame": {
+    "x": 744,
+    "y": 576,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  }
+ ],
+ "meta": {
+  "app": "https://github.com/patch-gg/pixelfx",
+  "version": "1",
+  "image": "bran-walk.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 868,
+   "h": 672
+  },
+  "scale": "1",
+  "frameTags": [
+   {
+    "name": "bran-walk",
+    "from": 0,
+    "to": 48,
+    "direction": "forward"
+   }
+  ],
+  "pixelfx": {
+   "id": "gaje/bran-walk",
+   "name": "Bran walk",
+   "fps": 30,
+   "loop": true,
+   "frames": 49,
+   "frameSize": [
+    124,
+    96
+   ],
+   "pivot": [
+    54,
+    78
+   ],
+   "columns": 7,
+   "act": {
+    "windup": 0,
+    "recovery": 0,
+    "onBody": false,
+    "targets": [],
+    "hits": [],
+    "poses": [
+     {
+      "t": 0,
+      "how": "smooth",
+      "pose": {
+       "weapon": "log",
+       "sa": -2.05,
+       "fx": 3,
+       "fy": -27,
+       "lean": 2,
+       "crouch": 3,
+       "ffx": 8,
+       "ffy": -4,
+       "fbx": -8,
+       "fby": -4,
+       "bx": -2,
+       "by": -17
+      }
+     },
+     {
+      "t": 0.2,
+      "how": "smooth",
+      "pose": {
+       "weapon": "log",
+       "sa": -2.05,
+       "fx": 3,
+       "fy": -27,
+       "lean": 2,
+       "crouch": 1,
+       "ffx": 1,
+       "ffy": -4,
+       "fbx": 1,
+       "fby": -9,
+       "bx": 5,
+       "by": -16
+      }
+     },
+     {
+      "t": 0.4,
+      "how": "smooth",
+      "pose": {
+       "weapon": "log",
+       "sa": -2.05,
+       "fx": 3,
+       "fy": -27,
+       "lean": 2,
+       "crouch": 3,
+       "ffx": -8,
+       "ffy": -4,
+       "fbx": 8,
+       "fby": -4,
+       "bx": 11,
+       "by": -18
+      }
+     },
+     {
+      "t": 0.6,
+      "how": "smooth",
+      "pose": {
+       "weapon": "log",
+       "sa": -2.05,
+       "fx": 3,
+       "fy": -27,
+       "lean": 2,
+       "crouch": 1,
+       "ffx": 1,
+       "ffy": -9,
+       "fbx": 1,
+       "fby": -4,
+       "bx": 5,
+       "by": -16
+      }
+     },
+     {
+      "t": 0.8,
+      "how": "smooth",
+      "pose": {
+       "weapon": "log",
+       "sa": -2.05,
+       "fx": 3,
+       "fy": -27,
+       "lean": 2,
+       "crouch": 3,
+       "ffx": 8,
+       "ffy": -4,
+       "fbx": -8,
+       "fby": -4,
+       "bx": -2,
+       "by": -17
+      }
+     }
+    ]
+   }
+  }
+ }
+}

@@ -1,0 +1,603 @@
+{
+ "frames": [
+  {
+   "filename": "bran-hurt 0",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-hurt 1",
+   "frame": {
+    "x": 124,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-hurt 2",
+   "frame": {
+    "x": 248,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-hurt 3",
+   "frame": {
+    "x": 372,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-hurt 4",
+   "frame": {
+    "x": 496,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-hurt 5",
+   "frame": {
+    "x": 0,
+    "y": 96,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-hurt 6",
+   "frame": {
+    "x": 124,
+    "y": 96,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-hurt 7",
+   "frame": {
+    "x": 248,
+    "y": 96,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-hurt 8",
+   "frame": {
+    "x": 372,
+    "y": 96,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-hurt 9",
+   "frame": {
+    "x": 496,
+    "y": 96,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-hurt 10",
+   "frame": {
+    "x": 0,
+    "y": 192,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-hurt 11",
+   "frame": {
+    "x": 124,
+    "y": 192,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-hurt 12",
+   "frame": {
+    "x": 248,
+    "y": 192,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-hurt 13",
+   "frame": {
+    "x": 372,
+    "y": 192,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-hurt 14",
+   "frame": {
+    "x": 496,
+    "y": 192,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-hurt 15",
+   "frame": {
+    "x": 0,
+    "y": 288,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-hurt 16",
+   "frame": {
+    "x": 124,
+    "y": 288,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-hurt 17",
+   "frame": {
+    "x": 248,
+    "y": 288,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-hurt 18",
+   "frame": {
+    "x": 372,
+    "y": 288,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-hurt 19",
+   "frame": {
+    "x": 496,
+    "y": 288,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-hurt 20",
+   "frame": {
+    "x": 0,
+    "y": 384,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-hurt 21",
+   "frame": {
+    "x": 124,
+    "y": 384,
+    "w": 124,
+    "h": 96
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 124,
+    "h": 96
+   },
+   "sourceSize": {
+    "w": 124,
+    "h": 96
+   },
+   "duration": 33
+  }
+ ],
+ "meta": {
+  "app": "https://github.com/patch-gg/pixelfx",
+  "version": "1",
+  "image": "bran-hurt.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 620,
+   "h": 480
+  },
+  "scale": "1",
+  "frameTags": [
+   {
+    "name": "bran-hurt",
+    "from": 0,
+    "to": 21,
+    "direction": "forward"
+   }
+  ],
+  "pixelfx": {
+   "id": "gaje/bran-hurt",
+   "name": "Bran hurt",
+   "fps": 30,
+   "loop": false,
+   "frames": 22,
+   "frameSize": [
+    124,
+    96
+   ],
+   "pivot": [
+    58,
+    78
+   ],
+   "columns": 5,
+   "act": {
+    "windup": 0,
+    "recovery": 0,
+    "onBody": false,
+    "targets": [],
+    "hits": [],
+    "poses": [
+     {
+      "t": 0,
+      "how": "smooth",
+      "pose": {
+       "crouch": 4,
+       "fx": 11,
+       "fy": -20,
+       "bx": 9,
+       "by": -21,
+       "ffx": 7,
+       "fbx": -7,
+       "weapon": "log",
+       "two": true,
+       "sa": 0.55,
+       "lean": 1
+      }
+     },
+     {
+      "t": 0.04,
+      "how": "snap",
+      "pose": {
+       "crouch": 2,
+       "fx": 6,
+       "fy": -26,
+       "bx": 9,
+       "by": -21,
+       "ffx": 3,
+       "fbx": -11,
+       "weapon": "log",
+       "two": true,
+       "sa": -0.2,
+       "lean": -6,
+       "x": -4,
+       "hy": -2
+      }
+     },
+     {
+      "t": 0.3,
+      "how": "smooth",
+      "pose": {
+       "crouch": 6,
+       "fx": 9,
+       "fy": -22,
+       "bx": 9,
+       "by": -21,
+       "ffx": 7,
+       "fbx": -7,
+       "weapon": "log",
+       "two": true,
+       "sa": 0.3,
+       "lean": -3,
+       "x": -6
+      }
+     },
+     {
+      "t": 0.7,
+      "how": "smooth",
+      "pose": {
+       "crouch": 4,
+       "fx": 11,
+       "fy": -20,
+       "bx": 9,
+       "by": -21,
+       "ffx": 7,
+       "fbx": -7,
+       "weapon": "log",
+       "two": true,
+       "sa": 0.55,
+       "lean": 1
+      }
+     }
+    ]
+   }
+  }
+ }
+}

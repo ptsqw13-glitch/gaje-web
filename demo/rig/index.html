@@ -1,15 +1,26 @@
 <!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>브란 인형 시험</title>
-<style>body{margin:0;background:#14161c;color:#eee;font-family:system-ui,"Noto Sans KR",sans-serif}h1{font-size:18px;margin:14px 14px 4px}p{margin:4px 14px 12px;font-size:13px;color:#b8bcc8;line-height:1.5}canvas,img{display:block;width:100%;max-width:1044px;height:auto;image-rendering:pixelated;background:#15131f}#msg{margin:8px 14px;font-size:13px;color:#e9cc84}</style></head><body>
-<h1>브란 인형 시험 — 통나무 내려찍기</h1>
-<p>그림이 아니라 뼈대로 움직이는 작은 도트 인형(키 약 40점)에 브란의 곰 두건·수염·망토·통나무를 입혔습니다. 화면을 누르면 멈추고, 다시 누르면 이어집니다.</p>
-<canvas id="c" width="348" height="208"></canvas><div id="msg">불러오는 중…</div>
-<p>가까이서 본 자세들:</p><img src="zoom.png" alt="자세 확대">
+<style>body{margin:0;background:#14161c;color:#eee;font-family:system-ui,"Noto Sans KR",sans-serif}h1{font-size:18px;margin:14px 14px 4px}h2{font-size:15px;margin:22px 14px 6px;color:#e9cc84}h3{font-size:13px;margin:12px 14px 4px;color:#b8bcc8;font-weight:normal}p{margin:4px 14px 10px;font-size:13px;color:#b8bcc8;line-height:1.5}canvas{display:block;width:100%;max-width:900px;height:auto;image-rendering:pixelated;background:#15131f}.pair{display:flex;gap:6px;margin:0 14px;align-items:flex-end}.pair div{flex:1;text-align:center;font-size:12px;color:#9aa0ac}.pair img{width:100%;max-width:300px;height:auto;image-rendering:pixelated;background:#15131f}</style></head><body>
+<h1>브란 인형 시험 — 우리 뼈대로 만든 세 모습</h1>
+<p>그림을 갈아 끼우는 게 아니라, 형태마다 뼈 길이를 정한 뼈대에 덩어리를 입혀 움직입니다. 모든 동작은 되풀이 재생됩니다. 각 모습 위쪽에 원본 그림과 나란히 놓았습니다.</p>
+<div id="root"></div>
 <script>
-const cv=document.getElementById('c'),ctx=cv.getContext('2d'),msg=document.getElementById('msg');ctx.imageSmoothingEnabled=false;
-let playing=true,t0=0,paused=0;
-Promise.all([fetch('sheet.json').then(r=>r.json()),new Promise(res=>{const im=new Image();im.onload=()=>res(im);im.src='sheet.png';})]).then(([j,im])=>{
-  const F=j.frames,fps=j.meta.pixelfx.fps,N=F.length,gap=20;msg.textContent='재생 중 (화면을 누르면 멈춤)';t0=performance.now();
-  function tick(now){ if(playing){ const i=Math.floor((now-t0)/1000*fps)%(N+gap), f=F[Math.min(i,N-1)].frame; ctx.fillStyle='#15131f';ctx.fillRect(0,0,348,208);ctx.fillStyle='#2a2540';ctx.fillRect(0,170,348,38);ctx.fillStyle='#3a3454';ctx.fillRect(0,170,348,1);ctx.drawImage(im,f.x,f.y,f.w,f.h,0,0,f.w,f.h);} requestAnimationFrame(tick);} requestAnimationFrame(tick);
-  cv.addEventListener('click',()=>{ if(playing){paused=performance.now()-t0;playing=false;msg.textContent='멈춤 (누르면 이어서)';} else {t0=performance.now()-paused;playing=true;msg.textContent='재생 중 (화면을 누르면 멈춤)';} });
-});
+const SETS=[
+ {t:'기본 — 곰 드루이드 브란',orig:'o_b.png',zoom:'z_b.png',clips:[['bran-idle','대기'],['bran-walk','걷기'],['bran-hurt','피격'],['bran-smash','통나무 내려찍기']]},
+ {t:'1차 각성 — 불곰 형상',orig:'o_a1.png',zoom:'z_a1.png',clips:[['bran-a1-idle','대기'],['bran-a1-claw','앞발 휘두르기']]},
+ {t:'2차 각성 — 숲의 태왕 곰',orig:'o_a2.png',zoom:'z_a2.png',clips:[['bran-a2-idle','대기'],['bran-a2-walk','걷기'],['bran-a2-roar','특수공격 「대지 포효」']]},
+];
+const root=document.getElementById('root');
+for(const S of SETS){
+  const h=document.createElement('h2');h.textContent=S.t;root.appendChild(h);
+  const pair=document.createElement('div');pair.className='pair';pair.innerHTML='<div><img src="'+S.orig+'" alt="원본"><br>원본 그림</div><div><img src="'+S.zoom+'" alt="인형"><br>뼈대 인형</div>';root.appendChild(pair);
+  for(const [id,name] of S.clips){
+    const h3=document.createElement('h3');h3.textContent=name;root.appendChild(h3);
+    const cv=document.createElement('canvas');root.appendChild(cv);
+    Promise.all([fetch(id+'.json').then(r=>r.json()),new Promise(res=>{const im=new Image();im.onload=()=>res(im);im.src=id+'.png';})]).then(([j,im])=>{
+      const F=j.frames,fps=j.meta.pixelfx.fps,N=F.length,loop=j.meta.pixelfx.loop,gap=loop?0:24,w=F[0].frame.w,hh=F[0].frame.h,py=j.meta.pixelfx.pivot[1];
+      cv.width=w;cv.height=hh;const ctx=cv.getContext('2d');ctx.imageSmoothingEnabled=false;const t0=performance.now();
+      (function tick(now){const i=Math.floor((now-t0)/1000*fps)%(N+gap),f=F[Math.min(i,N-1)].frame;ctx.fillStyle='#15131f';ctx.fillRect(0,0,w,hh);ctx.fillStyle='#2a2540';ctx.fillRect(0,py,w,hh-py);ctx.fillStyle='#3a3454';ctx.fillRect(0,py,w,1);ctx.drawImage(im,f.x,f.y,f.w,f.h,0,0,f.w,f.h);requestAnimationFrame(tick);})(t0);
+    });
+  }
+}
 </script></body></html>

@@ -1,0 +1,3379 @@
+{
+ "frames": [
+  {
+   "filename": "bran-a2-roar 0",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 1",
+   "frame": {
+    "x": 444,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 2",
+   "frame": {
+    "x": 888,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 3",
+   "frame": {
+    "x": 1332,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 4",
+   "frame": {
+    "x": 1776,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 5",
+   "frame": {
+    "x": 2220,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 6",
+   "frame": {
+    "x": 2664,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 7",
+   "frame": {
+    "x": 3108,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 8",
+   "frame": {
+    "x": 3552,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 9",
+   "frame": {
+    "x": 3996,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 10",
+   "frame": {
+    "x": 0,
+    "y": 280,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 11",
+   "frame": {
+    "x": 444,
+    "y": 280,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 12",
+   "frame": {
+    "x": 888,
+    "y": 280,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 13",
+   "frame": {
+    "x": 1332,
+    "y": 280,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 14",
+   "frame": {
+    "x": 1776,
+    "y": 280,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 15",
+   "frame": {
+    "x": 2220,
+    "y": 280,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 16",
+   "frame": {
+    "x": 2664,
+    "y": 280,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 17",
+   "frame": {
+    "x": 3108,
+    "y": 280,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 18",
+   "frame": {
+    "x": 3552,
+    "y": 280,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 19",
+   "frame": {
+    "x": 3996,
+    "y": 280,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 20",
+   "frame": {
+    "x": 0,
+    "y": 560,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 21",
+   "frame": {
+    "x": 444,
+    "y": 560,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 22",
+   "frame": {
+    "x": 888,
+    "y": 560,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 23",
+   "frame": {
+    "x": 1332,
+    "y": 560,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 24",
+   "frame": {
+    "x": 1776,
+    "y": 560,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 25",
+   "frame": {
+    "x": 2220,
+    "y": 560,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 26",
+   "frame": {
+    "x": 2664,
+    "y": 560,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 27",
+   "frame": {
+    "x": 3108,
+    "y": 560,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 28",
+   "frame": {
+    "x": 3552,
+    "y": 560,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 29",
+   "frame": {
+    "x": 3996,
+    "y": 560,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 30",
+   "frame": {
+    "x": 0,
+    "y": 840,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 31",
+   "frame": {
+    "x": 444,
+    "y": 840,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 32",
+   "frame": {
+    "x": 888,
+    "y": 840,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 33",
+   "frame": {
+    "x": 1332,
+    "y": 840,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 34",
+   "frame": {
+    "x": 1776,
+    "y": 840,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 35",
+   "frame": {
+    "x": 2220,
+    "y": 840,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 36",
+   "frame": {
+    "x": 2664,
+    "y": 840,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 37",
+   "frame": {
+    "x": 3108,
+    "y": 840,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 38",
+   "frame": {
+    "x": 3552,
+    "y": 840,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 39",
+   "frame": {
+    "x": 3996,
+    "y": 840,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 40",
+   "frame": {
+    "x": 0,
+    "y": 1120,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 41",
+   "frame": {
+    "x": 444,
+    "y": 1120,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 42",
+   "frame": {
+    "x": 888,
+    "y": 1120,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 43",
+   "frame": {
+    "x": 1332,
+    "y": 1120,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 44",
+   "frame": {
+    "x": 1776,
+    "y": 1120,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 45",
+   "frame": {
+    "x": 2220,
+    "y": 1120,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 46",
+   "frame": {
+    "x": 2664,
+    "y": 1120,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 47",
+   "frame": {
+    "x": 3108,
+    "y": 1120,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 48",
+   "frame": {
+    "x": 3552,
+    "y": 1120,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 49",
+   "frame": {
+    "x": 3996,
+    "y": 1120,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 50",
+   "frame": {
+    "x": 0,
+    "y": 1400,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 51",
+   "frame": {
+    "x": 444,
+    "y": 1400,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 52",
+   "frame": {
+    "x": 888,
+    "y": 1400,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 53",
+   "frame": {
+    "x": 1332,
+    "y": 1400,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 54",
+   "frame": {
+    "x": 1776,
+    "y": 1400,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 55",
+   "frame": {
+    "x": 2220,
+    "y": 1400,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 56",
+   "frame": {
+    "x": 2664,
+    "y": 1400,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 57",
+   "frame": {
+    "x": 3108,
+    "y": 1400,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 58",
+   "frame": {
+    "x": 3552,
+    "y": 1400,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 59",
+   "frame": {
+    "x": 3996,
+    "y": 1400,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 60",
+   "frame": {
+    "x": 0,
+    "y": 1680,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 61",
+   "frame": {
+    "x": 444,
+    "y": 1680,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 62",
+   "frame": {
+    "x": 888,
+    "y": 1680,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 63",
+   "frame": {
+    "x": 1332,
+    "y": 1680,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 64",
+   "frame": {
+    "x": 1776,
+    "y": 1680,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 65",
+   "frame": {
+    "x": 2220,
+    "y": 1680,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 66",
+   "frame": {
+    "x": 2664,
+    "y": 1680,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 67",
+   "frame": {
+    "x": 3108,
+    "y": 1680,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 68",
+   "frame": {
+    "x": 3552,
+    "y": 1680,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 69",
+   "frame": {
+    "x": 3996,
+    "y": 1680,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 70",
+   "frame": {
+    "x": 0,
+    "y": 1960,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 71",
+   "frame": {
+    "x": 444,
+    "y": 1960,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 72",
+   "frame": {
+    "x": 888,
+    "y": 1960,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 73",
+   "frame": {
+    "x": 1332,
+    "y": 1960,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 74",
+   "frame": {
+    "x": 1776,
+    "y": 1960,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 75",
+   "frame": {
+    "x": 2220,
+    "y": 1960,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 76",
+   "frame": {
+    "x": 2664,
+    "y": 1960,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 77",
+   "frame": {
+    "x": 3108,
+    "y": 1960,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 78",
+   "frame": {
+    "x": 3552,
+    "y": 1960,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 79",
+   "frame": {
+    "x": 3996,
+    "y": 1960,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 80",
+   "frame": {
+    "x": 0,
+    "y": 2240,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 81",
+   "frame": {
+    "x": 444,
+    "y": 2240,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 82",
+   "frame": {
+    "x": 888,
+    "y": 2240,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 83",
+   "frame": {
+    "x": 1332,
+    "y": 2240,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 84",
+   "frame": {
+    "x": 1776,
+    "y": 2240,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 85",
+   "frame": {
+    "x": 2220,
+    "y": 2240,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 86",
+   "frame": {
+    "x": 2664,
+    "y": 2240,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 87",
+   "frame": {
+    "x": 3108,
+    "y": 2240,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 88",
+   "frame": {
+    "x": 3552,
+    "y": 2240,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 89",
+   "frame": {
+    "x": 3996,
+    "y": 2240,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 90",
+   "frame": {
+    "x": 0,
+    "y": 2520,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 91",
+   "frame": {
+    "x": 444,
+    "y": 2520,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 92",
+   "frame": {
+    "x": 888,
+    "y": 2520,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 93",
+   "frame": {
+    "x": 1332,
+    "y": 2520,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 94",
+   "frame": {
+    "x": 1776,
+    "y": 2520,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 95",
+   "frame": {
+    "x": 2220,
+    "y": 2520,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 96",
+   "frame": {
+    "x": 2664,
+    "y": 2520,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 97",
+   "frame": {
+    "x": 3108,
+    "y": 2520,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 98",
+   "frame": {
+    "x": 3552,
+    "y": 2520,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 99",
+   "frame": {
+    "x": 3996,
+    "y": 2520,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 100",
+   "frame": {
+    "x": 0,
+    "y": 2800,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 101",
+   "frame": {
+    "x": 444,
+    "y": 2800,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 102",
+   "frame": {
+    "x": 888,
+    "y": 2800,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 103",
+   "frame": {
+    "x": 1332,
+    "y": 2800,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 104",
+   "frame": {
+    "x": 1776,
+    "y": 2800,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 105",
+   "frame": {
+    "x": 2220,
+    "y": 2800,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 106",
+   "frame": {
+    "x": 2664,
+    "y": 2800,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 107",
+   "frame": {
+    "x": 3108,
+    "y": 2800,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 108",
+   "frame": {
+    "x": 3552,
+    "y": 2800,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 109",
+   "frame": {
+    "x": 3996,
+    "y": 2800,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 110",
+   "frame": {
+    "x": 0,
+    "y": 3080,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 111",
+   "frame": {
+    "x": 444,
+    "y": 3080,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 112",
+   "frame": {
+    "x": 888,
+    "y": 3080,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 113",
+   "frame": {
+    "x": 1332,
+    "y": 3080,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 114",
+   "frame": {
+    "x": 1776,
+    "y": 3080,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 115",
+   "frame": {
+    "x": 2220,
+    "y": 3080,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 116",
+   "frame": {
+    "x": 2664,
+    "y": 3080,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 117",
+   "frame": {
+    "x": 3108,
+    "y": 3080,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 118",
+   "frame": {
+    "x": 3552,
+    "y": 3080,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 119",
+   "frame": {
+    "x": 3996,
+    "y": 3080,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 120",
+   "frame": {
+    "x": 0,
+    "y": 3360,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 121",
+   "frame": {
+    "x": 444,
+    "y": 3360,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 122",
+   "frame": {
+    "x": 888,
+    "y": 3360,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 123",
+   "frame": {
+    "x": 1332,
+    "y": 3360,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 124",
+   "frame": {
+    "x": 1776,
+    "y": 3360,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 125",
+   "frame": {
+    "x": 2220,
+    "y": 3360,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 126",
+   "frame": {
+    "x": 2664,
+    "y": 3360,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 127",
+   "frame": {
+    "x": 3108,
+    "y": 3360,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 128",
+   "frame": {
+    "x": 3552,
+    "y": 3360,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 129",
+   "frame": {
+    "x": 3996,
+    "y": 3360,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 130",
+   "frame": {
+    "x": 0,
+    "y": 3640,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 131",
+   "frame": {
+    "x": 444,
+    "y": 3640,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 132",
+   "frame": {
+    "x": 888,
+    "y": 3640,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 133",
+   "frame": {
+    "x": 1332,
+    "y": 3640,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 134",
+   "frame": {
+    "x": 1776,
+    "y": 3640,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 135",
+   "frame": {
+    "x": 2220,
+    "y": 3640,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 136",
+   "frame": {
+    "x": 2664,
+    "y": 3640,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 137",
+   "frame": {
+    "x": 3108,
+    "y": 3640,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 138",
+   "frame": {
+    "x": 3552,
+    "y": 3640,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 139",
+   "frame": {
+    "x": 3996,
+    "y": 3640,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 140",
+   "frame": {
+    "x": 0,
+    "y": 3920,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 141",
+   "frame": {
+    "x": 444,
+    "y": 3920,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 142",
+   "frame": {
+    "x": 888,
+    "y": 3920,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 143",
+   "frame": {
+    "x": 1332,
+    "y": 3920,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 144",
+   "frame": {
+    "x": 1776,
+    "y": 3920,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 145",
+   "frame": {
+    "x": 2220,
+    "y": 3920,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  },
+  {
+   "filename": "bran-a2-roar 146",
+   "frame": {
+    "x": 2664,
+    "y": 3920,
+    "w": 444,
+    "h": 280
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 444,
+    "h": 280
+   },
+   "sourceSize": {
+    "w": 444,
+    "h": 280
+   },
+   "duration": 33
+  }
+ ],
+ "meta": {
+  "app": "https://github.com/patch-gg/pixelfx",
+  "version": "1",
+  "image": "bran-a2-roar.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 4440,
+   "h": 4200
+  },
+  "scale": "1",
+  "frameTags": [
+   {
+    "name": "bran-a2-roar",
+    "from": 0,
+    "to": 146,
+    "direction": "forward"
+   }
+  ],
+  "pixelfx": {
+   "id": "gaje/bran-a2-roar",
+   "name": "Bran A2 roar",
+   "fps": 30,
+   "loop": false,
+   "frames": 147,
+   "frameSize": [
+    444,
+    280
+   ],
+   "pivot": [
+    110,
+    230
+   ],
+   "columns": 10,
+   "act": {
+    "windup": 1,
+    "recovery": 0,
+    "onBody": false,
+    "targets": [
+     118,
+     160,
+     202
+    ],
+    "hits": [
+     {
+      "t": 0.05,
+      "freeze": 0.2,
+      "shake": 0.5,
+      "amp": 4,
+      "push": 0
+     },
+     {
+      "t": 0.19473684210526315,
+      "freeze": 0.04,
+      "shake": 0,
+      "amp": 0,
+      "push": 3,
+      "at": 0
+     },
+     {
+      "t": 0.25,
+      "freeze": 0.04,
+      "shake": 0,
+      "amp": 0,
+      "push": 3,
+      "at": 1
+     },
+     {
+      "t": 0.30526315789473685,
+      "freeze": 0.04,
+      "shake": 0,
+      "amp": 0,
+      "push": 3,
+      "at": 2
+     }
+    ],
+    "poses": [
+     {
+      "t": -1,
+      "how": "smooth",
+      "pose": {}
+     },
+     {
+      "t": -0.62,
+      "how": "smooth",
+      "pose": {
+       "rear": 12,
+       "nod": 45,
+       "crouch": 3
+      }
+     },
+     {
+      "t": -0.22,
+      "how": "out",
+      "pose": {
+       "rear": 100,
+       "jaw": 100,
+       "nod": -30
+      }
+     },
+     {
+      "t": -0.02,
+      "how": "smooth",
+      "pose": {
+       "rear": 100,
+       "jaw": 100,
+       "nod": -40
+      }
+     },
+     {
+      "t": 0.05,
+      "how": "snap",
+      "pose": {
+       "rear": 0,
+       "nod": 60,
+       "crouch": 4,
+       "jaw": 30
+      }
+     },
+     {
+      "t": 0.8,
+      "how": "smooth",
+      "pose": {
+       "rear": 0,
+       "nod": 40,
+       "crouch": 3
+      }
+     },
+     {
+      "t": 1.5,
+      "how": "smooth",
+      "pose": {}
+     },
+     {
+      "t": 3.3,
+      "how": "smooth",
+      "pose": {}
+     }
+    ]
+   }
+  }
+ }
+}
