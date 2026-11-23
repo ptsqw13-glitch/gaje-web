@@ -5,196 +5,196 @@
    "frame": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 1",
    "frame": {
-    "x": 156,
+    "x": 252,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 2",
    "frame": {
-    "x": 312,
+    "x": 504,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 3",
    "frame": {
-    "x": 468,
+    "x": 756,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 4",
    "frame": {
-    "x": 624,
+    "x": 1008,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 5",
    "frame": {
-    "x": 780,
+    "x": 1260,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 6",
    "frame": {
-    "x": 936,
+    "x": 1512,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 7",
    "frame": {
-    "x": 1092,
+    "x": 1764,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 8",
    "frame": {
-    "x": 1248,
+    "x": 2016,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
@@ -202,197 +202,197 @@
    "filename": "bran-a1-idle 9",
    "frame": {
     "x": 0,
-    "y": 124,
-    "w": 156,
-    "h": 124
+    "y": 196,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 10",
    "frame": {
-    "x": 156,
-    "y": 124,
-    "w": 156,
-    "h": 124
+    "x": 252,
+    "y": 196,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 11",
    "frame": {
-    "x": 312,
-    "y": 124,
-    "w": 156,
-    "h": 124
+    "x": 504,
+    "y": 196,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 12",
    "frame": {
-    "x": 468,
-    "y": 124,
-    "w": 156,
-    "h": 124
+    "x": 756,
+    "y": 196,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 13",
    "frame": {
-    "x": 624,
-    "y": 124,
-    "w": 156,
-    "h": 124
+    "x": 1008,
+    "y": 196,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 14",
    "frame": {
-    "x": 780,
-    "y": 124,
-    "w": 156,
-    "h": 124
+    "x": 1260,
+    "y": 196,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 15",
    "frame": {
-    "x": 936,
-    "y": 124,
-    "w": 156,
-    "h": 124
+    "x": 1512,
+    "y": 196,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 16",
    "frame": {
-    "x": 1092,
-    "y": 124,
-    "w": 156,
-    "h": 124
+    "x": 1764,
+    "y": 196,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 17",
    "frame": {
-    "x": 1248,
-    "y": 124,
-    "w": 156,
-    "h": 124
+    "x": 2016,
+    "y": 196,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
@@ -400,197 +400,197 @@
    "filename": "bran-a1-idle 18",
    "frame": {
     "x": 0,
-    "y": 248,
-    "w": 156,
-    "h": 124
+    "y": 392,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 19",
    "frame": {
-    "x": 156,
-    "y": 248,
-    "w": 156,
-    "h": 124
+    "x": 252,
+    "y": 392,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 20",
    "frame": {
-    "x": 312,
-    "y": 248,
-    "w": 156,
-    "h": 124
+    "x": 504,
+    "y": 392,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 21",
    "frame": {
-    "x": 468,
-    "y": 248,
-    "w": 156,
-    "h": 124
+    "x": 756,
+    "y": 392,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 22",
    "frame": {
-    "x": 624,
-    "y": 248,
-    "w": 156,
-    "h": 124
+    "x": 1008,
+    "y": 392,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 23",
    "frame": {
-    "x": 780,
-    "y": 248,
-    "w": 156,
-    "h": 124
+    "x": 1260,
+    "y": 392,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 24",
    "frame": {
-    "x": 936,
-    "y": 248,
-    "w": 156,
-    "h": 124
+    "x": 1512,
+    "y": 392,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 25",
    "frame": {
-    "x": 1092,
-    "y": 248,
-    "w": 156,
-    "h": 124
+    "x": 1764,
+    "y": 392,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 26",
    "frame": {
-    "x": 1248,
-    "y": 248,
-    "w": 156,
-    "h": 124
+    "x": 2016,
+    "y": 392,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
@@ -598,197 +598,197 @@
    "filename": "bran-a1-idle 27",
    "frame": {
     "x": 0,
-    "y": 372,
-    "w": 156,
-    "h": 124
+    "y": 588,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 28",
    "frame": {
-    "x": 156,
-    "y": 372,
-    "w": 156,
-    "h": 124
+    "x": 252,
+    "y": 588,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 29",
    "frame": {
-    "x": 312,
-    "y": 372,
-    "w": 156,
-    "h": 124
+    "x": 504,
+    "y": 588,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 30",
    "frame": {
-    "x": 468,
-    "y": 372,
-    "w": 156,
-    "h": 124
+    "x": 756,
+    "y": 588,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 31",
    "frame": {
-    "x": 624,
-    "y": 372,
-    "w": 156,
-    "h": 124
+    "x": 1008,
+    "y": 588,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 32",
    "frame": {
-    "x": 780,
-    "y": 372,
-    "w": 156,
-    "h": 124
+    "x": 1260,
+    "y": 588,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 33",
    "frame": {
-    "x": 936,
-    "y": 372,
-    "w": 156,
-    "h": 124
+    "x": 1512,
+    "y": 588,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 34",
    "frame": {
-    "x": 1092,
-    "y": 372,
-    "w": 156,
-    "h": 124
+    "x": 1764,
+    "y": 588,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 35",
    "frame": {
-    "x": 1248,
-    "y": 372,
-    "w": 156,
-    "h": 124
+    "x": 2016,
+    "y": 588,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
@@ -796,197 +796,197 @@
    "filename": "bran-a1-idle 36",
    "frame": {
     "x": 0,
-    "y": 496,
-    "w": 156,
-    "h": 124
+    "y": 784,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 37",
    "frame": {
-    "x": 156,
-    "y": 496,
-    "w": 156,
-    "h": 124
+    "x": 252,
+    "y": 784,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 38",
    "frame": {
-    "x": 312,
-    "y": 496,
-    "w": 156,
-    "h": 124
+    "x": 504,
+    "y": 784,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 39",
    "frame": {
-    "x": 468,
-    "y": 496,
-    "w": 156,
-    "h": 124
+    "x": 756,
+    "y": 784,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 40",
    "frame": {
-    "x": 624,
-    "y": 496,
-    "w": 156,
-    "h": 124
+    "x": 1008,
+    "y": 784,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 41",
    "frame": {
-    "x": 780,
-    "y": 496,
-    "w": 156,
-    "h": 124
+    "x": 1260,
+    "y": 784,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 42",
    "frame": {
-    "x": 936,
-    "y": 496,
-    "w": 156,
-    "h": 124
+    "x": 1512,
+    "y": 784,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 43",
    "frame": {
-    "x": 1092,
-    "y": 496,
-    "w": 156,
-    "h": 124
+    "x": 1764,
+    "y": 784,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 44",
    "frame": {
-    "x": 1248,
-    "y": 496,
-    "w": 156,
-    "h": 124
+    "x": 2016,
+    "y": 784,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
@@ -994,197 +994,197 @@
    "filename": "bran-a1-idle 45",
    "frame": {
     "x": 0,
-    "y": 620,
-    "w": 156,
-    "h": 124
+    "y": 980,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 46",
    "frame": {
-    "x": 156,
-    "y": 620,
-    "w": 156,
-    "h": 124
+    "x": 252,
+    "y": 980,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 47",
    "frame": {
-    "x": 312,
-    "y": 620,
-    "w": 156,
-    "h": 124
+    "x": 504,
+    "y": 980,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 48",
    "frame": {
-    "x": 468,
-    "y": 620,
-    "w": 156,
-    "h": 124
+    "x": 756,
+    "y": 980,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 49",
    "frame": {
-    "x": 624,
-    "y": 620,
-    "w": 156,
-    "h": 124
+    "x": 1008,
+    "y": 980,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 50",
    "frame": {
-    "x": 780,
-    "y": 620,
-    "w": 156,
-    "h": 124
+    "x": 1260,
+    "y": 980,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 51",
    "frame": {
-    "x": 936,
-    "y": 620,
-    "w": 156,
-    "h": 124
+    "x": 1512,
+    "y": 980,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 52",
    "frame": {
-    "x": 1092,
-    "y": 620,
-    "w": 156,
-    "h": 124
+    "x": 1764,
+    "y": 980,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 53",
    "frame": {
-    "x": 1248,
-    "y": 620,
-    "w": 156,
-    "h": 124
+    "x": 2016,
+    "y": 980,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
@@ -1192,197 +1192,197 @@
    "filename": "bran-a1-idle 54",
    "frame": {
     "x": 0,
-    "y": 744,
-    "w": 156,
-    "h": 124
+    "y": 1176,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 55",
    "frame": {
-    "x": 156,
-    "y": 744,
-    "w": 156,
-    "h": 124
+    "x": 252,
+    "y": 1176,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 56",
    "frame": {
-    "x": 312,
-    "y": 744,
-    "w": 156,
-    "h": 124
+    "x": 504,
+    "y": 1176,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 57",
    "frame": {
-    "x": 468,
-    "y": 744,
-    "w": 156,
-    "h": 124
+    "x": 756,
+    "y": 1176,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 58",
    "frame": {
-    "x": 624,
-    "y": 744,
-    "w": 156,
-    "h": 124
+    "x": 1008,
+    "y": 1176,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 59",
    "frame": {
-    "x": 780,
-    "y": 744,
-    "w": 156,
-    "h": 124
+    "x": 1260,
+    "y": 1176,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 60",
    "frame": {
-    "x": 936,
-    "y": 744,
-    "w": 156,
-    "h": 124
+    "x": 1512,
+    "y": 1176,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 61",
    "frame": {
-    "x": 1092,
-    "y": 744,
-    "w": 156,
-    "h": 124
+    "x": 1764,
+    "y": 1176,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 62",
    "frame": {
-    "x": 1248,
-    "y": 744,
-    "w": 156,
-    "h": 124
+    "x": 2016,
+    "y": 1176,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
@@ -1390,197 +1390,197 @@
    "filename": "bran-a1-idle 63",
    "frame": {
     "x": 0,
-    "y": 868,
-    "w": 156,
-    "h": 124
+    "y": 1372,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 64",
    "frame": {
-    "x": 156,
-    "y": 868,
-    "w": 156,
-    "h": 124
+    "x": 252,
+    "y": 1372,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 65",
    "frame": {
-    "x": 312,
-    "y": 868,
-    "w": 156,
-    "h": 124
+    "x": 504,
+    "y": 1372,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 66",
    "frame": {
-    "x": 468,
-    "y": 868,
-    "w": 156,
-    "h": 124
+    "x": 756,
+    "y": 1372,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 67",
    "frame": {
-    "x": 624,
-    "y": 868,
-    "w": 156,
-    "h": 124
+    "x": 1008,
+    "y": 1372,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 68",
    "frame": {
-    "x": 780,
-    "y": 868,
-    "w": 156,
-    "h": 124
+    "x": 1260,
+    "y": 1372,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 69",
    "frame": {
-    "x": 936,
-    "y": 868,
-    "w": 156,
-    "h": 124
+    "x": 1512,
+    "y": 1372,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 70",
    "frame": {
-    "x": 1092,
-    "y": 868,
-    "w": 156,
-    "h": 124
+    "x": 1764,
+    "y": 1372,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 71",
    "frame": {
-    "x": 1248,
-    "y": 868,
-    "w": 156,
-    "h": 124
+    "x": 2016,
+    "y": 1372,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
@@ -1588,197 +1588,197 @@
    "filename": "bran-a1-idle 72",
    "frame": {
     "x": 0,
-    "y": 992,
-    "w": 156,
-    "h": 124
+    "y": 1568,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 73",
    "frame": {
-    "x": 156,
-    "y": 992,
-    "w": 156,
-    "h": 124
+    "x": 252,
+    "y": 1568,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 74",
    "frame": {
-    "x": 312,
-    "y": 992,
-    "w": 156,
-    "h": 124
+    "x": 504,
+    "y": 1568,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 75",
    "frame": {
-    "x": 468,
-    "y": 992,
-    "w": 156,
-    "h": 124
+    "x": 756,
+    "y": 1568,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 76",
    "frame": {
-    "x": 624,
-    "y": 992,
-    "w": 156,
-    "h": 124
+    "x": 1008,
+    "y": 1568,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 77",
    "frame": {
-    "x": 780,
-    "y": 992,
-    "w": 156,
-    "h": 124
+    "x": 1260,
+    "y": 1568,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 78",
    "frame": {
-    "x": 936,
-    "y": 992,
-    "w": 156,
-    "h": 124
+    "x": 1512,
+    "y": 1568,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 79",
    "frame": {
-    "x": 1092,
-    "y": 992,
-    "w": 156,
-    "h": 124
+    "x": 1764,
+    "y": 1568,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 80",
    "frame": {
-    "x": 1248,
-    "y": 992,
-    "w": 156,
-    "h": 124
+    "x": 2016,
+    "y": 1568,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
@@ -1786,87 +1786,87 @@
    "filename": "bran-a1-idle 81",
    "frame": {
     "x": 0,
-    "y": 1116,
-    "w": 156,
-    "h": 124
+    "y": 1764,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 82",
    "frame": {
-    "x": 156,
-    "y": 1116,
-    "w": 156,
-    "h": 124
+    "x": 252,
+    "y": 1764,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 83",
    "frame": {
-    "x": 312,
-    "y": 1116,
-    "w": 156,
-    "h": 124
+    "x": 504,
+    "y": 1764,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   },
   {
    "filename": "bran-a1-idle 84",
    "frame": {
-    "x": 468,
-    "y": 1116,
-    "w": 156,
-    "h": 124
+    "x": 756,
+    "y": 1764,
+    "w": 252,
+    "h": 196
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "sourceSize": {
-    "w": 156,
-    "h": 124
+    "w": 252,
+    "h": 196
    },
    "duration": 33
   }
@@ -1877,8 +1877,8 @@
   "image": "bran-a1-idle.png",
   "format": "RGBA8888",
   "size": {
-   "w": 1404,
-   "h": 1240
+   "w": 2268,
+   "h": 1960
   },
   "scale": "1",
   "frameTags": [
@@ -1896,12 +1896,12 @@
    "loop": true,
    "frames": 85,
    "frameSize": [
-    156,
-    124
+    252,
+    196
    ],
    "pivot": [
-    66,
-    104
+    110,
+    170
    ],
    "columns": 9,
    "act": {
@@ -1917,19 +1917,18 @@
       "pose": {
        "yaw": 0.35,
        "turn": 0.9,
-       "crouch": 3,
-       "lean": 3,
-       "fx": -9,
-       "fy": -15,
+       "crouch": 2,
+       "lean": 8,
+       "fx": -8,
+       "fy": -11,
        "fz": 11,
-       "bx": 19,
-       "by": -17,
+       "bx": 17,
+       "by": -15,
        "bz": -7,
-       "ffx": 9,
-       "fbx": -8,
+       "ffx": 6,
+       "fbx": -6,
        "fzz": 5,
-       "bzz": -5,
-       "hy": 0
+       "bzz": -5
       }
      },
      {
@@ -1938,19 +1937,18 @@
       "pose": {
        "yaw": 0.35,
        "turn": 0.9,
-       "crouch": 4,
-       "lean": 4,
-       "fx": -9,
-       "fy": -14,
+       "crouch": 3,
+       "lean": 9,
+       "fx": -8,
+       "fy": -10,
        "fz": 11,
-       "bx": 19,
-       "by": -16,
+       "bx": 17,
+       "by": -14,
        "bz": -7,
-       "ffx": 9,
-       "fbx": -8,
+       "ffx": 6,
+       "fbx": -6,
        "fzz": 5,
-       "bzz": -5,
-       "hy": 0
+       "bzz": -5
       }
      },
      {
@@ -1959,19 +1957,18 @@
       "pose": {
        "yaw": 0.35,
        "turn": 0.9,
-       "crouch": 3,
-       "lean": 3,
-       "fx": -9,
-       "fy": -15,
+       "crouch": 2,
+       "lean": 8,
+       "fx": -8,
+       "fy": -11,
        "fz": 11,
-       "bx": 19,
-       "by": -17,
+       "bx": 17,
+       "by": -15,
        "bz": -7,
-       "ffx": 9,
-       "fbx": -8,
+       "ffx": 6,
+       "fbx": -6,
        "fzz": 5,
-       "bzz": -5,
-       "hy": 0
+       "bzz": -5
       }
      }
     ]
