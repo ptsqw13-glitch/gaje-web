@@ -9,12 +9,12 @@ canvas{display:block;width:100%;max-width:1280px;height:auto;background:#000}
 #msg{margin:8px 14px;font-size:13px;color:#e9cc84}
 </style></head><body>
 <h1>2D 화풍 시험 — 곰 드루이드 브란</h1>
-<p>Flow로 뽑은 그림을 그대로 살려 움직인 확인용 영상입니다(18초, 되풀이). 화면을 누르면 멈추고, 다시 누르면 이어집니다.<br>걷기 → 공격 → 특징(분노) → 1차 각성 → 2차 각성 → 특수공격</p>
+<p>Flow로 뽑은 그림을 그대로 살려 움직인 확인용 영상입니다(20초, 되풀이). 화면을 누르면 멈추고, 다시 누르면 이어집니다.<br>걷기 → 공격 → 특징(분노) → 1차 각성 → 2차 각성 → 특수공격</p>
 <canvas id="c" width="640" height="360"></canvas>
 <div id="bar"><div id="fill"></div></div>
 <div id="msg">불러오는 중…</div>
 <script>
-const N=387, FPS=20, imgs=[], cv=document.getElementById('c'), ctx=cv.getContext('2d');
+const N=416, FPS=20, imgs=[], cv=document.getElementById('c'), ctx=cv.getContext('2d');
 const msg=document.getElementById('msg'), fill=document.getElementById('fill');
 let loaded=0, playing=true, t0=0, pausedAt=0;
 function name(i){return 'f/f'+String(i).padStart(4,'0')+'.jpg';}
