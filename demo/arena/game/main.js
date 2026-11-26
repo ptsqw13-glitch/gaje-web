@@ -2,9 +2,9 @@
 // 주인공은 pixelfx 의 뼈대 인형(rig), 적은 pixelfx 의 지푸라기 과녁(Target). 효과 244개를 모두 마법으로, 무기 12종을 모두 공격으로 쓴다.
 // 그림은 전부 pixelfx 가 점 단위로 그린다(색 판 + 빛 판 → composite). 화면은 384×216 점을 화면 크기에 맞춰 키운다.
 import { createAct, createFx, createFrame, clearFrame, composite, posed, setSkin, Target, READY, STAND, SKINS, stockActor, hex, mix, luma } from "../pixelfx/core/index.js";
-import { SETS, SLOTS, SHAPE_RANGE, buildSkin } from "./looks.js?v=7";
+import { SETS, SLOTS, SHAPE_RANGE, buildSkin } from "./looks.js?v=9";
 import { rasterText } from "../pixelfx/core/font.js";
-import { FX, CATS } from "./fxlist.js?v=7";
+import { FX, CATS } from "./fxlist.js?v=9";
 import { buildBackdrop } from "./backdrop.js";
 
 const W = 384, H = 216, FLOOR = 188, LEFT = 22, RIGHT = W - 22, W2 = W * 2, H2 = H * 2;
@@ -34,7 +34,9 @@ const WEAPONS = [
   { key: "launcher", ko: "로켓", moves: ["moves/rocket-launcher"] },
   // 추가 무기(2026-11-27): 세트 무기. force = 무기가 없는 자세(마법 시전)에도 쥐여 줄 것
   { key: "staff", ko: "지팡이", tag: "마법사", moves: ["melee/spear-sweep", "moves/lightning-call", "arcane/arcane-missiles"], as: "staff", force: { weapon: "staff", sa: -1.2 } },
-  { key: "book", ko: "마도서", tag: "소환사", moves: ["moves/fireball-throw", "arcane/arcane-missiles", "moves/holy-smite"], force: { offWeapon: "book", sb: -2.2 } },
+  { key: "book", ko: "마도서", tag: "소환사", moves: ["moves/fireball-throw", "arcane/arcane-missiles", "moves/holy-smite"], float: true },          // 손 앞에 떠 있는 책 + 발밑 마법진
+  { key: "holysword", ko: "성검", tag: "성기사", moves: ["melee/sword-slash", "melee/double-slash", "melee/thrust", "melee/spin-slash", "moves/dash-strike", "moves/sword-combo"], as: "holysword" },
+  { key: "demonsword", ko: "마검", tag: "흑기사", moves: ["melee/sword-slash", "melee/double-slash", "melee/thrust", "melee/spin-slash", "moves/dash-strike", "moves/sword-combo"], as: "demonsword" },
   { key: "elfbow", ko: "엘프 활", tag: "궁수", moves: ["moves/arrow-shot"], as: "elfbow" },
 ];
 // 무기에 맞게 자세 고치기: 원래 무기를 바꿔 쥐고(as), 빈손 자세에는 정해 둔 무기를 쥐여 준다(force)
@@ -416,6 +418,7 @@ function tick(now) {
     }
     if (P.jy > 0 || P.vy) { P.vy -= 430 * dt; P.jy += P.vy * dt; if (P.jy <= 0) { P.jy = 0; P.vy = 0; } }
     for (const f of S.foes.slice()) stepFoe(f, dt);
+    if (bookCircle) bookCircle.update(dt);
     for (const r of S.fields) {
       r.t = (r.t ?? 0) + dt;
       r.fx.update(dt);
@@ -455,7 +458,60 @@ function plot2(r, bx2, by2, mirror, colorFn, shiftFn) {
     out32[py * W2 + px] = colorFn ? colorFn(r.color[i], i) : r.color[i];
   }
 }
-function heroJob() {          // 주인공: 서 있거나 걷는 자세, 또는 연기 중인 자세를 두 배 층에
+const BOOKC = { cover: hex("#1c5a34"), coverD: hex("#0f3620"), page: hex("#f6eed6"), pageD: hex("#d6c8a0"), pageK: hex("#a89870"), rune: hex("#6affc0"), runeHi: hex("#d8fff0"), gold: hex("#f0c850"), glow: hex("#2aa870") };
+function bookJob(x1, y1, face, now) {          // (x1, y1): 책 가운데(보통 좌표). 펼친 책을 살짝 기울여 둥실 띄운다
+  const bob = Math.sin(now * 2.6) * 2.2, cx = Math.round(x1 * 2), cy = Math.round(y1 * 2 + bob), tilt = 0.18 * face;
+  // 빛: 앞 층의 빛판에 둥근 초록 빛(보통 좌표)
+  for (let dy = -7; dy <= 7; dy++) for (let dx = -9; dx <= 9; dx++) {
+    const d = Math.hypot(dx / 1.3, dy), px = Math.round(x1) + dx, py = Math.round(y1 + bob / 2) + dy;
+    if (d > 7 || px < 0 || py < 0 || px >= W || py >= H) continue;
+    const k = (1 - d / 7) ** 2 * 0.55, g = BOOKC.glow, j = py * W + px, o = frameC.light[j];
+    const add = (n) => Math.min(255, ((o >>> n) & 255) + ((g >>> n) & 255) * k);
+    frameC.light[j] = (255 << 24) | (add(16) << 16) | (add(8) << 8) | add(0);
+  }
+  hi.push(() => {
+    const put = (x, y, c) => { const px = cx + x, py = cy + y + Math.round(x * tilt); if (px >= 0 && py >= 0 && px < W2 && py < H2) out32[py * W2 + px] = c; };
+    for (let x = -13; x <= 13; x++) {          // 표지(아래)와 책장(위): 가운데 등이 낮게 접힌 V 모양
+      const ax = Math.abs(x), sag = Math.round(ax * 0.22);
+      for (let y = -8; y <= 7; y++) {
+        const top = -7 + sag - (ax < 2 ? 0 : 1), bot = 6 + Math.round(ax * 0.1);
+        if (y < top - 1 || y > bot + 1) continue;
+        let c;
+        if (y > bot || ax === 13) c = y > bot ? BOOKC.coverD : BOOKC.cover;          // 표지 테두리
+        else if (y < top) c = BOOKC.cover;
+        else if (ax <= 1) c = BOOKC.pageK;          // 책등
+        else c = (y - top) % 3 === 2 && ax > 2 && ax < 12 ? BOOKC.pageD : y > bot - 2 ? BOOKC.pageD : BOOKC.page;
+        if ((ax === 13 || y > bot) && (ax > 10) && (y > bot || y < top + 2)) c = BOOKC.gold;          // 금 모서리
+        put(x, y, c);
+      }
+    }
+    // 빛나는 룬: 양쪽 책장에 작은 원과 획, 반짝임
+    const ph = now * 3;
+    for (const sx of [-1, 1]) for (let a = 0; a < 6.283; a += 0.35) {
+      const r = 2.6 + Math.sin(a * 3 + ph) * 0.4, x = sx * 6.5 + Math.cos(a) * r, y = -1 + Math.sin(a) * r * 0.75;
+      put(Math.round(x), Math.round(y), (a * 3 + ph) % 6.283 < 1 ? BOOKC.runeHi : BOOKC.rune);
+    }
+    for (let k = 0; k < 4; k++) {          // 책 둘레를 도는 반짝이 넷
+      const a = now * 1.8 + k * 1.571, x = Math.round(Math.cos(a) * 17), y = Math.round(Math.sin(a) * 6 - 6);
+      put(x, y, BOOKC.runeHi); put(x + 1, y, BOOKC.rune); put(x - 1, y, BOOKC.rune); put(x, y + 1, BOOKC.rune); put(x, y - 1, BOOKC.rune);
+    }
+  });
+}
+let bookCircle = null;
+async function ensureCircle() {
+  if (bookCircle) return;
+  const m = await load("arcane/rune-circle-s");
+  bookCircle = createFx(m, { x: 0, y: FLOOR, palette: ["#06140c", "#0e3a24", "#1a6a40", "#2aa860", "#58e0a0", "#b8ffe0", "#f0fff8"], seed: 3 });
+}
+function heroJob() {
+  if (weapon().float && S.mode !== "menu") {          // 마도서: 발밑 마법진과 손 앞에 뜬 책
+    ensureCircle();
+    const rec = P.act && !P.act.detached ? P.act : null, q = rec ? rec.act.pose ?? STAND : playerPose(), face = rec ? rec.face : P.face;
+    const bx = rec ? rec.x0 + (q.x ?? 0) * face : P.x, by = rec ? FLOOR + (q.y ?? 0) : FLOOR - P.jy;
+    if (bookCircle) { bookCircle.options.x = Math.round(bx); bookCircle.draw(frame); }
+    const hx = (q.fx ?? 11) + 9, hy = (q.fy ?? -21) - 7;
+    bookJob(bx + face * hx, by + hy, face, performance.now() / 1000);
+  }          // 주인공: 서 있거나 걷는 자세, 또는 연기 중인 자세를 두 배 층에
   const skin = pskin ?? STOCK2;
   if (P.act && !P.act.detached) {
     const rec = P.act, q = rec.act.pose ?? STAND, flip = rec.face < 0, X = Math.round(rec.x0);

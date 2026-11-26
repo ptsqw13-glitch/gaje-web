@@ -209,7 +209,7 @@ function ellipsoid(c, R, r, part, mat) {
 // parts: each has its own number, so edges between them can be seen
 const PART = { pelvis: 1, waist: 2, chest: 3, neck: 4, head: 5, face: 6, upperN: 7, elbowN: 8, foreN: 9, handN: 10, upperF: 11, elbowF: 12, foreF: 13, handF: 14, thighN: 15, kneeN: 16, shinN: 17, footN: 18, thighF: 19, kneeF: 20, shinF: 21, footF: 22, weapon: 23, offWeapon: 24 };
 Object.assign(PART, { mouth: 93, brow: 94, hood: 60, snout: 61, nose: 62, ear: 63, beard: 64, cape: 65, fur: 66, belt: 67, braid: 68, claw: 69, beast: 70, bhead: 71, legN: 72, legF: 73, moss: 74, trunk: 75, leaf: 76, crown: 77, eye: 78,
-  strap: 80, skirt: 81, tooth: 82, earIn: 83, buckle: 84, ruff: 85, moss2: 86, rock: 87, fern: 88, leafD: 89, antler: 90, crystal: 91, wrap: 92, helm: 100, visor: 101, horn: 102, wing: 103, plume: 104, pauldron: 105, robe: 106, sleeve: 107, hat: 108, hatbrim: 109, band: 110, quiver: 111, gem: 112, collar: 113, plate: 114, fauld: 115, gauntlet: 116, greave: 117, kneecop: 118, boot: 119, sash: 120, bracer: 121, shoulder2: 122 });
+  strap: 80, skirt: 81, tooth: 82, earIn: 83, buckle: 84, ruff: 85, moss2: 86, rock: 87, fern: 88, leafD: 89, antler: 90, crystal: 91, wrap: 92, helm: 100, visor: 101, horn: 102, wing: 103, plume: 104, pauldron: 105, robe: 106, sleeve: 107, hat: 108, hatbrim: 109, band: 110, quiver: 111, gem: 112, collar: 113, plate: 114, fauld: 115, gauntlet: 116, greave: 117, kneecop: 118, boot: 119, sash: 120, bracer: 121, shoulder2: 122, hair: 123, vest: 124 });
 const PNAME = Object.fromEntries(Object.entries(PART).map(([k, v]) => [v, k]));
 const useFrame = (name) => { curFrameIndex = FRAME_IDS.indexOf(name); };
 
@@ -331,9 +331,21 @@ function drawBody(S) {
         EL(at(C, [-0.6, 3.5, 0]), C.R, [3.9 * K, 2.2, 5.5 * K], PART.hood, 0);
         if (X.hood === "horned") for (const z of [1.9, -1.9]) {          // 소환사: 두건 위 작은 뿔이 뒤로 휜다
           useFrame("head");
-          SW(hd([-0.2, 3.6, z]), hd([-1.2, 6.6, z * 1.3]), hr(1.05), hr(0.6), PART.horn, 0);
-          SW(hd([-1.2, 6.6, z * 1.3]), hd([-3.4, 7.6, z * 1.2]), hr(0.6), hr(0.15), PART.horn, 0);
+const zb = z > 0 ? 0 : -0.9;          // 먼 쪽 뿔은 살짝 뒤로 비켜 두 개로 보이게
+          SW(hd([0.4 + zb, 3.2, z]), hd([-0.6 + zb, 6.2, z * 1.45]), hr(1.35), hr(1.05), PART.horn, 0);
+          SW(hd([-0.6 + zb, 6.2, z * 1.45]), hd([-3.0 + zb, 7.6, z * 1.55]), hr(1.05), hr(0.7), PART.horn, 0);
+          SW(hd([-3.0 + zb, 7.6, z * 1.55]), hd([-5.2 + zb, 6.4, z * 1.5]), hr(0.7), hr(0.15), PART.horn, 0);
         }
+      }
+      if (X.hair) {          // 머리카락: 두건 안에서 앞·옆으로 흘러내리고 뒤로 어깨까지
+        useFrame("head");
+        for (const z of [2.2, -2.2]) SW(hd([1.9, 1.6, z]), hd([1.2, -3.6, z * 1.18]), hr(1.15), hr(0.55), PART.hair, 0);
+        SW(hd([2.4, 2.4, 0.6]), hd([3.4, 0.2, 1.6]), hr(0.9), hr(0.5), PART.hair, 0);          // 앞머리 한 가닥
+        SW(hd([-2.4, 0.6, 0]), hd([-3.6, -5.4, 0]), hr(1.9), hr(1.0), PART.hair, 0);          // 뒷머리
+      }
+      if (X.vest) {          // 가죽 조끼: 가슴을 덮고 허리에서 끝난다
+        useFrame("chest");
+        EL(at(C, [0.45, 0.2, 0]), C.R, [3.75 * K, 3.9 * Math.sqrt(K), 5.6 * K], PART.vest, 0);
       }
       if (X.elfEars) {          // 뾰족한 귀: 두건 밖으로 뒤를 향해 솟는다
         useFrame("head");
@@ -596,7 +608,41 @@ export const WEAPONS = {
 };
 
 // ---- [가제 결투장] 추가 무기: 지팡이(마법사)·마도서(소환사)·엘프 활(궁수)
-const EXW = Object.fromEntries(Object.entries({ orb: "#bff4ff", orbA: "#5ad0ff", orbD: "#2a6ad0", leaf: "#7ad050", leafD: "#3a8a30", leafK: "#22541e", cover: "#2a6a3e", coverD: "#174226", page: "#f4ecd4", pageD: "#c8b890", rune: "#7affc8", runeD: "#2ab888" }).map(([k, v]) => [k, hex(v) >>> 0]));
+const EXW = Object.fromEntries(Object.entries({ orb: "#bff4ff", orbA: "#5ad0ff", orbD: "#2a6ad0", leaf: "#7ad050", leafD: "#3a8a30", leafK: "#22541e", cover: "#2a6a3e", coverD: "#174226", page: "#f4ecd4", pageD: "#c8b890", rune: "#7affc8", runeD: "#2ab888", blueA: "#3a62c8", blueD: "#22387a", holyG: "#ffe9a0", demonA: "#3a2a44", demonK: "#1c1424", red: "#d01c30", redHi: "#ff6a6a" }).map(([k, v]) => [k, hex(v) >>> 0]));
+WEAPONS.holysword = { two: -4.4, draw(T, q) {          // 성검: 흰 칼날에 금빛 가운데 홈, 위로 펼친 금 날개 손잡이, 파란 보석
+  const end = q.two ? -6.5 : -2.6;
+  haft(T, end, 2.2, EXW.blueA, EXW.blueD);
+  for (let k = -1.5; k <= 1.5; k += 0.35) T(end - 0.5, k, STEEL.gold);
+  for (let k = -6.4; k <= 6.4; k += 0.3) {          // 날개 모양 가드: 끝이 칼날 쪽으로 휜다
+    const a = Math.abs(k), i = 2.4 + (a > 2.5 ? (a - 2.5) * 0.55 : 0);
+    T(i, k, a > 5.6 ? STEEL.goldD : STEEL.gold);
+    T(i + 0.4, k, STEEL.goldD);
+    if (a > 3 && a < 6) T(i - 0.45, k, STEEL.gold);
+  }
+  for (let i = 1.8; i <= 3.6; i += 0.3) for (let k = -0.9; k <= 0.9; k += 0.3) T(i, k, Math.hypot(i - 2.7, k) < 0.6 ? EXW.orb : EXW.blueA);          // 가드 가운데 보석
+  for (let i = 3.4; i <= 31.6; i += 0.35) {
+    const r = i - 3.4, wd = r > 23 ? Math.max(0, ((28.2 - r) / 5.2) * 2.5) : 2.5;
+    for (let k = -wd; k <= wd + 0.01; k += 0.35) T(i, k, Math.abs(k) < 0.4 && r < 22 ? EXW.holyG : k < -wd * 0.45 ? STEEL.hi : k > wd * 0.5 ? STEEL.b : STEEL.a);
+  }
+} };
+WEAPONS.demonsword = { two: -5, draw(T, q) {          // 마검: 검은 톱날 칼날, 붉은 날과 룬, 뿔처럼 휜 가드, 붉은 보석
+  const end = q.two ? -7 : -3;
+  haft(T, end, 2.2, EXW.demonA, EXW.demonK);
+  for (let k = -1.2; k <= 1.2; k += 0.35) (T(end - 0.5, k, EXW.demonA), T(end - 1.2, k * 0.5, EXW.red));          // 뾰족한 손잡이 끝
+  for (let k = -6.2; k <= 6.2; k += 0.3) {          // 뿔 가드: 끝이 손잡이 쪽으로 휜다
+    const a = Math.abs(k), i = 2.6 - (a > 2.2 ? (a - 2.2) ** 1.3 * 0.5 : 0);
+    T(i, k, a > 5.2 ? EXW.red : EXW.demonA);
+    T(i + 0.4, k, EXW.demonK);
+  }
+  for (let i = 1.9; i <= 3.5; i += 0.3) for (let k = -0.9; k <= 0.9; k += 0.3) T(i, k, Math.hypot(i - 2.7, k) < 0.55 ? EXW.redHi : EXW.red);
+  for (let i = 3.4; i <= 32; i += 0.35) {
+    const r = i - 3.4, saw = Math.floor(r / 2.6) % 2 && r > 2 && r < 22 ? (r % 2.6) * 0.45 : 0, wd = r > 22 ? Math.max(0, ((28.6 - r) / 6.6) * 2.7) : 2.7;
+    for (let k = -wd - saw; k <= wd + 0.01; k += 0.35) {
+      const edge = k < -wd + 0.5 || k > wd - 0.45, rune = Math.abs(k) < 0.45 && Math.floor(r) % 3 === 0 && r < 21;
+      T(i, k, rune ? EXW.redHi : edge ? EXW.red : k < 0 ? EXW.demonA : EXW.demonK);
+    }
+  }
+} };
 WEAPONS.staff = { two: -9, draw(T) {          // 나무 자루 + 꼭대기 금빛 초승달 고리 + 빛나는 구슬
   for (let i = -15; i <= 21; i += 0.35) for (let k = -0.85; k <= 0.85; k += 0.35) T(i, k, [-13, 2, 18].some((r) => Math.abs(i - r) < 0.6) ? (k > 0.25 ? STEEL.goldD : STEEL.gold) : k > 0.25 ? STEEL.woodD : Math.floor(i * 0.7) % 5 === 0 ? STEEL.woodD : STEEL.wood);
   for (let a = -2.6; a <= 2.6; a += 0.04) {          // 초승달: 구슬을 감싸는 금 고리(앞쪽이 열려 있다)
