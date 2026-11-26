@@ -236,6 +236,7 @@ export const FX = [
 {"id":"critters/bat","cat":"critters","ko":"박쥐","en":"Bat","loop":true,"dur":2.4,"act":false,"body":false,"poses":false,"reach":0,"weapon":"","size":[112,80],"origin":[56,40]},
 {"id":"critters/bird","cat":"critters","ko":"새","en":"Bird","loop":true,"dur":2.4,"act":false,"body":false,"poses":false,"reach":0,"weapon":"","size":[112,80],"origin":[56,40]},
 {"id":"critters/butterfly","cat":"critters","ko":"나비","en":"Butterfly","loop":true,"dur":3.2,"act":false,"body":false,"poses":false,"reach":0,"weapon":"","size":[128,88],"origin":[64,44]},
+{"id":"critters/crocodile","cat":"critters","ko":"악어","en":"Crocodile","loop":true,"dur":3,"act":false,"body":false,"poses":false,"reach":0,"weapon":"","size":[168,64],"origin":[84,56]},
 {"id":"critters/eyeball","cat":"critters","ko":"눈알 괴물","en":"Eyeball","loop":true,"dur":3.2,"act":false,"body":false,"poses":false,"reach":0,"weapon":"","size":[96,108],"origin":[48,100]},
 {"id":"critters/fish-school","cat":"critters","ko":"물고기 떼","en":"Fish school","loop":true,"dur":4.8,"act":false,"body":false,"poses":false,"reach":0,"weapon":"","size":[136,80],"origin":[68,40]},
 {"id":"critters/flying-skull","cat":"critters","ko":"날아다니는 해골","en":"Flying skull","loop":true,"dur":2.4,"act":false,"body":false,"poses":false,"reach":0,"weapon":"","size":[96,132],"origin":[48,120]},

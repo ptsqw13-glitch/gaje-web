@@ -3,7 +3,7 @@
 // 그림은 전부 pixelfx 가 점 단위로 그린다(색 판 + 빛 판 → composite). 화면은 384×216 점을 화면 크기에 맞춰 키운다.
 import { createAct, createFx, createFrame, clearFrame, composite, posed, Target, READY, STAND, SKINS, stockActor, hex, mix, luma } from "../pixelfx/core/index.js";
 import { rasterText } from "../pixelfx/core/font.js";
-import { FX, CATS } from "./fxlist.js";
+import { FX, CATS } from "./fxlist.js?v=6";
 import { buildBackdrop } from "./backdrop.js";
 
 const W = 384, H = 216, FLOOR = 188, LEFT = 22, RIGHT = W - 22;
@@ -179,6 +179,11 @@ async function castFx(id) {
   else { x = target ? target.x : front; }
   const rec = { fx: fx({ x, y, flip }), life: e.loop ? 2.6 : e.dur, t: 0, dmgAt, done: dmg === 0, dot: e.loop && dmg ? 6 : 0, cx: x, radius, dmg, all, face: P.face, src: e.cat };
   if (e.cat === "projectiles" || radius === 150) rec.cx = P.x + P.face * radius * 0.6;
+  if (id === "critters/crocodile") {          // 악어: 주둥이가 적을 향하게 놓고, 콱 무는 순간(2.3초)에 큰 피해
+    const tx = target ? target.x : front;
+    rec.fx.options.x = Math.round(tx - P.face * 50); rec.fx.options.flip = P.face < 0;
+    Object.assign(rec, { cx: tx, dmgAt: 2.3, dmg: 40, dot: 0, life: 3, radius: 30 });
+  }
   S.fields.push(rec);
 }
 function castSelected() {
