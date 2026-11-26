@@ -100,3 +100,25 @@ body.inmenu #pad, body.inmenu #hud { visibility: hidden; }
 #lreset { align-self: flex-start; padding: 6px 12px; font-size: 12px; margin-top: 6px; }
 .lnote { font-size: 12px; color: #a99bc0; }
 @media (orientation: portrait) { #lprev { width: 180px; height: 180px; margin: 0 auto; } .lbody { justify-content: center; } }
+/* 성 지키기: 배치 화면(아래 띠) */
+body.castle #pad, body.castle .hp, body.castle #blk { display: none; }
+#castleui { position: fixed; left: 0; right: 0; bottom: 0; z-index: 7; background: linear-gradient(rgba(11,10,16,0), rgba(11,10,16,.9) 30%); padding: 18px max(10px, env(safe-area-inset-right)) max(10px, env(safe-area-inset-bottom)) max(10px, env(safe-area-inset-left)); display: flex; flex-direction: column; gap: 6px; }
+#cmsg { font-size: 12px; text-align: center; text-shadow: 1px 1px 0 #000; }
+.crow { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+#cchips button { padding: 6px 10px; font-size: 13px; text-align: left; max-width: 46%; }
+#cchips button small { display: block; font-family: "Galmuri9", sans-serif; font-size: 10px; color: #a99bc0; }
+#cchips button.on { background: #6a4a20; }
+#cauto, #cgo { padding: 8px 16px; font-size: 14px; }
+/* 성 지키기: 핸드폰 눕힘에서는 배치 띠를 낮고 납작하게(무대 바닥을 가리지 않게) */
+@media (orientation: landscape) and (max-height: 520px) {
+  #castleui { padding-top: 6px; background: rgba(11,10,16,.78); gap: 4px; }
+  #cmsg { font-size: 11px; }
+  #cchips button { padding: 4px 8px; font-size: 12px; } #cchips button small { display: none; }
+  #cauto, #cgo { padding: 5px 12px; font-size: 13px; }
+  body.castle #stage { padding-bottom: 92px; }
+}
+#cmine { align-items: center; }
+#cspell { padding: 6px 12px; font-size: 12px; text-align: left; }
+#cspell b { display: block; color: #ffe9a0; font-size: 13px; }
+#ccd { font-size: 12px; color: #a99bc0; text-shadow: 1px 1px 0 #000; }
+#picker { z-index: 12; }

@@ -2,9 +2,10 @@
 // 주인공은 pixelfx 의 뼈대 인형(rig), 적은 pixelfx 의 지푸라기 과녁(Target). 효과 244개를 모두 마법으로, 무기 12종을 모두 공격으로 쓴다.
 // 그림은 전부 pixelfx 가 점 단위로 그린다(색 판 + 빛 판 → composite). 화면은 384×216 점을 화면 크기에 맞춰 키운다.
 import { createAct, createFx, createFrame, clearFrame, composite, posed, setSkin, Target, READY, STAND, SKINS, stockActor, hex, mix, luma } from "../pixelfx/core/index.js";
-import { SETS, SLOTS, SHAPE_RANGE, buildSkin } from "./looks.js?v=9";
+import { SETS, SLOTS, SHAPE_RANGE, buildSkin } from "./looks.js?v=13";
+import { createCastle, HEROES, SPOTS } from "./castle.js?v=13";
 import { rasterText } from "../pixelfx/core/font.js";
-import { FX, CATS } from "./fxlist.js?v=9";
+import { FX, CATS } from "./fxlist.js?v=13";
 import { buildBackdrop } from "./backdrop.js";
 
 const W = 384, H = 216, FLOOR = 188, LEFT = 22, RIGHT = W - 22, W2 = W * 2, H2 = H * 2;
@@ -418,6 +419,7 @@ function tick(now) {
     }
     if (P.jy > 0 || P.vy) { P.vy -= 430 * dt; P.jy += P.vy * dt; if (P.jy <= 0) { P.jy = 0; P.vy = 0; } }
     for (const f of S.foes.slice()) stepFoe(f, dt);
+    if (S.mode === "castle") castle.step(dt);
     if (bookCircle) bookCircle.update(dt);
     for (const r of S.fields) {
       r.t = (r.t ?? 0) + dt;
@@ -533,7 +535,7 @@ function draw() {
   setSkin(null);
   for (const f of S.foes) drawFoe(f);
   for (const r of S.fields) r.fx.draw(frame, "back");
-  heroJob();
+  if (S.mode === "castle") castle.draw(); else heroJob();
   // 앞 층: 연기의 효과(칼빛·불꽃), 앞에 그리는 효과, 날아가는 탄, 피해 숫자, 보호막
   for (const r of S.acts) r.act.draw(frameC, { body: false, target: false });
   for (const r of S.fields) r.fx.draw(frameC, "front");
@@ -563,6 +565,7 @@ function draw() {
   }
   let sx = 0, sy = 0;
   for (const r of S.acts) { const [a, b] = r.act.shake; sx += a; sy += b; }
+  if (S.mode === "castle") { const [a, b] = castle.shake(); sx += a; sy += b; }
   ctx.fillStyle = "#0b0a10";
   ctx.fillRect(0, 0, W2, H2);
   ctx.putImageData(img, sx * 2, sy * 2);
@@ -576,6 +579,7 @@ function draw() {
     info = `방금 ${S.stat.last} · 합계 ${S.stat.sum} · 초당 ${Math.round(R.reduce((a, b) => a + b[1], 0) / 3)}`;
   } else if (S.mode === "horde") info = `쓰러뜨림 ${S.ko} / 100`;
   else if (S.mode === "duel") info = `${S.round}번째 상대 · 이긴 판 ${S.ko}`;
+  else if (S.mode === "castle") { const c = castle.C, el = document.getElementById("ccd"); if (el) el.textContent = c.mineCd > 0 ? `다시 쓰기까지 ${c.mineCd.toFixed(1)}초` : "무대를 누르면 그 자리에 시전"; info = `${c.stage}단계 · 남은 적 ${c.left + c.foes.length} · 성 ${Math.ceil(c.hp)}/${c.max}`; }
   document.getElementById("info").textContent = info;
 }
 function ring(cx, cy, r, c) {
@@ -631,17 +635,71 @@ async function startMode(m) {
   S.mode = m;
   document.getElementById("menu").hidden = true;
   document.body.classList.remove("inmenu");
+  document.body.classList.toggle("castle", m === "castle");
+  document.getElementById("castleui").hidden = m !== "castle";
+  if (m === "castle") { await castle.preload(); castle.reset(); toast("성 지키기"); }
   if (m === "practice") { makeFoe("dummy", 250, 1, { ai: "still" }); toast("연습 모드"); }
   if (m === "horde") { S.left = 100; S.spawnT = 1; toast("1 대 100"); }
   if (m === "duel") nextDuel();
 }
 function showMenu() {
   reset();
+  document.body.classList.remove("castle");
+  document.getElementById("castleui").hidden = true;
   S.mode = "menu";
   makeFoe("dummy", 250, 1, { ai: "still" });
   document.getElementById("menu").hidden = false;
   document.body.classList.add("inmenu");
 }
+
+// ---- 성 지키기: 규칙은 castle.js, 여기서는 그리기 도구를 넘기고 배치 화면을 잇는다
+const castle = createCastle({
+  W, H, FLOOR, frame, frameC, load, mods, createAct, createFx, setSkin, posed, STAND, buildSkin, SETS, hex, shadowAt,
+  nums: { push: (n) => S.nums.push(n) }, feed: (m) => toast(m), hiPush: (fn) => hi.push(fn), plot2: (...a) => plot2(...a), ui: () => castleUI(),
+});
+function castleUI() {
+  const C = castle.C, chips = document.getElementById("cchips"), msg = document.getElementById("cmsg");
+  const placing = C.phase === "place";
+  document.getElementById("cauto").hidden = !placing;
+  document.getElementById("cgo").hidden = !placing;
+  chips.hidden = !placing;
+  msg.textContent = placing ? `${C.stage}단계(적 ${[10, 20, 40, 80, 100][C.stage - 1]}마리) · 아군을 고른 뒤 바닥의 빛나는 자리를 누르세요. 놓인 아군을 누르면 뺍니다` : C.phase === "fight" ? "" : C.result;
+  chips.innerHTML = "";
+  HEROES.forEach((h, i) => {
+    const b = document.createElement("button"), on = C.allies.some((a) => a.hero === i);
+    b.innerHTML = `${h.ko}<small>${on ? "놓임" : "대기"} · ${h.skills.map((s) => s.ko).join(" · ")}</small>`;
+    if (C.pick === i) b.className = "on";
+    b.onclick = () => { C.pick = C.pick === i ? -1 : i; castleUI(); };
+    chips.appendChild(b);
+  });
+  document.getElementById("cspname").textContent = S.spell ? S.spell.ko : "고르기";
+  if (C.phase === "over") finish(C.result);
+  else if (S.over) { S.over = false; document.getElementById("over").hidden = true; }
+}
+document.getElementById("cauto").onclick = () => castle.autoPlace();
+document.getElementById("cgo").onclick = () => castle.startBattle();
+document.getElementById("cspell").onclick = () => openPicker("s");
+cv.addEventListener("pointerdown", async (e) => {          // 배치·내 마법: 화면을 누른 자리를 무대 좌표로(화면 비율에 맞춘 여백을 뺀다)
+  if (S.mode !== "castle") return;
+  const r = cv.getBoundingClientRect(), k = Math.min(r.width / W2, r.height / H2), ox = (r.width - W2 * k) / 2, oy = (r.height - H2 * k) / 2;
+  const x = (e.clientX - r.left - ox) / k / 2, y = (e.clientY - r.top - oy) / k / 2;
+  if (castle.C.phase === "fight") {          // 전투 중: 누른 자리에 고른 마법
+    if (!S.spell) return toast("내 마법을 먼저 고르세요");
+    if (x < 0 || x > W) return;
+    if (await castle.playerCast(S.spell, x)) toast(`내 마법 · ${S.spell.ko}`);
+    else if (castle.C.mineCd > 0) toast(`${Math.ceil(castle.C.mineCd)}초 뒤에 다시 쓸 수 있어요`);
+    return;
+  }
+  if (castle.C.phase !== "place") return;
+  if (y < FLOOR - 60 || y > FLOOR + 14) return;
+  let best = -1, bd = 22;
+  SPOTS.forEach((sx, i) => { if (Math.abs(sx - x) < bd) { bd = Math.abs(sx - x); best = i; } });
+  if (best < 0) return;
+  const C = castle.C, here = C.allies.find((a) => a.spot === best);
+  if (C.pick >= 0) { castle.place(C.pick, best); C.pick = -1; }
+  else if (here) castle.place(-1, best), (C.allies = C.allies.filter((a) => a !== here));
+  castleUI();
+});
 
 // ---- 무기·마법 고르기 창
 const picker = document.getElementById("picker"), plist = document.getElementById("plist"), tabs = document.getElementById("tabs");
@@ -655,6 +713,8 @@ async function setWeapon(i) {
 function setSpell(e) {
   S.spell = e;
   document.getElementById("sname").textContent = e.ko;
+  const cs = document.getElementById("cspname");
+  if (cs) cs.textContent = e.ko;
   load(e.id);
   try { localStorage.setItem("arena.spell", e.id); } catch {}
 }
@@ -762,6 +822,7 @@ document.getElementById("pclose").onclick = () => (picker.hidden = true);
   const q = new URLSearchParams(location.search);
   if (q.get("w")) await setWeapon(+q.get("w"));
   if (q.get("s") && BYID[q.get("s")]) setSpell(BYID[q.get("s")]);
+  window.__castle = castle;
   window.__arena = { S, P, attack, castSelected, setWeapon, setSpell, BYID, perform, castFx, startMode, showMenu, setLook: (i, c = {}, sh = {}) => { LOOK = { set: i, color: c, shape: sh }; applyLook(); }, openLook };
   showMenu();
   if (q.get("mode")) await startMode(q.get("mode"));
