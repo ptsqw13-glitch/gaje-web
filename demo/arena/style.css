@@ -23,6 +23,13 @@ button:active, button.on { transform: translateY(2px); filter: brightness(1.3); 
 .red { background: #8a2a36; } .blue { background: #2a4a8a; }
 .pick { width: 132px; padding: 4px 6px; font-size: 11px; line-height: 1.3; text-align: left; }
 .pick b { font-size: 13px; color: #ffe9a0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
+/* 세로 화면: 무기·마법 고르기를 윗줄로, 방향·행동 단추를 아랫줄 양끝으로 */
+@media (orientation: portrait) {
+  #pad { flex-wrap: wrap; }
+  .mid { order: -1; width: 100%; flex-direction: row; justify-content: space-between; }
+  .pick { width: calc(50% - 4px); }
+  .dir { width: 58px; height: 58px; } .act { width: 60px; height: 60px; }
+}
 /* 가로 화면(핸드폰 눕힘): 단추를 화면 위에 겹친다 */
 @media (orientation: landscape) and (max-height: 520px) {
   #pad { position: fixed; left: 0; right: 0; bottom: 0; pointer-events: none; }
