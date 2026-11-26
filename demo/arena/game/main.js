@@ -1,9 +1,10 @@
 // 천하제일 무술대회(가제): pixelfx 로 만든 한 화면 결투장.
 // 주인공은 pixelfx 의 뼈대 인형(rig), 적은 pixelfx 의 지푸라기 과녁(Target). 효과 244개를 모두 마법으로, 무기 12종을 모두 공격으로 쓴다.
 // 그림은 전부 pixelfx 가 점 단위로 그린다(색 판 + 빛 판 → composite). 화면은 384×216 점을 화면 크기에 맞춰 키운다.
-import { createAct, createFx, createFrame, clearFrame, composite, posed, Target, READY, STAND, SKINS, stockActor, hex, mix, luma } from "../pixelfx/core/index.js";
+import { createAct, createFx, createFrame, clearFrame, composite, posed, setSkin, Target, READY, STAND, SKINS, stockActor, hex, mix, luma } from "../pixelfx/core/index.js";
+import { SETS, SLOTS, SHAPE_RANGE, buildSkin } from "./looks.js?v=7";
 import { rasterText } from "../pixelfx/core/font.js";
-import { FX, CATS } from "./fxlist.js?v=6";
+import { FX, CATS } from "./fxlist.js?v=7";
 import { buildBackdrop } from "./backdrop.js";
 
 const W = 384, H = 216, FLOOR = 188, LEFT = 22, RIGHT = W - 22;
@@ -432,16 +433,19 @@ async function burst(x) {
 
 function draw() {
   clearFrame(frame);
+  setSkin(null);
   for (const f of S.foes) drawFoe(f);
   for (const r of S.fields) r.fx.draw(frame, "back");
   // 주인공(연기 중이 아니면 직접 그린다)
+  setSkin(pskin);
   if (!P.act) {
     const blink = P.inv > 0 && Math.floor(P.inv * 20) % 2 === 0;
     shadowAt(P.x, FLOOR, 10);
     if (!blink) plotPose(playerPose(), Math.round(P.x), FLOOR - Math.round(P.jy), P.face < 0, P.hurt > 0 ? hex("#ffffff") : 0);
     if (P.buff.shield > 0) ring(P.x, FLOOR - 19, 20, hex("#fff4c0"));
   }
-  for (const r of S.acts) r.act.draw(frame, { body: !r.detached && !r.enemy, target: false });
+  for (const r of S.acts) { setSkin(r.enemy ? null : pskin); r.act.draw(frame, { body: !r.detached && !r.enemy, target: false }); }
+  setSkin(null);
   for (const r of S.fields) r.fx.draw(frame, "front");
   for (const s of S.shots) s.fx.draw(frame);
   for (const n of S.nums) text(String(n.v), Math.round(n.x) - 4, Math.round(n.y - n.t * 22), n.v >= 25 ? hex("#ffe14a") : hex("#ffffff"));
@@ -572,6 +576,66 @@ function openPicker(mode) {
 }
 tap(document.getElementById("pickW"), () => openPicker("w"));
 tap(document.getElementById("pickS"), () => openPicker("s"));
+
+// ---- 외형 바꾸기: 세트(기본 + 다섯) · 색 칸 일곱 · 체형 막대 넷. 고른 것은 이 브라우저에 저장된다
+let LOOK = { set: -1, color: {}, shape: {} }, pskin = null;
+try { LOOK = { ...LOOK, ...JSON.parse(localStorage.getItem("arena.look") || "{}") }; } catch {}
+function applyLook() {
+  pskin = LOOK.set < 0 ? null : buildSkin(SETS[LOOK.set], LOOK.color, LOOK.shape);
+  try { localStorage.setItem("arena.look", JSON.stringify(LOOK)); } catch {}
+}
+applyLook();
+const lookp = document.getElementById("lookp"), lprev = document.getElementById("lprev"), lctx = lprev.getContext("2d"), limg = lctx.createImageData(72, 72);
+function lookUI() {
+  const sets = document.getElementById("lsets"), cols = document.getElementById("lcolors"), shp = document.getElementById("lshape");
+  sets.innerHTML = "";
+  [{ ko: "기본 인형" }, ...SETS].forEach((st, i) => {
+    const b = document.createElement("button");
+    b.textContent = st.ko;
+    if (i - 1 === LOOK.set) b.className = "on";
+    b.onclick = () => { LOOK = { set: i - 1, color: {}, shape: {} }; applyLook(); lookUI(); };
+    sets.appendChild(b);
+  });
+  cols.innerHTML = ""; shp.innerHTML = "";
+  const set = SETS[LOOK.set];
+  document.getElementById("lreset").hidden = !set;
+  if (!set) { cols.innerHTML = '<span class="lnote">기본 인형은 색·체형을 바꿀 수 없어요. 위에서 세트를 고르세요.</span>'; return; }
+  for (const sl of SLOTS) {
+    const lab = document.createElement("label"), inp = document.createElement("input");
+    inp.type = "color";
+    inp.value = LOOK.color[sl.key] ?? set.color[sl.key];
+    inp.oninput = () => { LOOK.color[sl.key] = inp.value; applyLook(); };
+    lab.append(inp, sl.ko);
+    cols.appendChild(lab);
+  }
+  for (const [k, [lo, hi, ko]] of Object.entries(SHAPE_RANGE)) {
+    const lab = document.createElement("label"), inp = document.createElement("input");
+    inp.type = "range"; inp.min = lo; inp.max = hi; inp.step = 0.05;
+    inp.value = LOOK.shape[k] ?? set.shape[k] ?? 1;
+    inp.oninput = () => { LOOK.shape[k] = +inp.value; applyLook(); };
+    lab.append(ko, inp);
+    shp.appendChild(lab);
+  }
+}
+let lookT = 0;
+function lookPreview(now) {          // 미리보기: 서기 → 무기 겨눔 → 걷기를 번갈아
+  if (lookp.hidden) return;
+  const k = Math.floor(now / 1100) % 3, base = idlePose(), q = k === 0 ? { ...STAND } : k === 1 ? base : walkPose(base, now / 90);
+  setSkin(pskin);
+  const r = posed(q);
+  setSkin(null);
+  const D = new Uint32Array(limg.data.buffer);
+  D.fill(0xff2f2226);
+  for (let x = 4; x < 68; x++) D[64 * 72 + x] = 0xff50404a;
+  for (let i = 0; i < r.n; i++) { const x = 30 + r.xs[i], y = 63 + r.ys[i]; if (x >= 0 && y >= 0 && x < 72 && y < 72) D[y * 72 + x] = r.color[i]; }
+  lctx.putImageData(limg, 0, 0);
+  requestAnimationFrame(lookPreview);
+}
+function openLook() { lookp.hidden = false; lookUI(); requestAnimationFrame(lookPreview); }
+document.getElementById("lclose").onclick = () => (lookp.hidden = true);
+document.getElementById("lreset").onclick = () => { LOOK.color = {}; LOOK.shape = {}; applyLook(); lookUI(); };
+document.getElementById("blk").onclick = openLook;
+document.getElementById("mlook").onclick = openLook;
 document.getElementById("pclose").onclick = () => (picker.hidden = true);
 
 // ---- 시작
@@ -587,7 +651,7 @@ document.getElementById("pclose").onclick = () => (picker.hidden = true);
   const q = new URLSearchParams(location.search);
   if (q.get("w")) await setWeapon(+q.get("w"));
   if (q.get("s") && BYID[q.get("s")]) setSpell(BYID[q.get("s")]);
-  window.__arena = { S, P, attack, castSelected, setWeapon, setSpell, BYID, perform, castFx, startMode, showMenu };
+  window.__arena = { S, P, attack, castSelected, setWeapon, setSpell, BYID, perform, castFx, startMode, showMenu, setLook: (i, c = {}, sh = {}) => { LOOK = { set: i, color: c, shape: sh }; applyLook(); }, openLook };
   showMenu();
   if (q.get("mode")) await startMode(q.get("mode"));
   requestAnimationFrame((t) => { last = t; tick(t); });

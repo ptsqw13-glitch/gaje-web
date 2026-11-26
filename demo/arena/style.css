@@ -83,3 +83,20 @@ body.inmenu #pad, body.inmenu #hud { visibility: hidden; }
 /* 마법 갈래 단추: 한 줄로 늘어서 끝이 잘리고 핸드폰에서 밀리지도 않아 여러 줄로 감싼다 */
 #tabs { flex-wrap: wrap; overflow: visible; gap: 4px; }
 #tabs button { padding: 5px 7px; font-size: 12px; }
+/* 외형 바꾸기 창 */
+#blk { pointer-events: auto; padding: 3px 8px; font-size: 11px; }
+#lookp { position: fixed; inset: 0; z-index: 11; background: rgba(11,10,16,.95); display: flex; flex-direction: column; padding: max(8px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(10px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left)); overflow-y: auto; touch-action: pan-y; }
+.lbody { display: flex; gap: 14px; flex-wrap: wrap; align-items: flex-start; }
+#lprev { width: 216px; height: 216px; image-rendering: pixelated; border: 2px solid #6a5a80; border-radius: 6px; flex-shrink: 0; }
+.lside { flex: 1; min-width: 240px; display: flex; flex-direction: column; gap: 8px; }
+.lrow { display: flex; flex-wrap: wrap; gap: 6px; }
+#lsets button { padding: 8px 10px; font-size: 13px; }
+#lsets button.on { background: #6a4a20; }
+.lsub { font-size: 12px; color: #a99bc0; margin-top: 4px; }
+#lcolors label { display: flex; align-items: center; gap: 4px; font-size: 12px; background: #2b2438; border-radius: 6px; padding: 3px 8px 3px 3px; }
+#lcolors input { width: 30px; height: 26px; border: 0; padding: 0; background: none; }
+#lshape label { display: grid; grid-template-columns: 70px 1fr; align-items: center; font-size: 12px; gap: 8px; margin: 2px 0; }
+#lshape input { width: 100%; }
+#lreset { align-self: flex-start; padding: 6px 12px; font-size: 12px; margin-top: 6px; }
+.lnote { font-size: 12px; color: #a99bc0; }
+@media (orientation: portrait) { #lprev { width: 180px; height: 180px; margin: 0 auto; } .lbody { justify-content: center; } }

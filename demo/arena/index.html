@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
 <title>천하제일 무술대회 (가제)</title>
-<link rel="stylesheet" href="style.css?v=6">
+<link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
 <div id="stage">
   <canvas id="c" width="384" height="216"></canvas>
   <div id="hud">
     <div class="hp"><div id="hpbar"></div><span id="hptxt">100</span></div>
-    <div class="hr"><span id="info"></span><button id="bm">메뉴</button></div>
+    <div class="hr"><span id="info"></span><button id="blk">외형</button><button id="bm">메뉴</button></div>
   </div>
   <div id="toast"></div>
   <div id="over" hidden><div><b id="otitle">패배</b><p><button id="oagain">다시 하기</button> <button id="omenu">메뉴로</button></p></div></div>
@@ -31,6 +31,20 @@
     <button id="bs" class="act blue">마법</button>
   </div>
 </div>
+<div id="lookp" hidden>
+  <div class="phead"><span>외형 바꾸기</span><button id="lclose">닫기</button></div>
+  <div class="lbody">
+    <canvas id="lprev" width="72" height="72"></canvas>
+    <div class="lside">
+      <div class="lrow" id="lsets"></div>
+      <div class="lsub">색 (칸을 눌러 고르기)</div>
+      <div class="lrow" id="lcolors"></div>
+      <div class="lsub">체형</div>
+      <div id="lshape"></div>
+      <button id="lreset">이 세트 처음 색·체형으로</button>
+    </div>
+  </div>
+</div>
 <div id="picker" hidden>
   <div class="phead"><span id="ptitle">무기</span><button id="pclose">닫기</button></div>
   <div id="tabs"></div>
@@ -46,8 +60,9 @@
     <button data-mode="practice">연습 모드<small>허수아비 하나 · 피해 수치 보기</small></button>
     <button data-mode="horde">1 대 100<small>마네킹 백 명이 차례로 몰려온다</small></button>
     <button data-mode="duel">1 대 1<small>나와 같은 상대와 자유 결투</small></button>
+    <button id="mlook">외형 바꾸기<small>세트 · 색 · 체형</small></button>
   </div>
 </div>
-<script type="module" src="game/main.js?v=6"></script>
+<script type="module" src="game/main.js?v=7"></script>
 </body>
 </html>

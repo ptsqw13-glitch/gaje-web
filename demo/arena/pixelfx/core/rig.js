@@ -18,11 +18,17 @@ const INK = PAL.k, SEAM = PAL.J, MARK = PAL.m;
 const SHELL = [PAL.A, PAL.B, PAL.C, PAL.D], CORE = [PAL.E, PAL.F, PAL.G, PAL.G];
 const DEG = Math.PI / 180, W0 = 24, H0 = 38;
 // ---- [가제] 생김새 입히기: ramps 부위 이름 -> 색 넷(밝은 쪽부터), bulk·arm·leg 굵기, scale 전체 배율, shag 털 결을 넣을 부위, extras 덧붙이는 덩어리
-let SKIN = null;
+let SKIN = null, SKIN_RAW = null;
+const SKIN_CACHES = new Map();          // [가제 결투장] 외형마다 그림 저장소를 따로 둔다: 주인공과 적이 다른 외형이어도 매번 지우지 않는다
 export function setSkin(skin) {
+  if (skin === SKIN_RAW) return;
+  SKIN_RAW = skin;
   SKIN = skin ? { bulk: 1, arm: 1, leg: 1, scale: 1, head: 1, ...skin, ramps: Object.fromEntries(Object.entries(skin.ramps ?? {}).map(([k, v]) => [k, v.map((c) => hex(c) >>> 0)])) } : null;
   M = { ...M0, ...(skin && skin.bones ? skin.bones : {}) };
-  CACHE.clear();
+  const key = skin ? JSON.stringify(skin) : "";
+  let c = SKIN_CACHES.get(key);
+  if (!c) { if (SKIN_CACHES.size > 24) SKIN_CACHES.clear(); SKIN_CACHES.set(key, (c = new Map())); }
+  CACHE = c;
 }
 
 // ---- vectors and turns
@@ -203,7 +209,7 @@ function ellipsoid(c, R, r, part, mat) {
 // parts: each has its own number, so edges between them can be seen
 const PART = { pelvis: 1, waist: 2, chest: 3, neck: 4, head: 5, face: 6, upperN: 7, elbowN: 8, foreN: 9, handN: 10, upperF: 11, elbowF: 12, foreF: 13, handF: 14, thighN: 15, kneeN: 16, shinN: 17, footN: 18, thighF: 19, kneeF: 20, shinF: 21, footF: 22, weapon: 23, offWeapon: 24 };
 Object.assign(PART, { mouth: 93, brow: 94, hood: 60, snout: 61, nose: 62, ear: 63, beard: 64, cape: 65, fur: 66, belt: 67, braid: 68, claw: 69, beast: 70, bhead: 71, legN: 72, legF: 73, moss: 74, trunk: 75, leaf: 76, crown: 77, eye: 78,
-  strap: 80, skirt: 81, tooth: 82, earIn: 83, buckle: 84, ruff: 85, moss2: 86, rock: 87, fern: 88, leafD: 89, antler: 90, crystal: 91, wrap: 92 });
+  strap: 80, skirt: 81, tooth: 82, earIn: 83, buckle: 84, ruff: 85, moss2: 86, rock: 87, fern: 88, leafD: 89, antler: 90, crystal: 91, wrap: 92, helm: 100, visor: 101, horn: 102, wing: 103, plume: 104, pauldron: 105, robe: 106, sleeve: 107, hat: 108, hatbrim: 109, band: 110, quiver: 111, gem: 112, collar: 113 });
 const PNAME = Object.fromEntries(Object.entries(PART).map(([k, v]) => [v, k]));
 const useFrame = (name) => { curFrameIndex = FRAME_IDS.indexOf(name); };
 
@@ -220,8 +226,9 @@ function drawBody(S) {
   useFrame("neck");
   SW(F_("neck").t, add(F_("neck").t, mv(F_("head").R, [0, 1.6, 0])), 1.25, 1.15, PART.neck, 1);
   useFrame("head");
-  EL(F_("head").t, F_("head").R, [3, 3.3, 2.8], PART.head, 0);
-  EL(add(F_("head").t, mv(F_("head").R, [0.85, -0.45, 0])), F_("head").R, [2.4, 2.7, 2.35], PART.face, 0);
+  const hc = add(F_("head").t, mv(F_("head").R, [0, (KH - 1) * 2.8, 0]));          // 머리가 커지면 목 위로 올라간다
+  EL(hc, F_("head").R, [3 * KH, 3.3 * KH, 2.8 * KH], PART.head, 0);
+  EL(add(hc, mv(F_("head").R, [0.85 * KH, -0.45 * KH, 0])), F_("head").R, [2.4 * KH, 2.7 * KH, 2.35 * KH], PART.face, 0);
   const arm = (far, A, sh, up, el, fo, ha, nameU, nameF) => {
     curDim = far ? 1 : 0;
     useFrame(nameU);
@@ -248,9 +255,97 @@ function drawBody(S) {
   leg(false, legN, hipN, PART.thighN, PART.kneeN, PART.shinN, PART.footN, "thighN", "shinN", "footN");
   leg(true, legF, hipF, PART.thighF, PART.kneeF, PART.shinF, PART.footF, "thighF", "shinF", "footF");
   void turn;
-  void KH;
   const X = SKIN && SKIN.extras;
   if (X) {
+    {          // [가제 결투장] 장식 다섯 벌. 머리 장식은 머리 크기(KH), 몸 장식은 덩치(K), 팔 장식은 팔 굵기(KA)를 따른다
+      const H = F_("head"), C = F_("chest"), P = F_("pelvis"), at = (f, v) => add(f.t, mv(f.R, v));
+      const hd = (v) => add(add(H.t, mv(H.R, [0, (KH - 1) * 2.8, 0])), mv(H.R, mul(v, KH)));          // 머리 기준 자리(머리 크기만큼 늘어남)
+      const hr = (r) => (Array.isArray(r) ? mul(r, KH) : r * KH);
+      if (X.helm) {          // 투구: 머리를 통째로 덮고 앞에 가로 눈구멍
+        useFrame("head");
+        EL(hd([0.35, 0.45, 0]), H.R, hr([3.75, 3.85, 3.45]), PART.helm, 0);
+        SW(hd([3.55, 0.55, -1.7]), hd([3.55, 0.55, 1.7]), hr(0.5), hr(0.5), PART.visor, 0);
+        if (X.helm === "crest") SW(hd([3.2, 3.6, 0]), hd([-2.6, 3.9, 0]), hr(0.7), hr(0.6), PART.helm, 0);          // 가운데 볏
+      }
+      if (X.horns) {          // 흑기사 뿔: 투구 옆에서 바깥으로 휘어 위로
+        useFrame("head");
+        for (const z of [2.2, -2.2]) {
+          SW(hd([-0.4, 2.0, z]), hd([0.6, 4.4, z * 1.7]), hr(1.35), hr(0.9), PART.horn, 0);
+          SW(hd([0.6, 4.4, z * 1.7]), hd([2.4, 7.4, z * 1.6]), hr(0.9), hr(0.2), PART.horn, 0);
+        }
+      }
+      if (X.wings) {          // 성기사 투구 날개: 옆머리에서 뒤로 솟은 깃 셋
+        useFrame("head");
+        for (const z of [3.2, -3.2]) for (let k = 0; k < 3; k++)
+          SW(hd([-2.0 - k * 0.5, 1.8 + k * 0.3, z]), hd([-3.0 - k * 1.4, 5.8 + k * 0.2 - k * k * 0.7, z * 1.15]), hr(0.95 - k * 0.15), hr(0.25), PART.wing, 0);
+      }
+      if (X.plume) {          // 투구 위 깃털 장식: 위로 솟았다 뒤로 늘어진다
+        useFrame("head");
+        SW(hd([-0.6, 3.8, 0]), hd([-2.4, 5.0, 0]), hr(1.1), hr(0.9), PART.plume, 0);
+        SW(hd([-2.4, 5.0, 0]), hd([-5.0, 2.4, 0]), hr(0.9), hr(0.35), PART.plume, 0);
+      }
+      if (X.hood) {          // 두건: 머리 뒤와 위를 덮고 얼굴은 앞으로 드러난다. 어깨까지 흘러내린다
+        useFrame("head");
+        EL(hd([-1.25, 0.8, 0]), H.R, hr([3.55, 3.85, 3.5]), PART.hood, 0);
+        SW(hd([1.9, 3.0, 0]), hd([-1.4, 4.2, 0]), hr(1.25), hr(1.1), PART.hood, 0);          // 이마 위로 튀어나온 챙
+        useFrame("chest");
+        EL(at(C, [-0.6, 3.5, 0]), C.R, [3.9 * K, 2.2, 5.5 * K], PART.hood, 0);
+        if (X.hood === "horned") for (const z of [1.9, -1.9]) {          // 소환사: 두건 위 작은 뿔이 뒤로 휜다
+          useFrame("head");
+          SW(hd([-0.2, 3.6, z]), hd([-1.2, 6.6, z * 1.3]), hr(1.05), hr(0.6), PART.horn, 0);
+          SW(hd([-1.2, 6.6, z * 1.3]), hd([-3.4, 7.6, z * 1.2]), hr(0.6), hr(0.15), PART.horn, 0);
+        }
+      }
+      if (X.elfEars) {          // 뾰족한 귀: 두건 밖으로 뒤를 향해 솟는다
+        useFrame("head");
+        for (const z of [3.3, -3.3]) SW(hd([0.6, 0.2, z]), hd([-1.6, 3.6, z * 1.55]), hr(0.95), hr(0.15), PART.ear, 0);
+      }
+      if (X.hat) {          // 마법사 모자: 넓은 챙, 띠, 높이 솟아 끝이 뒤로 꺾인 고깔
+        useFrame("head");
+        EL(hd([-0.1, 2.4, 0]), H.R, hr([5.6, 0.75, 5.4]), PART.hatbrim, 0);
+        SW(hd([-0.2, 2.7, 0]), hd([-1.6, 8.6, 0]), hr(3.3), hr(1.1), PART.hat, 0);
+        SW(hd([-1.6, 8.6, 0]), hd([-4.4, 10.2, 0]), hr(1.1), hr(0.2), PART.hat, 0);
+        EL(hd([-0.2, 3.3, 0]), H.R, hr([3.45, 0.62, 3.35]), PART.band, 0);
+        SP(hd([2.9, 3.3, 1.2]), hr(0.7), PART.gem, 0);
+      }
+      if (X.longBeard) {          // 긴 흰 수염: 턱에서 가슴 아래까지
+        useFrame("head");
+        SW(hd([2.6, -1.3, 0.9]), hd([3.6, -5.4, 1.8]), hr(2.3), hr(1.7), PART.beard, 0);
+        SW(hd([3.6, -5.4, 1.8]), hd([3.0, -9.6, 1.9]), hr(1.7), hr(0.35), PART.beard, 0);
+        SW(hd([3.6, -0.4, -1.3]), hd([3.6, -0.4, 2.6]), hr(0.6), hr(0.6), PART.beard, 0);          // 콧수염
+      }
+      if (X.pauldrons) {          // 어깨 갑옷: 어깨를 덮는 둥근 판(팔 굵기를 따른다)
+        curDim = 0;
+        useFrame("upperN"); EL(add(sN, [0, 0.9, 0]), C.R, [2.9 * KA, 2.2 * KA, 3.1 * KA], PART.pauldron, 0);
+        curDim = 1;
+        useFrame("upperF"); EL(add(sF, [0, 0.9, 0]), C.R, [2.9 * KA, 2.2 * KA, 3.1 * KA], PART.pauldron, 0);
+        curDim = 0;
+        if (X.pauldrons === "spiked") for (const s0 of [sN, sF]) SW(add(s0, [-0.4, 2.4 * KA, 0]), add(s0, [-1.6, 5.0 * KA, 0]), 0.8, 0.1, PART.horn, 0);
+      }
+      if (X.cloak) {          // 천 망토: 어깨 뒤에서 종아리까지(항상 땅 쪽으로)
+        useFrame("chest");
+        const top = at(C, [-3.1 * K, 2.2, 0]), low = [top[0] - 3.4, Math.max(3.2, top[1] - 21), top[2] - 0.4];
+        SW(top, low, 3.6 * Math.sqrt(K), 3.9 * Math.sqrt(K), PART.cape, 0, 0.5);
+        EL(at(C, [-0.4, 3.6, 0]), C.R, [3.4 * K, 1.2, 5.2 * K], PART.collar, 0);          // 어깨에 두른 깃
+      }
+      if (X.robe) {          // 긴 옷: 허리에서 발목까지 퍼지고, 소매가 넓다
+        useFrame("pelvis");
+        const top = at(P, [0.2, 0.6, 0]), low = [top[0] + 0.4, 2.2, top[2]];
+        SW(top, low, 3.4 * K, 5.0 * K, PART.robe, 0, 0.3);
+        for (const [A, nm] of [[armN, "foreN"], [armF, "foreF"]]) {
+          curDim = nm === "foreF" ? 1 : 0;
+          useFrame(nm);
+          SW(A.joint, add(A.end, mul(unit(sub(A.end, A.joint)), -0.6)), 1.9 * KA, 2.6 * KA, PART.sleeve, 0);
+        }
+        curDim = 0;
+      }
+      if (X.quiver) {          // 화살통: 등에 비스듬히, 위로 깃 셋
+        useFrame("chest");
+        const a = at(C, [-3.8 * K, -3.0, 2.2]), b = at(C, [-4.6 * K, 6.6, 3.2]);
+        SW(a, b, 1.35, 1.5, PART.quiver, 0);
+        for (let k = -1; k <= 1; k++) SW(add(b, [0, 0.4, k * 0.7]), add(b, [-0.6 + k * 0.4, 2.8, k * 0.9]), 0.45, 0.35, PART.plume, 0);
+      }
+    }
     const H = F_("head"), C = F_("chest"), P = F_("pelvis"), at = (f, v) => add(f.t, mv(f.R, v));
     if (X.bearHood) {            // 기본 모습: 곰 가죽 두건. 머리 위와 뒤를 덮고, 주둥이가 이마 위로 나온다
       useFrame("head");
@@ -678,7 +773,8 @@ function render(pose) {
 }
 REST_FRAMES = solve({}).B;
 
-const CACHE = new Map();
+let CACHE = new Map();
+SKIN_CACHES.set("", CACHE);
 const keyOf = (p) => {
   let s = (p.y ?? 0) < -0.5 ? "air," : "";
   for (const k of Object.keys(p).sort()) {
