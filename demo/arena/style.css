@@ -74,3 +74,9 @@ body.inmenu #pad, body.inmenu #hud { visibility: hidden; }
   .mlist { align-self: flex-end; background: rgba(11,10,16,.72); border-radius: 8px; padding: 4px 2px; }
   .mlist button { font-size: 18px; padding: 3px 14px; }
 }
+/* 시작 화면 그림(Flow, 2026-11-26): 세로 화면은 세로 그림, 가로 화면은 가로 그림 */
+#menu { background: linear-gradient(rgba(11,10,16,.5) 0%, rgba(11,10,16,0) 24%, rgba(11,10,16,0) 58%, rgba(11,10,16,.92) 80%, #0b0a10 100%), url("art/title_port.jpg") center top / cover no-repeat, #0b0a10; }
+@media (orientation: landscape) {
+  #menu { background: linear-gradient(rgba(11,10,16,.45) 0%, rgba(11,10,16,0) 28%, rgba(11,10,16,0) 62%, rgba(11,10,16,.85) 100%), url("art/title_land.jpg") center / cover no-repeat, #0b0a10; }
+  .mlist { background: rgba(11,10,16,.6); border-radius: 8px; padding: 4px 6px; }
+}
