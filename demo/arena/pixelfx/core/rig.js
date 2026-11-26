@@ -209,7 +209,7 @@ function ellipsoid(c, R, r, part, mat) {
 // parts: each has its own number, so edges between them can be seen
 const PART = { pelvis: 1, waist: 2, chest: 3, neck: 4, head: 5, face: 6, upperN: 7, elbowN: 8, foreN: 9, handN: 10, upperF: 11, elbowF: 12, foreF: 13, handF: 14, thighN: 15, kneeN: 16, shinN: 17, footN: 18, thighF: 19, kneeF: 20, shinF: 21, footF: 22, weapon: 23, offWeapon: 24 };
 Object.assign(PART, { mouth: 93, brow: 94, hood: 60, snout: 61, nose: 62, ear: 63, beard: 64, cape: 65, fur: 66, belt: 67, braid: 68, claw: 69, beast: 70, bhead: 71, legN: 72, legF: 73, moss: 74, trunk: 75, leaf: 76, crown: 77, eye: 78,
-  strap: 80, skirt: 81, tooth: 82, earIn: 83, buckle: 84, ruff: 85, moss2: 86, rock: 87, fern: 88, leafD: 89, antler: 90, crystal: 91, wrap: 92, helm: 100, visor: 101, horn: 102, wing: 103, plume: 104, pauldron: 105, robe: 106, sleeve: 107, hat: 108, hatbrim: 109, band: 110, quiver: 111, gem: 112, collar: 113 });
+  strap: 80, skirt: 81, tooth: 82, earIn: 83, buckle: 84, ruff: 85, moss2: 86, rock: 87, fern: 88, leafD: 89, antler: 90, crystal: 91, wrap: 92, helm: 100, visor: 101, horn: 102, wing: 103, plume: 104, pauldron: 105, robe: 106, sleeve: 107, hat: 108, hatbrim: 109, band: 110, quiver: 111, gem: 112, collar: 113, plate: 114, fauld: 115, gauntlet: 116, greave: 117, kneecop: 118, boot: 119, sash: 120, bracer: 121, shoulder2: 122 });
 const PNAME = Object.fromEntries(Object.entries(PART).map(([k, v]) => [v, k]));
 const useFrame = (name) => { curFrameIndex = FRAME_IDS.indexOf(name); };
 
@@ -261,6 +261,45 @@ function drawBody(S) {
       const H = F_("head"), C = F_("chest"), P = F_("pelvis"), at = (f, v) => add(f.t, mv(f.R, v));
       const hd = (v) => add(add(H.t, mv(H.R, [0, (KH - 1) * 2.8, 0])), mv(H.R, mul(v, KH)));          // 머리 기준 자리(머리 크기만큼 늘어남)
       const hr = (r) => (Array.isArray(r) ? mul(r, KH) : r * KH);
+      const lerp3 = (a, b, u) => add(a, mul(sub(b, a), u));
+      if (X.armor) {          // 판금 갑옷: 몸통·허리를 덮는 판, 팔뚝·정강이 보호대, 무릎 덮개
+        useFrame("chest");
+        EL(at(C, [0.55, 0.75, 0]), C.R, [3.85 * K, 4.45 * Math.sqrt(K), 5.75 * K], PART.plate, 0);
+        useFrame("pelvis");
+        EL(at(P, [0.25, -0.6, 0]), P.R, [3.35 * K, 2.6, 4.75 * K], PART.fauld, 0);
+        for (const [A, nm, dim] of [[armN, "foreN", 0], [armF, "foreF", 1]]) {
+          curDim = dim; useFrame(nm);
+          SW(lerp3(A.joint, A.end, 0.25), lerp3(A.joint, A.end, 0.92), 1.95 * KA, 2.05 * KA, PART.gauntlet, 0);
+        }
+        for (const [L, nm, dim] of [[legN, "shinN", 0], [legF, "shinF", 1]]) {
+          curDim = dim; useFrame(nm);
+          SW(lerp3(L.joint, L.end, 0.12), lerp3(L.joint, L.end, 0.9), 2.45 * KL, 1.95 * KL, PART.greave, 0);
+          SP(L.joint, 2.1 * KL, PART.kneecop, 0);
+        }
+        curDim = 0;
+      }
+      if (X.boots) {          // 가죽 장화: 정강이 아래와 발을 감싼다
+        for (const [L, sn, fn, dim] of [[legN, "shinN", "footN", 0], [legF, "shinF", "footF", 1]]) {
+          curDim = dim; useFrame(sn);
+          SW(lerp3(L.joint, L.end, 0.45), L.end, 2.05 * KL, 1.85 * KL, PART.boot, 0);
+          useFrame(fn);
+          const R = F_(fn).R, a = F_(fn).t;
+          SW(add(a, mv(R, [-1.6, -0.5, 0])), add(a, mv(R, [4.4, -1.0, 0])), 1.95 * Math.sqrt(KL), 1.4 * Math.sqrt(KL), PART.boot, 0);
+        }
+        curDim = 0;
+      }
+      if (X.bracers) {          // 가죽 팔찌: 팔뚝 아래쪽
+        for (const [A, nm, dim] of [[armN, "foreN", 0], [armF, "foreF", 1]]) {
+          curDim = dim; useFrame(nm);
+          SW(lerp3(A.joint, A.end, 0.4), lerp3(A.joint, A.end, 0.88), 1.85 * KA, 1.75 * KA, PART.bracer, 0);
+        }
+        curDim = 0;
+      }
+      if (X.sash) {          // 허리에 맨 천 띠, 앞으로 늘어진 끝
+        useFrame("pelvis");
+        EL(at(P, [0, 2.0, 0]), P.R, [3.4 * K, 1.25, 4.8 * K], PART.sash, 0);
+        SW(at(P, [3.0 * K, 1.6, 1.6 * K]), at(P, [3.6 * K, -5.2, 2.0 * K]), 1.0, 0.8, PART.sash, 0);
+      }
       if (X.helm) {          // 투구: 머리를 통째로 덮고 앞에 가로 눈구멍
         useFrame("head");
         EL(hd([0.35, 0.45, 0]), H.R, hr([3.75, 3.85, 3.45]), PART.helm, 0);
@@ -441,9 +480,10 @@ function drawBody(S) {
 }
 
 // ---- what they hold: drawn along the handle from the fist, through the same depth buffer
-function along(H, axis, side, part) {
-  const n = cross(axis, side);
-  const T = (i, k, c, lift = 0) => {
+function along(H0, axis, side, part, sc = 1) {          // [가제] sc: 전체 배율(두 배 세밀하게 그릴 때 무기도 같이 커진다)
+  const n = cross(axis, side), H = mul(H0, sc);
+  const T = (i0, k0, c, lift0 = 0) => {
+    const i = i0 * sc, k = k0 * sc, lift = lift0 * sc;
     const x = H[0] + axis[0] * i + side[0] * k + n[0] * lift, y = H[1] + axis[1] * i + side[1] * k + n[1] * lift, z = H[2] + axis[2] * i + side[2] * k + n[2] * lift;
     const wx = Math.round(x), wy = Math.round(y);
     if (clipWeapon && wy < 0) return;
@@ -452,7 +492,8 @@ function along(H, axis, side, part) {
     curFrameIndex = -1;
     plot(idx, z + 0.05, 2, part, 2, wx, wy, c);
   };
-  T.at = (i, k) => [H[0] + axis[0] * i + side[0] * k, H[1] + axis[1] * i + side[1] * k, H[2] + axis[2] * i + side[2] * k];
+  T.at = (i0, k0) => { const i = i0 * sc, k = k0 * sc; return [H[0] + axis[0] * i + side[0] * k, H[1] + axis[1] * i + side[1] * k, H[2] + axis[2] * i + side[2] * k]; };
+  T.sc = sc;
   return T;
 }
 const STEEL = Object.fromEntries(Object.entries({ hi: "#ffffff", a: "#e8edf6", b: "#a4afc6", d: "#68748f", gold: "#ffd84a", goldD: "#b8862a", grip: "#7a3a2a", gripD: "#4a2018", wood: "#8a5a32", woodD: "#5a3820", dark: "#3a3448", darkD: "#262033", olive: "#58663f", oliveA: "#7d8c58", oliveD: "#3a4529" }).map(([k, v]) => [k, hex(v) >>> 0]));
@@ -554,6 +595,56 @@ export const WEAPONS = {
   } },
 };
 
+// ---- [가제 결투장] 추가 무기: 지팡이(마법사)·마도서(소환사)·엘프 활(궁수)
+const EXW = Object.fromEntries(Object.entries({ orb: "#bff4ff", orbA: "#5ad0ff", orbD: "#2a6ad0", leaf: "#7ad050", leafD: "#3a8a30", leafK: "#22541e", cover: "#2a6a3e", coverD: "#174226", page: "#f4ecd4", pageD: "#c8b890", rune: "#7affc8", runeD: "#2ab888" }).map(([k, v]) => [k, hex(v) >>> 0]));
+WEAPONS.staff = { two: -9, draw(T) {          // 나무 자루 + 꼭대기 금빛 초승달 고리 + 빛나는 구슬
+  for (let i = -15; i <= 21; i += 0.35) for (let k = -0.85; k <= 0.85; k += 0.35) T(i, k, [-13, 2, 18].some((r) => Math.abs(i - r) < 0.6) ? (k > 0.25 ? STEEL.goldD : STEEL.gold) : k > 0.25 ? STEEL.woodD : Math.floor(i * 0.7) % 5 === 0 ? STEEL.woodD : STEEL.wood);
+  for (let a = -2.6; a <= 2.6; a += 0.04) {          // 초승달: 구슬을 감싸는 금 고리(앞쪽이 열려 있다)
+    const ci = 25.5 + Math.cos(a) * 4.2, ck = Math.sin(a) * 4.2;
+    for (let w = -0.5; w <= 0.5; w += 0.35) T(ci + Math.cos(a) * w, ck + Math.sin(a) * w, Math.abs(a) > 2.2 ? STEEL.goldD : a < 0 ? STEEL.gold : STEEL.goldD);
+  }
+  for (let i = 22.6; i <= 28.4; i += 0.3) for (let k = -2.9; k <= 2.9; k += 0.3) {
+    const d = Math.hypot(i - 25.5, k);
+    if (d <= 2.8) T(i, k, d < 0.9 && i > 25.5 ? EXW.orb : i + k * 0.4 > 26 ? EXW.orbA : EXW.orbD, 0.3);
+  }
+  for (let k = -1.6; k <= 1.6; k += 0.35) T(21.4, k, STEEL.gold);          // 자루와 고리를 잇는 금테
+} };
+WEAPONS.book = { draw(T) {          // 두꺼운 가죽 표지, 금 모서리, 빛나는 문장, 옆으로 보이는 책장
+  for (let i = -1; i <= 8; i += 0.3) for (let k = -4.4; k <= 4.4; k += 0.3) {
+    const edge = i < -0.4 || i > 7.4 || Math.abs(k) > 3.8, corner = (i < 0.6 || i > 6.4) && Math.abs(k) > 3;
+    T(i, k, corner ? STEEL.gold : edge ? EXW.coverD : EXW.cover, 1.4);
+    if (k > 3.6) T(i, k + 0.4, Math.floor(i * 2) % 2 ? EXW.page : EXW.pageD, 0.6);          // 책장 결
+  }
+  for (let a = 0; a < 6.283; a += 0.12) { const r = 1.6 + 0.35 * Math.cos(a * 3); T(3.5 + Math.cos(a) * r, Math.sin(a) * r, EXW.rune, 1.6); }          // 문장
+  T(3.5, 0, EXW.orb, 1.7);
+} };
+WEAPONS.elfbow = { across: true, draw(T, q, off) {          // 엘프 활: 가운데가 깊고 끝이 다시 휘는 활, 잎 무늬, 금 손잡이
+  for (let u = -1; u <= 1.001; u += 0.02) {
+    const k = u * 19, au = Math.abs(u), i = 7 * (1 - u * u) - 1 - (au > 0.78 ? (au - 0.78) * 14 : 0);
+    const c = au < 0.14 ? STEEL.gold : au > 0.92 ? STEEL.goldD : Math.floor(au * 18) % 3 === 0 ? EXW.leaf : EXW.leafD;
+    T(i, k, c);
+    T(i + 0.7, k, au < 0.14 ? STEEL.goldD : EXW.leafK);
+    if (au > 0.3 && au < 0.75 && Math.floor(au * 40) % 6 === 0) T(i + 1.4, k, EXW.leaf);          // 잎사귀 돌기
+  }
+  const tipA = T.at(-1 - 3.1, -19), tipB = T.at(-1 - 3.1, 19), mid = q.pull ? off : T.at(-1, 0), sc = T.sc ?? 1;
+  const line = (A, B, c) => {
+    const n = Math.max(2, Math.ceil(len(sub(B, A)) / 0.4));
+    for (let k = 0; k <= n; k++) {
+      const P = add(A, mul(sub(B, A), k / n)), wx = Math.round(P[0]), wy = Math.round(P[1]), idx = (OY - wy) * BW + (OX + wx);
+      curFrameIndex = -1;
+      plot(idx, P[2] + 0.05, 2, PART.weapon, 2, wx, wy, c ?? STEEL.a);
+    }
+  };
+  line(tipA, mid);
+  line(tipB, mid);
+  if (q.nocked) {
+    const tip = T.at(14, 0);
+    line(mid, tip, STEEL.wood);
+    for (let i = 10; i <= 14; i += 0.4) for (let k = -(14 - i) * 0.45; k <= (14 - i) * 0.45; k += 0.4) T(i, k, EXW.orb);
+    void sc;
+  }
+} };
+
 const LOGC = Object.fromEntries(Object.entries({ hi: "#c89858", a: "#9a6a3a", d: "#6a4424", k: "#4a2c16", band: "#e68c2c", bandD: "#a85a1c", leaf: "#8cc840" }).map(([k, v]) => [k, hex(v) >>> 0]));
 WEAPONS.log = { two: -6, draw(T) {
   for (let i = -9; i <= 31; i += 0.4) {
@@ -599,6 +690,23 @@ function finish(S, restFrames) {
       tn = Math.max(0, Math.min(3, tn + (h < 0.13 ? -1 : h > 0.78 ? 1 : 0)));
     }
     Col[i] = rp ? rp[tn] : (Mat[i] === 1 ? CORE : SHELL)[tn];
+  }
+  // [가제 결투장] 무늬: 점마다 그 부위 뼈 기준 자리를 구해 규칙에 묻는다(금테·리벳·문장·주름·깃 결). 뼈를 따라 움직인다
+  if (SKIN && SKIN.paint) {
+    const kk = SKIN.scale, BB = S.B, HEADS = new Set(["head", "face", "helm", "visor", "hood", "hat", "hatbrim", "band", "horn", "wing", "plume", "ear", "beard", "gem"]);
+    for (const i of touched) {
+      if (Mat[i] === 2) continue;
+      const pn = PNAME[Part[i]], rule = SKIN.paint[pn];
+      if (!rule) continue;
+      const fi = Fr[i], wx = ((i % BW) - OX) / kk, wy = (OY - ((i / BW) | 0)) / kk, wz = Zb[i] / kk;
+      let lp = [wx, wy, wz];
+      if (fi >= 0) { const A = BB[FRAME_IDS[fi]]; lp = tv(A.R, sub(lp, A.t)); }
+      if (HEADS.has(pn)) { const kh = SKIN.head || 1; lp = [lp[0] / kh, lp[1] / kh - (kh - 1) * 2.8 / kh, lp[2] / kh]; }
+      const t0 = tones.get(i), r = rule(lp[0], lp[1], lp[2], t0, wy, i);
+      if (r == null) continue;
+      const [rn, t] = typeof r === "string" ? [r, t0] : r, rp = SKIN.ramps[rn];
+      if (rp) Col[i] = rp[Math.max(0, Math.min(3, t))];
+    }
   }
   // where two parts meet: a soft seam if they touch, ink if one stands in front of the other
   const marks = new Map();
@@ -761,12 +869,13 @@ function render(pose) {
   clipWeapon = !air;
   drawBody(S);
   clipBody = false;
-  if (S.W) S.W.draw(along(S.armN.end, S.axis, S.side, PART.weapon), q, S.armF.end);
+  const wk = SKIN ? SKIN.scale : 1;
+  if (S.W) S.W.draw(along(S.armN.end, S.axis, S.side, PART.weapon, wk), q, mul(S.armF.end, wk));
   if (S.OW) {
     const sb = q.sb ?? Math.PI;
     let ax = [Math.cos(sb), -Math.sin(sb), 0], sd = [-Math.sin(sb), -Math.cos(sb), 0];
     if (whole) { const R = rotY(-whole); ax = mv(R, ax); sd = mv(R, sd); }
-    S.OW.draw(along(S.armF.end, ax, sd, PART.offWeapon), q, S.armF.end);
+    S.OW.draw(along(S.armF.end, ax, sd, PART.offWeapon, wk), q, mul(S.armF.end, wk));
   }
   clipWeapon = false;
   return finish(S, REST_FRAMES);

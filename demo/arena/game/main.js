@@ -7,10 +7,14 @@ import { rasterText } from "../pixelfx/core/font.js";
 import { FX, CATS } from "./fxlist.js?v=7";
 import { buildBackdrop } from "./backdrop.js";
 
-const W = 384, H = 216, FLOOR = 188, LEFT = 22, RIGHT = W - 22;
+const W = 384, H = 216, FLOOR = 188, LEFT = 22, RIGHT = W - 22, W2 = W * 2, H2 = H * 2;
+// 화면은 두 층: 배경·효과·허수아비·숫자는 384×216 점, 인형(뼈대로 움직이는 사람)은 그 위에 두 배 세밀하게(768×432)
 const cv = document.getElementById("c"), ctx = cv.getContext("2d");
-const frame = createFrame(W, H);
-const img = ctx.createImageData(W, H);
+const frame = createFrame(W, H), frameC = createFrame(W, H);
+const img = ctx.createImageData(W2, H2), out32 = new Uint32Array(img.data.buffer);
+const bufA = new Uint8ClampedArray(W * H * 4), bufC = new Uint8ClampedArray(W * H * 4), A32 = new Uint32Array(bufA.buffer), C32 = new Uint32Array(bufC.buffer);
+const STOCK2 = { scale: 2 };          // 기본 인형을 두 배 세밀하게
+let hi = [];          // 두 배 층에 그릴 인형들(배경 층을 키운 뒤 그린다)
 const BYID = Object.fromEntries(FX.map((e) => [e.id, e]));
 
 // ---- 무기 12종(+맨손): 공격 단추를 누를 때마다 목록의 다음 동작
@@ -28,7 +32,19 @@ const WEAPONS = [
   { key: "bow", ko: "활", moves: ["moves/arrow-shot"] },
   { key: "pistol", ko: "권총", moves: ["moves/pistol-shots"] },
   { key: "launcher", ko: "로켓", moves: ["moves/rocket-launcher"] },
+  // 추가 무기(2026-11-27): 세트 무기. force = 무기가 없는 자세(마법 시전)에도 쥐여 줄 것
+  { key: "staff", ko: "지팡이", tag: "마법사", moves: ["melee/spear-sweep", "moves/lightning-call", "arcane/arcane-missiles"], as: "staff", force: { weapon: "staff", sa: -1.2 } },
+  { key: "book", ko: "마도서", tag: "소환사", moves: ["moves/fireball-throw", "arcane/arcane-missiles", "moves/holy-smite"], force: { offWeapon: "book", sb: -2.2 } },
+  { key: "elfbow", ko: "엘프 활", tag: "궁수", moves: ["moves/arrow-shot"], as: "elfbow" },
 ];
+// 무기에 맞게 자세 고치기: 원래 무기를 바꿔 쥐고(as), 빈손 자세에는 정해 둔 무기를 쥐여 준다(force)
+function gripPose(q, w) {
+  if (!w) return q;
+  let o = q;
+  if (w.as && o.weapon) o = { ...o, weapon: w.as };
+  if (w.force) for (const [k, v] of Object.entries(w.force)) if (k === "offWeapon" || k === "sb" || !q.weapon) o = { ...o, [k]: v };
+  return o;
+}
 // 몸에 입히는 효과 중 적에게 거는 것(나머지는 나에게: 치유·보호막·가속 등)
 const DEBUFF = new Set(["ice/freeze", "shadow/curse", "impacts/hit-flash", "spawn/disintegrate", "spawn/dissolve-burn", "spawn/shatter-death", "spawn/soul-rise", "scifi/glitch", "scifi/scanner",
   ...["bleeding", "burning", "charmed", "confused", "cursed", "frozen", "petrified", "poisoned", "sleep", "slowed", "stunned"].map((s) => "status/" + s)]);
@@ -86,8 +102,8 @@ function shadowAt(x, y, hw) {
       if (px >= 0 && px < W && y + dy < H) C[i] = (C[i] & 0xffffff) | (Math.max(C[i] >>> 24, 110) << 24);
     }
 }
-function text(str, x, y, c, font = "mini") {
-  const C = frame.color, ink = hex("#0b0a10");
+function text(str, x, y, c, font = "mini", fr = frame) {
+  const C = fr.color, ink = hex("#0b0a10");
   const put = (px, py, col) => { if (px >= 0 && py >= 0 && px < W && py < H) C[py * W + px] = col; };
   rasterText(str, font, (a, b) => { put(x + a + 1, y + b + 1, ink); });
   rasterText(str, font, (a, b) => { put(x + a, y + b, c); });
@@ -98,8 +114,7 @@ const weapon = () => WEAPONS[P.wi];
 function idlePose() {
   const w = weapon(), first = mods[w.moves[0]]?.act?.poses?.[0]?.[1];
   let q = first ? { ...first, x: 0, y: 0, ghost: false } : { ...READY };
-  if (w.as) q = { ...q, weapon: w.as };
-  return q;
+  return gripPose(q, w);
 }
 function walkPose(q, ph) {
   const s = Math.sin(ph), c = Math.cos(ph);
@@ -119,7 +134,7 @@ async function perform(id, opts = {}) {
   const e = BYID[id];
   let mod = await load(id);
   if (P.act) return;
-  if (opts.as) mod = { ...mod, act: { ...mod.act, poses: mod.act.poses.map(([t, q, h]) => [t, q.weapon ? { ...q, weapon: opts.as } : q, h]) } };
+  if (opts.w) mod = { ...mod, act: { ...mod.act, poses: mod.act.poses.map(([t, q, h]) => [t, gripPose(q, opts.w), h]) } };
   const flip = P.face < 0, act = createAct(mod, { x: Math.round(P.x), y: FLOOR, flip, seed: (Math.random() * 1e6) | 0, actor: undefined });
   const reach = Math.max(50, e.reach || 60) + 26;
   const rec = { act, id, x0: P.x, face: P.face, reach, buff: BUFF[id], lastHit: 0, hits: (mod.act?.hits ?? []).length };
@@ -239,18 +254,19 @@ function drawFoe(f) {
     shadowAt(f.x, FLOOR, 12);
     T.draw(C, W, H, Math.round(f.x), FLOOR, f.flip);
   } else {
-    const q = manPose(f), r = posed(q), tan = Math.tan(T.theta), sv = T.shiver > 0 ? (Math.floor(T.clock * 30) & 1 ? 1 : -1) : 0;
-    const name = T.flashT > 0 ? "flash" : T.skin, sk = name ? SKINS[name] : null, dir = f.flip ? -1 : 1, mir = f.face < 0;
+    const q = manPose(f), tan = Math.tan(T.theta), sv = T.shiver > 0 ? (Math.floor(T.clock * 30) & 1 ? 2 : -2) : 0;
+    const name = T.flashT > 0 ? "flash" : T.skin, sk = name ? SKINS[name] : null, dir = f.flip ? -1 : 1, mir = f.act ? f.act.face < 0 : f.face < 0;
     const base = f.act ? f.act.x0 : f.x, face = f.act ? f.act.face : f.face;
-    const bx = Math.round(base) + Math.round(q.x ?? 0) * face, by = FLOOR + Math.round(q.y ?? 0);
-    shadowAt(bx, FLOOR, 10);
-    for (let i = 0; i < r.n; i++) {
-      const o = Math.round(-r.ys[i] * tan * 0.8) * dir + sv, px = ((f.act ? face < 0 : mir) ? bx - r.xs[i] - 1 : bx + r.xs[i]) + o, py = by + r.ys[i];
-      if (px < 0 || py < 0 || px >= W || py >= H) continue;
-      let c = r.color[i];
-      if (f.tint !== undefined) c = recolor(c, f.tint);
-      C[py * W + px] = sk ? mix(c, sk[0], sk[1]) : c;
-    }
+    const bx2 = Math.round(base) * 2 + Math.round((q.x ?? 0) * 2) * face, by2 = FLOOR * 2 + Math.round((q.y ?? 0) * 2);
+    shadowAt(bx2 / 2, FLOOR, 10);
+    hi.push(() => {
+      setSkin(STOCK2);
+      const r = posed(q);
+      plot2(r, bx2, by2, mir, (c, i) => {
+        if (f.tint !== undefined) c = recolor(c, f.tint);
+        return sk ? mix(c, sk[0], sk[1]) : c;
+      }, (i) => Math.round(-r.ys[i] * tan * 0.8) * dir + sv);
+    });
     top = 48;
   }
   T.drawStraw(C, W, H, Math.round(foeX(f)), FLOOR, f.flip);
@@ -431,30 +447,69 @@ async function burst(x) {
   S.fields.push({ fx: createFx(m, { x: Math.round(x), y: FLOOR - 24, seed: (Math.random() * 999) | 0 }), life: 0.6, t: 0, done: true });
 }
 
+// 두 배 층에 인형 하나: r = 두 배로 그린 자세, (bx2, by2) = 발 자리(두 배 좌표), colorFn·shiftFn = 색 바꾸기·줄마다 밀기
+function plot2(r, bx2, by2, mirror, colorFn, shiftFn) {
+  for (let i = 0; i < r.n; i++) {
+    const px = (mirror ? bx2 - r.xs[i] - 1 : bx2 + r.xs[i]) + (shiftFn ? shiftFn(i) : 0), py = by2 + r.ys[i];
+    if (px < 0 || py < 0 || px >= W2 || py >= H2) continue;
+    out32[py * W2 + px] = colorFn ? colorFn(r.color[i], i) : r.color[i];
+  }
+}
+function heroJob() {          // 주인공: 서 있거나 걷는 자세, 또는 연기 중인 자세를 두 배 층에
+  const skin = pskin ?? STOCK2;
+  if (P.act && !P.act.detached) {
+    const rec = P.act, q = rec.act.pose ?? STAND, flip = rec.face < 0, X = Math.round(rec.x0);
+    const bx2 = X * 2 + (flip ? -1 : 1) * Math.round((q.x ?? 0) * 2), by2 = FLOOR * 2 + Math.round((q.y ?? 0) * 2);
+    shadowAt(bx2 / 2, FLOOR, 10);
+    hi.push(() => { setSkin(skin); plot2(posed(q), bx2, by2, flip); });
+    return;
+  }
+  const blink = P.inv > 0 && Math.floor(P.inv * 20) % 2 === 0, q = playerPose(), white = P.hurt > 0 ? hex("#ffffff") : 0;
+  shadowAt(P.x, FLOOR, 10);
+  if (blink) return;
+  const bx2 = Math.round(P.x * 2), by2 = (FLOOR - Math.round(P.jy)) * 2;
+  hi.push(() => { setSkin(skin); plot2(posed(q), bx2, by2, P.face < 0, white ? () => white : null); });
+}
 function draw() {
   clearFrame(frame);
+  clearFrame(frameC);
+  hi = [];
   setSkin(null);
   for (const f of S.foes) drawFoe(f);
   for (const r of S.fields) r.fx.draw(frame, "back");
-  // 주인공(연기 중이 아니면 직접 그린다)
-  setSkin(pskin);
-  if (!P.act) {
-    const blink = P.inv > 0 && Math.floor(P.inv * 20) % 2 === 0;
-    shadowAt(P.x, FLOOR, 10);
-    if (!blink) plotPose(playerPose(), Math.round(P.x), FLOOR - Math.round(P.jy), P.face < 0, P.hurt > 0 ? hex("#ffffff") : 0);
-    if (P.buff.shield > 0) ring(P.x, FLOOR - 19, 20, hex("#fff4c0"));
+  heroJob();
+  // 앞 층: 연기의 효과(칼빛·불꽃), 앞에 그리는 효과, 날아가는 탄, 피해 숫자, 보호막
+  for (const r of S.acts) r.act.draw(frameC, { body: false, target: false });
+  for (const r of S.fields) r.fx.draw(frameC, "front");
+  for (const s of S.shots) s.fx.draw(frameC);
+  const keep = frame;
+  if (P.buff.shield > 0 && !P.act) ring(P.x, FLOOR - 19, 20, hex("#fff4c0"));
+  for (const n of S.nums) text(String(n.v), Math.round(n.x) - 4, Math.round(n.y - n.t * 22), n.v >= 25 ? hex("#ffe14a") : hex("#ffffff"), "mini", frameC);
+  void keep;
+  // 배경 층을 두 배로 키우고 → 인형 → 앞 층을 얹는다
+  composite(frame, bufA, S.mode === "menu" ? bgMenu : bg);
+  for (let y = 0; y < H; y++) {
+    const r0 = y * W, o0 = y * 2 * W2;
+    for (let x = 0; x < W; x++) { const c = A32[r0 + x], o = o0 + x * 2; out32[o] = c; out32[o + 1] = c; out32[o + W2] = c; out32[o + W2 + 1] = c; }
   }
-  for (const r of S.acts) { setSkin(r.enemy ? null : pskin); r.act.draw(frame, { body: !r.detached && !r.enemy, target: false }); }
+  for (const job of hi) job();
   setSkin(null);
-  for (const r of S.fields) r.fx.draw(frame, "front");
-  for (const s of S.shots) s.fx.draw(frame);
-  for (const n of S.nums) text(String(n.v), Math.round(n.x) - 4, Math.round(n.y - n.t * 22), n.v >= 25 ? hex("#ffe14a") : hex("#ffffff"));
-  composite(frame, img.data, S.mode === "menu" ? bgMenu : bg);
+  composite(frameC, bufC, null);
+  for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
+    const c = C32[y * W + x], a = c >>> 24;
+    if (!a) continue;
+    const o = y * 2 * W2 + x * 2;
+    for (const j of [o, o + 1, o + W2, o + W2 + 1]) {
+      if (a === 255) { out32[j] = c; continue; }
+      const d = out32[j], k = a / 255, ch = (n) => Math.round(((c >>> n) & 255) * k + ((d >>> n) & 255) * (1 - k));
+      out32[j] = (255 << 24) | (ch(16) << 16) | (ch(8) << 8) | ch(0);
+    }
+  }
   let sx = 0, sy = 0;
   for (const r of S.acts) { const [a, b] = r.act.shake; sx += a; sy += b; }
   ctx.fillStyle = "#0b0a10";
-  ctx.fillRect(0, 0, W, H);
-  ctx.putImageData(img, sx, sy);
+  ctx.fillRect(0, 0, W2, H2);
+  ctx.putImageData(img, sx * 2, sy * 2);
   // 체력·정보
   document.getElementById("hpbar").style.width = (100 * P.hp) / P.max + "%";
   document.getElementById("hptxt").textContent = `${Math.ceil(P.hp)} / ${P.max}`;
@@ -470,7 +525,7 @@ function draw() {
 function ring(cx, cy, r, c) {
   for (let a = 0; a < 64; a++) {
     const px = Math.round(cx + Math.cos((a / 64) * 6.283) * r), py = Math.round(cy + Math.sin((a / 64) * 6.283) * r * 1.1);
-    if (px >= 0 && py >= 0 && px < W && py < H && (a + Math.floor(performance.now() / 80)) % 4) frame.light[py * W + px] = c;
+    if (px >= 0 && py >= 0 && px < W && py < H && (a + Math.floor(performance.now() / 80)) % 4) frameC.light[py * W + px] = c;
   }
 }
 
@@ -479,7 +534,7 @@ function attack() {
   if (P.act || S.over || P.jy > 0 || S.mode === "menu") return;
   const w = weapon(), id = w.moves[P.combo % w.moves.length];
   P.combo++;
-  perform(id, { as: w.as });
+  perform(id, { w });
 }
 function jump() { if (P.jy === 0 && !P.act && !S.over && S.mode !== "menu") { P.vy = 165; P.jy = 0.01; } }
 function hold(el, key) {
@@ -564,7 +619,7 @@ function openPicker(mode) {
     }
   }
   plist.innerHTML = "";
-  const items = mode === "w" ? WEAPONS.map((w, i) => ({ label: w.ko, sub: w.moves.map((m) => BYID[m].ko).join(" · "), sel: i === P.wi, go: () => setWeapon(i) }))
+  const items = mode === "w" ? WEAPONS.map((w, i) => ({ label: w.tag ? w.ko + " ✦" : w.ko, sub: (w.tag ? "추가 · " + w.tag + " · " : "") + w.moves.map((m) => BYID[m].ko).join(" · "), sel: i === P.wi, go: () => setWeapon(i) }))
     : FX.filter((e) => pickCat === "all" || e.cat === pickCat).map((e) => ({ label: e.ko, sub: `${CATS[e.cat]} · ${e.poses && !e.body ? "동작" : e.body ? (DEBUFF.has(e.id) ? "적에게" : "나에게") : e.cat === "projectiles" && e.loop ? "날리기" : "효과"}`, sel: S.spell === e, go: () => setSpell(e) }));
   for (const it of items) {
     const b = document.createElement("button");
@@ -581,11 +636,11 @@ tap(document.getElementById("pickS"), () => openPicker("s"));
 let LOOK = { set: -1, color: {}, shape: {} }, pskin = null;
 try { LOOK = { ...LOOK, ...JSON.parse(localStorage.getItem("arena.look") || "{}") }; } catch {}
 function applyLook() {
-  pskin = LOOK.set < 0 ? null : buildSkin(SETS[LOOK.set], LOOK.color, LOOK.shape);
+  pskin = LOOK.set < 0 ? null : buildSkin(SETS[LOOK.set], LOOK.color, LOOK.shape, 2);
   try { localStorage.setItem("arena.look", JSON.stringify(LOOK)); } catch {}
 }
 applyLook();
-const lookp = document.getElementById("lookp"), lprev = document.getElementById("lprev"), lctx = lprev.getContext("2d"), limg = lctx.createImageData(72, 72);
+const lookp = document.getElementById("lookp"), lprev = document.getElementById("lprev"), lctx = lprev.getContext("2d"), limg = lctx.createImageData(144, 144);
 function lookUI() {
   const sets = document.getElementById("lsets"), cols = document.getElementById("lcolors"), shp = document.getElementById("lshape");
   sets.innerHTML = "";
@@ -621,13 +676,13 @@ let lookT = 0;
 function lookPreview(now) {          // 미리보기: 서기 → 무기 겨눔 → 걷기를 번갈아
   if (lookp.hidden) return;
   const k = Math.floor(now / 1100) % 3, base = idlePose(), q = k === 0 ? { ...STAND } : k === 1 ? base : walkPose(base, now / 90);
-  setSkin(pskin);
+  setSkin(pskin ?? STOCK2);
   const r = posed(q);
   setSkin(null);
   const D = new Uint32Array(limg.data.buffer);
   D.fill(0xff2f2226);
-  for (let x = 4; x < 68; x++) D[64 * 72 + x] = 0xff50404a;
-  for (let i = 0; i < r.n; i++) { const x = 30 + r.xs[i], y = 63 + r.ys[i]; if (x >= 0 && y >= 0 && x < 72 && y < 72) D[y * 72 + x] = r.color[i]; }
+  for (let x = 8; x < 136; x++) D[128 * 144 + x] = 0xff50404a;
+  for (let i = 0; i < r.n; i++) { const x = 58 + r.xs[i], y = 127 + r.ys[i]; if (x >= 0 && y >= 0 && x < 144 && y < 144) D[y * 144 + x] = r.color[i]; }
   lctx.putImageData(limg, 0, 0);
   requestAnimationFrame(lookPreview);
 }
