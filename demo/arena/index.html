@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>천하제일 무술대회 (가제)</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="stage">
+  <canvas id="c" width="384" height="216"></canvas>
+  <div id="hud">
+    <div class="hp"><div id="hpbar"></div><span id="hptxt">100</span></div>
+    <div id="info">1회전 · 쓰러뜨림 0</div>
+  </div>
+  <div id="toast"></div>
+  <div id="over" hidden><div><b>패배</b><p>눌러서 다시 하기</p></div></div>
+</div>
+<div id="pad">
+  <div class="grp">
+    <button id="bl" class="dir">◀</button>
+    <button id="br" class="dir">▶</button>
+  </div>
+  <div class="grp mid">
+    <button id="pickW" class="pick">무기<br><b id="wname">칼</b></button>
+    <button id="pickS" class="pick">마법<br><b id="sname">-</b></button>
+  </div>
+  <div class="grp">
+    <button id="bj" class="act">점프</button>
+    <button id="ba" class="act red">공격</button>
+    <button id="bs" class="act blue">마법</button>
+  </div>
+</div>
+<div id="picker" hidden>
+  <div class="phead"><span id="ptitle">무기</span><button id="pclose">닫기</button></div>
+  <div id="tabs"></div>
+  <div id="plist"></div>
+</div>
+<script type="module" src="game/main.js"></script>
+</body>
+</html>

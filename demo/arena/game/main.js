@@ -1,0 +1,486 @@
+// 천하제일 무술대회(가제): pixelfx 로 만든 한 화면 결투장.
+// 주인공은 pixelfx 의 뼈대 인형(rig), 적은 pixelfx 의 지푸라기 과녁(Target). 효과 244개를 모두 마법으로, 무기 12종을 모두 공격으로 쓴다.
+// 그림은 전부 pixelfx 가 점 단위로 그린다(색 판 + 빛 판 → composite). 화면은 384×216 점을 화면 크기에 맞춰 키운다.
+import { createAct, createFx, createFrame, clearFrame, composite, posed, Target, READY, STAND, hex } from "../pixelfx/core/index.js";
+import { rasterText } from "../pixelfx/core/font.js";
+import { FX, CATS } from "./fxlist.js";
+import { buildBackdrop } from "./backdrop.js";
+
+const W = 384, H = 216, FLOOR = 188, LEFT = 22, RIGHT = W - 22;
+const cv = document.getElementById("c"), ctx = cv.getContext("2d");
+const frame = createFrame(W, H);
+const img = ctx.createImageData(W, H);
+const BYID = Object.fromEntries(FX.map((e) => [e.id, e]));
+
+// ---- 무기 12종(+맨손): 공격 단추를 누를 때마다 목록의 다음 동작
+const WEAPONS = [
+  { key: "fist", ko: "맨손", moves: ["melee/uppercut"] },
+  { key: "sword", ko: "칼", moves: ["melee/sword-slash", "melee/double-slash", "melee/thrust", "melee/spin-slash", "moves/dash-strike", "moves/sword-combo"] },
+  { key: "greatsword", ko: "대검", moves: ["melee/heavy-cleave"] },
+  { key: "dagger", ko: "단검", moves: ["melee/dagger-flurry"] },
+  { key: "spear", ko: "창", moves: ["melee/spear-sweep"] },
+  { key: "hammer", ko: "망치", moves: ["melee/hammer-smash"] },
+  { key: "scythe", ko: "낫", moves: ["melee/scythe-reap"] },
+  { key: "claw", ko: "손톱", moves: ["melee/claw-swipe"] },
+  { key: "handle", ko: "채찍", moves: ["melee/whip-crack"] },
+  { key: "log", ko: "통나무", moves: ["melee/hammer-smash"], as: "log" },
+  { key: "bow", ko: "활", moves: ["moves/arrow-shot"] },
+  { key: "pistol", ko: "권총", moves: ["moves/pistol-shots"] },
+  { key: "launcher", ko: "로켓", moves: ["moves/rocket-launcher"] },
+];
+// 몸에 입히는 효과 중 적에게 거는 것(나머지는 나에게: 치유·보호막·가속 등)
+const DEBUFF = new Set(["ice/freeze", "shadow/curse", "impacts/hit-flash", "spawn/disintegrate", "spawn/dissolve-burn", "spawn/shatter-death", "spawn/soul-rise", "scifi/glitch", "scifi/scanner",
+  ...["bleeding", "burning", "charmed", "confused", "cursed", "frozen", "petrified", "poisoned", "sleep", "slowed", "stunned"].map((s) => "status/" + s)]);
+// 상태 이상이 적에게 하는 일: dot 초당 피해, skin 과녁 덧칠, stop 못 움직임, slow 느려짐, away 딴 데로, weak 받는 피해 배율, burst 바로 피해
+const STATUS = {
+  "status/burning": { dot: 5, skin: "char" }, "status/poisoned": { dot: 4, skin: "poison" }, "status/bleeding": { dot: 5, skin: "red" },
+  "status/frozen": { stop: 1, skin: "ice" }, "ice/freeze": { stop: 1, skin: "ice", burst: 12 }, "status/petrified": { stop: 1, skin: "shadow" },
+  "status/sleep": { stop: 1 }, "status/stunned": { stop: 1, skin: "shock" }, "status/slowed": { slow: 1 }, "status/charmed": { away: 1, skin: "holy" },
+  "status/confused": { away: 1 }, "scifi/glitch": { away: 1, skin: "shock" }, "status/cursed": { weak: 1.6, skin: "shadow" }, "shadow/curse": { weak: 1.6, skin: "shadow", burst: 8 },
+  "scifi/scanner": { weak: 1.4 }, "impacts/hit-flash": { burst: 14 }, "spawn/disintegrate": { burst: 45 }, "spawn/dissolve-burn": { burst: 40, dot: 4, skin: "char" },
+  "spawn/shatter-death": { burst: 45, skin: "ice" }, "spawn/soul-rise": { burst: 35, skin: "holy" },
+};
+// 나에게 거는 효과가 주는 것
+const BUFF = { "holy/heal": { heal: 35 }, "holy/resurrection": { heal: 100 }, "holy/blessing": { heal: 15, dmg: 1.3 }, "holy/divine-shield": { shield: 6 }, "holy/halo": { shield: 4 },
+  "status/haste": { speed: 1.7 }, "status/rage": { dmg: 1.6 }, "lightning/charge-up": { dmg: 1.4 }, "lightning/electrified": { dmg: 1.3 }, "ui/level-up": { heal: 20, dmg: 1.2 },
+  "spawn/respawn-beam": { heal: 40 }, "scifi/warp-in": { shield: 2 }, "arcane/blink-in": { shield: 2 } };
+
+// ---- 효과 모듈은 쓸 때 불러온다(244개를 처음에 다 읽지 않는다)
+const mods = {};
+const load = async (id) => (mods[id] ??= await import(`../pixelfx/fx/${id}.js`));
+
+// ---- 적 허수아비 모양을 효과용 "몸"으로: 상태 이상 효과가 허수아비의 윤곽을 감싼다
+const dummyActor = (() => {
+  const f = createFrame(38, 52), t = new Target(0, 1);
+  t.draw(f.color, 38, 52, 19, 52, false);
+  const data = new Uint8Array(38 * 52);
+  for (let i = 0; i < data.length; i++) data[i] = f.color[i] ? 1 : 0;
+  return { mask: { w: 38, h: 52, data }, pixels: f.color.slice(), x: -19, y: -52, w: 38, h: 52, k: 2, head: [0, -52], chest: [0, -30], eyes: [[14, 7], [23, 7]] };
+})();
+
+// ---- 상태
+const S = {
+  wave: 0, ko: 0, foes: [], acts: [], fields: [], shots: [], nums: [], over: false, nextWave: 1.2,
+  p: { x: 110, jy: 0, vy: 0, face: 1, hp: 100, max: 100, hurt: 0, inv: 0, walk: 0, act: null, cast: 0, wi: 1, combo: 0, buff: { dmg: 0, speed: 0, shield: 0 }, buffK: { dmg: 1, speed: 1 } },
+  spell: null, input: { l: false, r: false },
+};
+const P = S.p;
+let bg = null;
+
+// ---- 그리기 도우미
+function plotPose(pose, X, Y, flip, tint) {
+  const r = posed(pose), C = frame.color;
+  for (let i = 0; i < r.n; i++) {
+    const px = flip ? X - r.xs[i] - 1 : X + r.xs[i], py = Y + r.ys[i];
+    if (px < 0 || py < 0 || px >= W || py >= H) continue;
+    C[py * W + px] = tint ? tint : r.color[i];
+  }
+}
+function shadowAt(x, y, hw) {
+  const C = frame.color;
+  for (let dy = 0; dy < 2; dy++)
+    for (let dx = -hw + dy * 2; dx <= hw - dy * 2; dx++) {
+      const px = Math.round(x + dx), i = (y + dy) * W + px;
+      if (px >= 0 && px < W && y + dy < H) C[i] = (C[i] & 0xffffff) | (Math.max(C[i] >>> 24, 110) << 24);
+    }
+}
+function text(str, x, y, c, font = "mini") {
+  const C = frame.color, ink = hex("#0b0a10");
+  const put = (px, py, col) => { if (px >= 0 && py >= 0 && px < W && py < H) C[py * W + px] = col; };
+  rasterText(str, font, (a, b) => { put(x + a + 1, y + b + 1, ink); });
+  rasterText(str, font, (a, b) => { put(x + a, y + b, c); });
+}
+
+// ---- 주인공 자세
+const weapon = () => WEAPONS[P.wi];
+function idlePose() {
+  const w = weapon(), first = mods[w.moves[0]]?.act?.poses?.[0]?.[1];
+  let q = first ? { ...first, x: 0, y: 0, ghost: false } : { ...READY };
+  if (w.as) q = { ...q, weapon: w.as };
+  return q;
+}
+function walkPose(q, ph) {
+  const s = Math.sin(ph), c = Math.cos(ph);
+  return { ...q, ffx: 5 * s + 1, fbx: -5 * s - 1, ffy: -4 - Math.max(0, c) * 3, fby: -4 - Math.max(0, -c) * 3, crouch: (q.crouch ?? 0) + (Math.abs(s) > 0.7 ? 0 : 1) };
+}
+function playerPose() {
+  let q = idlePose();
+  if (P.cast > 0) q = { ...q, fx: 15, fy: -25, bx: 13, by: -27, crouch: 1 };
+  if (P.jy > 0) return { ...q, crouch: 0, ffy: -9, fby: -7, ffx: 3, fbx: -4 };
+  if ((S.input.l || S.input.r) && !P.act) return walkPose(q, P.walk);
+  return q;
+}
+
+// ---- 공격(무기)와 동작이 있는 마법: 인형이 연기하는 act
+async function perform(id, opts = {}) {
+  if (P.act || S.over) return;
+  const e = BYID[id];
+  let mod = await load(id);
+  if (P.act) return;
+  if (opts.as) mod = { ...mod, act: { ...mod.act, poses: mod.act.poses.map(([t, q, h]) => [t, q.weapon ? { ...q, weapon: opts.as } : q, h]) } };
+  const flip = P.face < 0, act = createAct(mod, { x: Math.round(P.x), y: FLOOR, flip, seed: (Math.random() * 1e6) | 0, actor: undefined });
+  const reach = Math.max(50, e.reach || 60) + 26;
+  const rec = { act, id, x0: P.x, face: P.face, reach, buff: BUFF[id], lastHit: 0, hits: (mod.act?.hits ?? []).length };
+  act.onHit = (h) => {
+    rec.lastHit = act.t;
+    if (h.target === false) return;
+    const dmg = (6 + (h.push ?? 1.2) * 4) * P.buffK.dmg;
+    for (const f of S.foes) {
+      const rel = (f.x - rec.x0) * rec.face;
+      if (rel > -14 && rel < reach) hitFoe(f, dmg, h, rec.face);
+    }
+    if (id === "shadow/life-steal") heal(8);
+  };
+  P.act = rec;
+  S.acts.push(rec);
+}
+function endAct(rec) {
+  const q = rec.act.pose;
+  if (P.act === rec) {
+    P.x = clampX(rec.x0 + (q?.x ?? 0) * rec.face);
+    P.act = null;
+    if (rec.buff) applyBuff(rec.buff);
+  }
+}
+
+// ---- 몸 없는 마법: 갈래에 따라 놓는 곳이 다르다
+async function castFx(id) {
+  if (P.act || S.over) return;
+  const e = BYID[id], mod = await load(id);
+  const target = nearestFoe(), fx = (o) => createFx(mod, { seed: (Math.random() * 1e6) | 0, ...o });
+  P.cast = 0.4;
+  const front = P.x + P.face * 70;
+  if (e.body && DEBUFF.has(id)) {
+    const f = target ?? null;
+    const rec = { fx: fx({ x: f ? f.x : front, y: FLOOR, actor: dummyActor }), foe: f, life: e.loop ? 4 : e.dur, follow: true };
+    S.fields.push(rec);
+    if (f) applyStatus(f, id);
+    return;
+  }
+  if (e.body) return perform(id);          // 나에게 거는 것: 인형 위에 그린다
+  if (e.cat === "projectiles" && e.loop) {          // 날아가는 탄: 앞으로 날아가 맞으면 터진다
+    S.shots.push({ fx: fx({ x: P.x + P.face * 14, y: FLOOR - 20, flip: P.face < 0 }), x: P.x + P.face * 14, vx: P.face * 240, life: 2.2, dmg: 14 });
+    return;
+  }
+  let x, y = FLOOR, flip = P.face < 0, dmgAt = Math.min(e.dur * 0.4, 0.7), radius = 46, dmg = 18, all = false;
+  if (e.cat === "projectiles") { x = P.x + P.face * 12; y = FLOOR - 14; radius = 160; }
+  else if (e.cat === "weather" || e.cat === "transitions" || id === "ui/achievement" || id === "ui/quest-complete" || id === "ui/countdown") {
+    x = W / 2 - e.size[0] / 2 + e.origin[0]; y = H / 2 - e.size[1] / 2 + e.origin[1];
+    if (e.cat === "weather") { x = W / 2; y = FLOOR + 12; }
+    all = true; dmg = e.cat === "transitions" ? 22 : 10; flip = false;
+  } else if (e.cat === "pickups" || e.cat === "ui") { x = P.x; y = e.cat === "ui" ? FLOOR - 40 : FLOOR; dmg = 0; flip = false; if (e.cat === "pickups") heal(10); }
+  else if (["fire/fire-breath", "fire/flamethrower", "ice/frost-breath", "water/water-jet", "scifi/tractor-beam"].includes(id)) { x = P.x + P.face * 10; y = FLOOR - 18; radius = 150; }
+  else { x = target ? target.x : front; }
+  const rec = { fx: fx({ x, y, flip }), life: e.loop ? 2.6 : e.dur, t: 0, dmgAt, done: dmg === 0, dot: e.loop && dmg ? 6 : 0, cx: x, radius, dmg, all, face: P.face, src: e.cat };
+  if (e.cat === "projectiles" || radius === 150) rec.cx = P.x + P.face * radius * 0.6;
+  S.fields.push(rec);
+}
+function castSelected() {
+  const e = S.spell;
+  if (!e) return toast("마법을 먼저 고르세요");
+  if (e.poses && !e.body) return perform(e.id);
+  castFx(e.id);
+}
+
+// ---- 적
+function spawnWave() {
+  S.wave++;
+  const n = Math.min(4, 1 + Math.floor((S.wave - 1) / 1.5)), hp = 50 + S.wave * 14;
+  toast(`${S.wave}회전`);
+  for (let i = 0; i < n; i++) {
+    const side = i % 2 === 0 ? 1 : -1, x = clampX(P.x + side * (110 + i * 30) * (P.x > W / 2 ? -1 : 1));
+    setTimeout(async () => {
+      const m = await load("spawn/poof");
+      S.fields.push({ fx: createFx(m, { x, y: FLOOR, seed: i + S.wave * 7 }), life: 1.2, t: 0, done: true });
+      S.foes.push({ x, t: new Target(0, 30 + i + S.wave * 5), hp, max: hp, flip: false, hop: 0, hopT: 0.8 + Math.random(), hopFrom: x, hopTo: x, cd: 1.5, st: {}, weak: 1 });
+    }, i * 350);
+  }
+}
+function nearestFoe() {
+  let best = null, bd = 1e9;
+  for (const f of S.foes) {
+    const d = Math.abs(f.x - P.x) + ((f.x - P.x) * P.face < 0 ? 60 : 0);
+    if (d < bd) { bd = d; best = f; }
+  }
+  return best;
+}
+function hitFoe(f, dmg, h = {}, face = 1) {
+  if (f.dead) return;
+  const k = f.weak * (f.st.weakT > 0 ? f.st.weakK : 1);
+  dmg = Math.round(dmg * k);
+  f.hp -= dmg;
+  f.flip = face < 0;
+  f.t.hit({ push: h.push ?? 1.2, straw: h.straw ?? 8, skin: h.skin, shiver: h.shiver ?? 0, flash: 0.05 });
+  if (!f.st.stopT) f.x = clampX(f.x + face * (h.push ?? 1.2) * 3);
+  S.nums.push({ x: f.x, y: FLOOR - 58, v: dmg, t: 0 });
+  if (f.hp <= 0) killFoe(f);
+}
+async function killFoe(f) {
+  f.dead = true;
+  S.ko++;
+  S.foes = S.foes.filter((g) => g !== f);
+  const ids = ["spawn/shatter-death", "spawn/dissolve-burn", "spawn/disintegrate", "spawn/soul-rise"], id = ids[(Math.random() * ids.length) | 0];
+  const m = await load(id);
+  S.fields.push({ fx: createFx(m, { x: f.x, y: FLOOR, actor: dummyActor, seed: S.ko }), life: BYID[id].dur, t: 0, done: true });
+  if (!S.foes.length) S.nextWave = 1.6;
+}
+function applyStatus(f, id) {
+  const s = STATUS[id];
+  if (!s) return;
+  if (s.skin) f.t.skin = s.skin;
+  if (s.dot) { f.st.dotT = 4; f.st.dot = s.dot; }
+  if (s.stop) f.st.stopT = 3.5;
+  if (s.slow) f.st.slowT = 5;
+  if (s.away) f.st.awayT = 4;
+  if (s.weak) { f.st.weakT = 6; f.st.weakK = s.weak; }
+  if (s.burst) hitFoe(f, s.burst * P.buffK.dmg, { push: 1.4, straw: 10, skin: s.skin }, Math.sign(f.x - P.x) || 1);
+}
+function stepFoe(f, dt) {
+  const st = f.st;
+  for (const k of ["dotT", "stopT", "slowT", "awayT", "weakT"]) if (st[k] > 0) st[k] -= dt;
+  if (st.dotT > 0) { st.acc = (st.acc ?? 0) + st.dot * dt; if (st.acc >= 3) { hitFoe(f, st.acc, { push: 0.3, straw: 2 }, 1); st.acc = 0; } }
+  if (!(st.dotT > 0) && !(st.weakT > 0) && !(st.stopT > 0) && f.t.skin && f.t.skin !== "flash") f.t.skin = null;
+  f.t.step(dt);
+  if (st.stopT > 0) return;
+  const slow = st.slowT > 0 ? 0.4 : 1, dir = Math.sign(P.x - f.x) * (st.awayT > 0 ? -1 : 1);
+  if (f.hop > 0) {          // 깡충: 0.35초 동안 포물선
+    f.hop -= dt * slow;
+    const u = 1 - Math.max(0, f.hop) / 0.35;
+    f.x = f.hopFrom + (f.hopTo - f.hopFrom) * u;
+    f.jy = Math.sin(Math.PI * u) * 7;
+    if (f.hop <= 0) { f.jy = 0; f.t.omega += 0.6 * (Math.random() < 0.5 ? 1 : -1); }
+    return;
+  }
+  f.cd -= dt * slow;
+  const dist = Math.abs(P.x - f.x);
+  if (dist < 26 && f.cd <= 0 && !(st.awayT > 0)) {          // 들이받기
+    f.cd = 1.6;
+    f.flip = P.x < f.x;
+    f.t.omega -= 3.2;
+    hurtPlayer(7 + S.wave, Math.sign(P.x - f.x) || 1);
+    return;
+  }
+  f.hopT -= dt * slow;
+  if (f.hopT <= 0 && dist > 22) {
+    f.hopT = 0.9 + Math.random() * 0.9;
+    f.hop = 0.35;
+    f.hopFrom = f.x;
+    f.hopTo = clampX(f.x + dir * (10 + Math.random() * 8));
+  }
+}
+function hurtPlayer(d, dir) {
+  if (P.inv > 0 || S.over) return;
+  if (P.buff.shield > 0) { toast("막았다!"); P.inv = 0.4; return; }
+  P.hp = Math.max(0, P.hp - d);
+  P.hurt = 0.25;
+  P.inv = 0.7;
+  if (!P.act) P.x = clampX(P.x + dir * 16);
+  if (P.hp <= 0) { S.over = true; document.getElementById("over").hidden = false; }
+}
+function heal(n) { P.hp = Math.min(P.max, P.hp + n); }
+function applyBuff(b) {
+  if (b.heal) heal(b.heal);
+  if (b.shield) P.buff.shield = b.shield;
+  if (b.dmg) { P.buff.dmg = 8; P.buffK.dmg = b.dmg; }
+  if (b.speed) { P.buff.speed = 8; P.buffK.speed = b.speed; }
+}
+const clampX = (x) => Math.max(LEFT, Math.min(RIGHT, x));
+
+// ---- 한 장면
+let last = performance.now(), toastT = 0;
+function toast(s) { const el = document.getElementById("toast"); el.textContent = s; el.style.opacity = 1; toastT = 1.4; }
+function tick(now) {
+  let dt = Math.min(0.05, (now - last) / 1000);
+  last = now;
+  const frozen = S.acts.some((r) => r.act.frozen);
+  // 효과 시간
+  for (const r of S.acts) r.act.update(dt);
+  for (const r of S.acts.slice()) {
+    const done = r.act.done();
+    // 마지막 타격이 지나고 조금 뒤에는 움직여서 끊을 수 있다(효과는 제자리에서 마저 끝난다)
+    const cancel = P.act === r && (S.input.l || S.input.r) && r.lastHit > 0 && r.act.t > r.lastHit + 0.25;
+    if (done || cancel) { endAct(r); if (done) S.acts.splice(S.acts.indexOf(r), 1); else r.detached = true; }
+  }
+  if (!frozen) {
+    // 주인공
+    for (const k of ["dmg", "speed", "shield"]) if (P.buff[k] > 0 && (P.buff[k] -= dt) <= 0 && k !== "shield") P.buffK[k] = 1;
+    if (P.inv > 0) P.inv -= dt;
+    if (P.hurt > 0) P.hurt -= dt;
+    if (P.cast > 0) P.cast -= dt;
+    if (!P.act && !S.over) {
+      const mv = (S.input.r ? 1 : 0) - (S.input.l ? 1 : 0);
+      if (mv) { P.face = mv; P.x = clampX(P.x + mv * 72 * P.buffK.speed * dt); P.walk += dt * 11 * P.buffK.speed; }
+    }
+    if (P.jy > 0 || P.vy) { P.vy -= 430 * dt; P.jy += P.vy * dt; if (P.jy <= 0) { P.jy = 0; P.vy = 0; } }
+    for (const f of S.foes.slice()) stepFoe(f, dt);
+    for (const r of S.fields) {
+      r.t = (r.t ?? 0) + dt;
+      r.fx.update(dt);
+      if (r.follow && r.foe && !r.foe.dead) r.fx.options.x = Math.round(r.foe.x);
+      if (!r.done && r.t >= r.dmgAt) {
+        r.done = true;
+        for (const f of S.foes.slice()) if (r.all || Math.abs(f.x - r.cx) < r.radius) hitFoe(f, r.dmg * P.buffK.dmg, { push: 1.6, straw: 12 }, Math.sign(f.x - P.x) || 1);
+      }
+      if (r.dot && r.t > r.dmgAt) { r.acc = (r.acc ?? 0) + dt; if (r.acc > 0.5) { r.acc = 0; for (const f of S.foes.slice()) if (Math.abs(f.x - r.cx) < r.radius * 0.7) hitFoe(f, r.dot * 0.5, { push: 0.4, straw: 2 }, 1); } }
+      if (r.t >= r.life && r.fx.meta.loop && !r.stopped) { r.fx.stop(); r.stopped = true; }
+    }
+    S.fields = S.fields.filter((r) => !(r.fx.done() || r.t > r.life + 1.5));
+    for (const s of S.shots) {
+      s.life -= dt; s.x += s.vx * dt; s.fx.options.x = Math.round(s.x); s.fx.update(dt);
+      for (const f of S.foes) if (!s.hit && Math.abs(f.x - s.x) < 12) { s.hit = true; hitFoe(f, s.dmg * P.buffK.dmg, { push: 1.8, straw: 12 }, Math.sign(s.vx)); burst(s.x); }
+    }
+    S.shots = S.shots.filter((s) => !s.hit && s.life > 0 && s.x > -40 && s.x < W + 40);
+    for (const n of S.nums) n.t += dt;
+    S.nums = S.nums.filter((n) => n.t < 0.8);
+    if (!S.foes.length && !S.over && (S.nextWave -= dt) <= 0) { S.nextWave = 99; spawnWave(); }
+  }
+  if (toastT > 0 && (toastT -= dt) <= 0) document.getElementById("toast").style.opacity = 0;
+  draw();
+  requestAnimationFrame(tick);
+}
+async function burst(x) {
+  const m = await load("impacts/hit-spark");
+  S.fields.push({ fx: createFx(m, { x: Math.round(x), y: FLOOR - 24, seed: (Math.random() * 999) | 0 }), life: 0.6, t: 0, done: true });
+}
+
+function draw() {
+  clearFrame(frame);
+  // 적
+  for (const f of S.foes) {
+    shadowAt(f.x, FLOOR, 12);
+    f.t.draw(frame.color, W, H, Math.round(f.x), FLOOR - Math.round(f.jy ?? 0), f.flip);
+    f.t.drawStraw(frame.color, W, H, Math.round(f.x), FLOOR, f.flip);
+    const bw = 24, fill = Math.max(0, Math.round((bw * f.hp) / f.max)), y = FLOOR - 60 - Math.round(f.jy ?? 0);
+    for (let i = 0; i < bw; i++) for (let j = 0; j < 3; j++) {
+      const px = Math.round(f.x) - 12 + i, py = y + j;
+      if (px >= 0 && px < W) frame.color[py * W + px] = j === 0 || j === 2 ? hex("#0b0a10") : i < fill ? hex("#e0485a") : hex("#3a2430");
+    }
+  }
+  for (const r of S.fields) r.fx.draw(frame, "back");
+  // 주인공(연기 중이 아니면 직접 그린다)
+  if (!P.act) {
+    const blink = P.inv > 0 && Math.floor(P.inv * 20) % 2 === 0;
+    shadowAt(P.x, FLOOR, 10);
+    if (!blink) plotPose(playerPose(), Math.round(P.x), FLOOR - Math.round(P.jy), P.face < 0, P.hurt > 0 ? hex("#ffffff") : 0);
+    if (P.buff.shield > 0) ring(P.x, FLOOR - 19, 20, hex("#fff4c0"));
+  }
+  for (const r of S.acts) r.act.draw(frame, { body: !r.detached, target: false });
+  for (const r of S.fields) r.fx.draw(frame, "front");
+  for (const s of S.shots) s.fx.draw(frame);
+  for (const n of S.nums) text(String(n.v), Math.round(n.x) - 4, Math.round(n.y - n.t * 22), n.v >= 25 ? hex("#ffe14a") : hex("#ffffff"));
+  composite(frame, img.data, bg);
+  let sx = 0, sy = 0;
+  for (const r of S.acts) { const [a, b] = r.act.shake; sx += a; sy += b; }
+  ctx.fillStyle = "#0b0a10";
+  ctx.fillRect(0, 0, W, H);
+  ctx.putImageData(img, sx, sy);
+  // 체력·정보
+  document.getElementById("hpbar").style.width = (100 * P.hp) / P.max + "%";
+  document.getElementById("hptxt").textContent = `${Math.ceil(P.hp)} / ${P.max}`;
+  document.getElementById("info").textContent = `${S.wave}회전 · 쓰러뜨림 ${S.ko}`;
+}
+function ring(cx, cy, r, c) {
+  for (let a = 0; a < 64; a++) {
+    const px = Math.round(cx + Math.cos((a / 64) * 6.283) * r), py = Math.round(cy + Math.sin((a / 64) * 6.283) * r * 1.1);
+    if (px >= 0 && py >= 0 && px < W && py < H && (a + Math.floor(performance.now() / 80)) % 4) frame.light[py * W + px] = c;
+  }
+}
+
+// ---- 조작
+function attack() {
+  if (P.act || S.over || P.jy > 0) return;
+  const w = weapon(), id = w.moves[P.combo % w.moves.length];
+  P.combo++;
+  perform(id, { as: w.as });
+}
+function jump() { if (P.jy === 0 && !P.act && !S.over) { P.vy = 165; P.jy = 0.01; } }
+function hold(el, key) {
+  const on = (e) => { e.preventDefault(); S.input[key] = true; el.classList.add("on"); };
+  const off = (e) => { e.preventDefault(); S.input[key] = false; el.classList.remove("on"); };
+  el.addEventListener("pointerdown", on); el.addEventListener("pointerup", off); el.addEventListener("pointercancel", off); el.addEventListener("pointerleave", off);
+}
+function tap(el, fn) { el.addEventListener("pointerdown", (e) => { e.preventDefault(); fn(); }); }
+hold(document.getElementById("bl"), "l");
+hold(document.getElementById("br"), "r");
+tap(document.getElementById("bj"), jump);
+tap(document.getElementById("ba"), attack);
+tap(document.getElementById("bs"), castSelected);
+document.getElementById("over").addEventListener("pointerdown", restart);
+const KEYS = { ArrowLeft: "l", ArrowRight: "r" };
+addEventListener("keydown", (e) => {
+  if (KEYS[e.key]) S.input[KEYS[e.key]] = true;
+  else if (e.key === "ArrowUp" || e.key === " ") jump();
+  else if (e.key === "z" || e.key === "Z") attack();
+  else if (e.key === "x" || e.key === "X") castSelected();
+  else if (e.key === "q") setWeapon((P.wi + WEAPONS.length - 1) % WEAPONS.length);
+  else if (e.key === "e") setWeapon((P.wi + 1) % WEAPONS.length);
+});
+addEventListener("keyup", (e) => { if (KEYS[e.key]) S.input[KEYS[e.key]] = false; });
+
+function restart() {
+  Object.assign(S, { wave: 0, ko: 0, foes: [], acts: [], fields: [], shots: [], nums: [], over: false, nextWave: 1 });
+  Object.assign(P, { x: 110, hp: P.max, act: null, inv: 1, buff: { dmg: 0, speed: 0, shield: 0 }, buffK: { dmg: 1, speed: 1 } });
+  document.getElementById("over").hidden = true;
+}
+
+// ---- 무기·마법 고르기 창
+const picker = document.getElementById("picker"), plist = document.getElementById("plist"), tabs = document.getElementById("tabs");
+let pickMode = "w", pickCat = "moves";
+async function setWeapon(i) {
+  P.wi = i;
+  P.combo = 0;
+  document.getElementById("wname").textContent = WEAPONS[i].ko;
+  await Promise.all(WEAPONS[i].moves.map(load));
+}
+function setSpell(e) {
+  S.spell = e;
+  document.getElementById("sname").textContent = e.ko;
+  load(e.id);
+  try { localStorage.setItem("arena.spell", e.id); } catch {}
+}
+function openPicker(mode) {
+  pickMode = mode;
+  picker.hidden = false;
+  document.getElementById("ptitle").textContent = mode === "w" ? "무기 고르기" : "마법 고르기 (244)";
+  tabs.innerHTML = "";
+  if (mode === "s") {
+    const cats = ["all", ...Object.keys(CATS)];
+    for (const c of cats) {
+      const b = document.createElement("button");
+      const n = c === "all" ? FX.length : FX.filter((e) => e.cat === c).length;
+      b.textContent = `${c === "all" ? "전체" : CATS[c]} ${n}`;
+      b.className = c === pickCat ? "on" : "";
+      b.onclick = () => { pickCat = c; openPicker("s"); };
+      tabs.appendChild(b);
+    }
+  }
+  plist.innerHTML = "";
+  const items = mode === "w" ? WEAPONS.map((w, i) => ({ label: w.ko, sub: w.moves.map((m) => BYID[m].ko).join(" · "), sel: i === P.wi, go: () => setWeapon(i) }))
+    : FX.filter((e) => pickCat === "all" || e.cat === pickCat).map((e) => ({ label: e.ko, sub: `${CATS[e.cat]} · ${e.poses && !e.body ? "동작" : e.body ? (DEBUFF.has(e.id) ? "적에게" : "나에게") : e.cat === "projectiles" && e.loop ? "날리기" : "효과"}`, sel: S.spell === e, go: () => setSpell(e) }));
+  for (const it of items) {
+    const b = document.createElement("button");
+    b.innerHTML = `${it.label}<small>${it.sub}</small>`;
+    if (it.sel) b.className = "sel";
+    b.onclick = () => { it.go(); picker.hidden = true; };
+    plist.appendChild(b);
+  }
+}
+tap(document.getElementById("pickW"), () => openPicker("w"));
+tap(document.getElementById("pickS"), () => openPicker("s"));
+document.getElementById("pclose").onclick = () => (picker.hidden = true);
+
+// ---- 시작
+(async () => {
+  await document.fonts.load("11px Galmuri11B");
+  bg = buildBackdrop(W, H, FLOOR);
+  await setWeapon(1);
+  let first = "moves/fireball-throw";
+  try { first = localStorage.getItem("arena.spell") || first; } catch {}
+  setSpell(BYID[first] ?? BYID["moves/fireball-throw"]);
+  // 시험용 주소 인수: ?w=무기번호 &s=효과 &auto=1(자동으로 공격·마법)
+  const q = new URLSearchParams(location.search);
+  if (q.get("w")) await setWeapon(+q.get("w"));
+  if (q.get("s") && BYID[q.get("s")]) setSpell(BYID[q.get("s")]);
+  window.__arena = { S, P, attack, castSelected, setWeapon, setSpell, BYID, perform, castFx, spawnWave };
+  requestAnimationFrame((t) => { last = t; tick(t); });
+})();
