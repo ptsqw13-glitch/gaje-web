@@ -1,7 +1,7 @@
 // 천하제일 무술대회(가제): pixelfx 로 만든 한 화면 결투장.
 // 주인공은 pixelfx 의 뼈대 인형(rig), 적은 pixelfx 의 지푸라기 과녁(Target). 효과 244개를 모두 마법으로, 무기 12종을 모두 공격으로 쓴다.
 // 그림은 전부 pixelfx 가 점 단위로 그린다(색 판 + 빛 판 → composite). 화면은 384×216 점을 화면 크기에 맞춰 키운다.
-import { createAct, createFx, createFrame, clearFrame, composite, posed, Target, READY, STAND, hex } from "../pixelfx/core/index.js";
+import { createAct, createFx, createFrame, clearFrame, composite, posed, Target, READY, STAND, SKINS, stockActor, hex, mix, luma } from "../pixelfx/core/index.js";
 import { rasterText } from "../pixelfx/core/font.js";
 import { FX, CATS } from "./fxlist.js";
 import { buildBackdrop } from "./backdrop.js";
@@ -59,13 +59,14 @@ const dummyActor = (() => {
 })();
 
 // ---- 상태
+// mode: menu(시작 화면) · practice(연습: 고정 허수아비) · horde(1 대 100: 마네킹이 오른쪽에서 하나씩) · duel(1 대 1: 색만 다른 상대)
 const S = {
-  wave: 0, ko: 0, foes: [], acts: [], fields: [], shots: [], nums: [], over: false, nextWave: 1.2,
+  mode: "menu", ko: 0, foes: [], acts: [], fields: [], shots: [], nums: [], over: false, left: 0, spawnT: 0, nextT: 99, round: 0, stat: { sum: 0, last: 0, recent: [] },
   p: { x: 110, jy: 0, vy: 0, face: 1, hp: 100, max: 100, hurt: 0, inv: 0, walk: 0, act: null, cast: 0, wi: 1, combo: 0, buff: { dmg: 0, speed: 0, shield: 0 }, buffK: { dmg: 1, speed: 1 } },
   spell: null, input: { l: false, r: false },
 };
 const P = S.p;
-let bg = null;
+let bg = null, bgMenu = null;
 
 // ---- 그리기 도우미
 function plotPose(pose, X, Y, flip, tint) {
@@ -113,7 +114,7 @@ function playerPose() {
 
 // ---- 공격(무기)와 동작이 있는 마법: 인형이 연기하는 act
 async function perform(id, opts = {}) {
-  if (P.act || S.over) return;
+  if (P.act || S.over || S.mode === "menu") return;
   const e = BYID[id];
   let mod = await load(id);
   if (P.act) return;
@@ -126,7 +127,7 @@ async function perform(id, opts = {}) {
     if (h.target === false) return;
     const dmg = (6 + (h.push ?? 1.2) * 4) * P.buffK.dmg;
     for (const f of S.foes) {
-      const rel = (f.x - rec.x0) * rec.face;
+      const rel = (foeX(f) - rec.x0) * rec.face;
       if (rel > -14 && rel < reach) hitFoe(f, dmg, h, rec.face);
     }
     if (id === "shadow/life-steal") heal(8);
@@ -136,6 +137,11 @@ async function perform(id, opts = {}) {
 }
 function endAct(rec) {
   const q = rec.act.pose;
+  if (rec.enemy) {          // 상대의 공격이 끝남
+    const f = rec.foe;
+    if (f.act === rec) { f.x = clampX(rec.x0 + (q?.x ?? 0) * rec.face); f.act = null; f.cd = 0.6 + Math.random() * 0.9; }
+    return;
+  }
   if (P.act === rec) {
     P.x = clampX(rec.x0 + (q?.x ?? 0) * rec.face);
     P.act = null;
@@ -145,14 +151,14 @@ function endAct(rec) {
 
 // ---- 몸 없는 마법: 갈래에 따라 놓는 곳이 다르다
 async function castFx(id) {
-  if (P.act || S.over) return;
+  if (P.act || S.over || S.mode === "menu") return;
   const e = BYID[id], mod = await load(id);
   const target = nearestFoe(), fx = (o) => createFx(mod, { seed: (Math.random() * 1e6) | 0, ...o });
   P.cast = 0.4;
   const front = P.x + P.face * 70;
   if (e.body && DEBUFF.has(id)) {
     const f = target ?? null;
-    const rec = { fx: fx({ x: f ? f.x : front, y: FLOOR, actor: dummyActor }), foe: f, life: e.loop ? 4 : e.dur, follow: true };
+    const rec = { fx: fx({ x: f ? f.x : front, y: FLOOR, actor: f ? actorOf(f) : dummyActor }), foe: f, life: e.loop ? 4 : e.dur, follow: true };
     S.fields.push(rec);
     if (f) applyStatus(f, id);
     return;
@@ -182,18 +188,71 @@ function castSelected() {
   castFx(e.id);
 }
 
-// ---- 적
-function spawnWave() {
-  S.wave++;
-  const n = Math.min(4, 1 + Math.floor((S.wave - 1) / 1.5)), hp = 50 + S.wave * 14;
-  toast(`${S.wave}회전`);
-  for (let i = 0; i < n; i++) {
-    const side = i % 2 === 0 ? 1 : -1, x = clampX(P.x + side * (110 + i * 30) * (P.x > W / 2 ? -1 : 1));
-    setTimeout(async () => {
-      const m = await load("spawn/poof");
-      S.fields.push({ fx: createFx(m, { x, y: FLOOR, seed: i + S.wave * 7 }), life: 1.2, t: 0, done: true });
-      S.foes.push({ x, t: new Target(0, 30 + i + S.wave * 5), hp, max: hp, flip: false, hop: 0, hopT: 0.8 + Math.random(), hopFrom: x, hopTo: x, cd: 1.5, st: {}, weak: 1 });
-    }, i * 350);
+// ---- 적: 허수아비(dummy)와 마네킹(man). 둘 다 pixelfx 과녁(Target)의 맞는 반응을 그대로 쓴다:
+//   용수철 흔들림(theta·omega) · 0.05초 번쩍 · 덧칠(skin) · 덜덜 떨기 · 짚 부스러기. 마네킹은 그 흔들림만큼 몸을 줄마다 밀어 그린다.
+const RAMPS = [["#ffd0c8", "#e0485a", "#8a2030", "#4a1020"], ["#d8ffd0", "#58c46a", "#2a7a3a", "#103a1c"], ["#d0e4ff", "#4a8ae0", "#2a4a9a", "#101c4a"], ["#fff0b0", "#e0b040", "#9a6a20", "#4a3010"]].map((r) => r.map(hex));
+const recolors = RAMPS.map(() => new Map());
+function recolor(c, k) {          // 1 대 1 상대: 같은 인형을 밝기 단계별로 다른 색으로(외형만 다름)
+  const m = recolors[k];
+  let v = m.get(c);
+  if (v === undefined) { const l = luma(c); v = l < 0.12 ? c : RAMPS[k][l > 0.72 ? 0 : l > 0.5 ? 1 : l > 0.3 ? 2 : 3]; m.set(c, v); }
+  return v;
+}
+const manActor = stockActor(2);
+const actorOf = (f) => (f.kind === "dummy" ? dummyActor : manActor);
+const foeX = (f) => (f.act ? f.act.x0 + (f.act.act.pose?.x ?? 0) * f.act.face : f.x);
+const clampF = (x) => Math.max(LEFT, Math.min(W + 14, x));
+const DUEL_MOVES = ["melee/sword-slash", "melee/double-slash", "melee/thrust", "melee/spin-slash", "moves/dash-strike"];
+function makeFoe(kind, x, hp, o = {}) {
+  const f = { kind, x, t: new Target(0, (Math.random() * 1e5) | 0), hp, max: hp, flip: false, face: -1, jy: 0, cd: 1, st: {}, weak: 1, stun: 0, walk: 0, wind: 0, punch: 0, ...o };
+  S.foes.push(f);
+  return f;
+}
+async function poof(x) {
+  const m = await load("spawn/poof");
+  S.fields.push({ fx: createFx(m, { x: Math.round(x), y: FLOOR, seed: (Math.random() * 999) | 0 }), life: 1.2, t: 0, done: true });
+}
+function nextDuel() {
+  S.round++;
+  const f = makeFoe("man", P.x > W / 2 ? 70 : W - 70, 110 + S.round * 40, { ai: "duel", tint: (S.round - 1) % RAMPS.length, range: 44 });
+  poof(f.x);
+  toast(`${S.round}번째 상대`);
+}
+function manPose(f) {
+  if (f.act) return f.act.act.pose ?? STAND;
+  let q = f.ai === "duel" ? { ...(mods["melee/sword-slash"]?.act?.poses?.[0]?.[1] ?? READY), x: 0, y: 0, ghost: false } : { ...STAND };
+  if (f.wind > 0) q = { ...q, fx: -7, fy: -25, lean: -2 };          // 주먹을 뒤로 뺀다(예고)
+  else if (f.punch > 0) q = { ...q, fx: 17, fy: -25, lean: 3 };          // 내지른다
+  if (f.moving) q = walkPose(q, f.walk);
+  return q;
+}
+function drawFoe(f) {
+  const C = frame.color, T = f.t;
+  let top = 60;
+  if (f.kind === "dummy") {
+    shadowAt(f.x, FLOOR, 12);
+    T.draw(C, W, H, Math.round(f.x), FLOOR, f.flip);
+  } else {
+    const q = manPose(f), r = posed(q), tan = Math.tan(T.theta), sv = T.shiver > 0 ? (Math.floor(T.clock * 30) & 1 ? 1 : -1) : 0;
+    const name = T.flashT > 0 ? "flash" : T.skin, sk = name ? SKINS[name] : null, dir = f.flip ? -1 : 1, mir = f.face < 0;
+    const base = f.act ? f.act.x0 : f.x, face = f.act ? f.act.face : f.face;
+    const bx = Math.round(base) + Math.round(q.x ?? 0) * face, by = FLOOR + Math.round(q.y ?? 0);
+    shadowAt(bx, FLOOR, 10);
+    for (let i = 0; i < r.n; i++) {
+      const o = Math.round(-r.ys[i] * tan * 0.8) * dir + sv, px = ((f.act ? face < 0 : mir) ? bx - r.xs[i] - 1 : bx + r.xs[i]) + o, py = by + r.ys[i];
+      if (px < 0 || py < 0 || px >= W || py >= H) continue;
+      let c = r.color[i];
+      if (f.tint !== undefined) c = recolor(c, f.tint);
+      C[py * W + px] = sk ? mix(c, sk[0], sk[1]) : c;
+    }
+    top = 48;
+  }
+  T.drawStraw(C, W, H, Math.round(foeX(f)), FLOOR, f.flip);
+  if (f.ai === "still") return;          // 연습용 허수아비는 체력 막대가 없다
+  const bw = 24, fill = Math.max(0, Math.round((bw * f.hp) / f.max)), y = FLOOR - top, cx = Math.round(foeX(f));
+  for (let i = 0; i < bw; i++) for (let j = 0; j < 3; j++) {
+    const px = cx - 12 + i, py = y + j;
+    if (px >= 0 && px < W) C[py * W + px] = j === 0 || j === 2 ? hex("#0b0a10") : i < fill ? hex("#e0485a") : hex("#3a2430");
   }
 }
 function nearestFoe() {
@@ -206,23 +265,34 @@ function nearestFoe() {
 }
 function hitFoe(f, dmg, h = {}, face = 1) {
   if (f.dead) return;
-  const k = f.weak * (f.st.weakT > 0 ? f.st.weakK : 1);
+  const k = f.weak * (f.st.weakT > 0 ? f.st.weakK : 1), push = h.push ?? 1.2;
   dmg = Math.round(dmg * k);
-  f.hp -= dmg;
   f.flip = face < 0;
-  f.t.hit({ push: h.push ?? 1.2, straw: h.straw ?? 8, skin: h.skin, shiver: h.shiver ?? 0, flash: 0.05 });
-  if (!f.st.stopT) f.x = clampX(f.x + face * (h.push ?? 1.2) * 3);
-  S.nums.push({ x: f.x, y: FLOOR - 58, v: dmg, t: 0 });
+  f.t.hit({ push, straw: h.straw ?? 8, skin: h.skin, shiver: h.shiver ?? 0, flash: 0.05 });
+  S.nums.push({ x: foeX(f), y: FLOOR - (f.kind === "dummy" ? 58 : 46), v: dmg, t: 0 });
+  if (f.ai === "still") {          // 연습: 체력은 줄지 않고 수치만 센다
+    const now = performance.now() / 1000;
+    S.stat.last = dmg; S.stat.sum += dmg; S.stat.recent.push([now, dmg]);
+    return;
+  }
+  f.hp -= dmg;
+  if (f.act && push >= 1.4) { f.x = clampX(foeX(f)); f.act.dead = true; f.act = null; f.cd = 0.8; }          // 센 타격은 상대의 공격을 끊는다
+  f.stun = Math.max(f.stun, 0.3);
+  f.wind = 0;
+  if (!f.st.stopT && !f.act) f.x = clampF(f.x + face * push * 3);
   if (f.hp <= 0) killFoe(f);
 }
 async function killFoe(f) {
   f.dead = true;
+  if (f.act) { f.act.dead = true; f.act = null; }
   S.ko++;
   S.foes = S.foes.filter((g) => g !== f);
   const ids = ["spawn/shatter-death", "spawn/dissolve-burn", "spawn/disintegrate", "spawn/soul-rise"], id = ids[(Math.random() * ids.length) | 0];
+  const x = Math.min(RIGHT, Math.round(foeX(f)));
+  if (S.mode === "horde" && S.ko >= 100) finish("100명 격파!");
+  if (S.mode === "duel") { S.nextT = 2.2; toast("승리!"); heal(25); }
   const m = await load(id);
-  S.fields.push({ fx: createFx(m, { x: f.x, y: FLOOR, actor: dummyActor, seed: S.ko }), life: BYID[id].dur, t: 0, done: true });
-  if (!S.foes.length) S.nextWave = 1.6;
+  S.fields.push({ fx: createFx(m, { x, y: FLOOR, actor: actorOf(f), seed: S.ko }), life: BYID[id].dur, t: 0, done: true });
 }
 function applyStatus(f, id) {
   const s = STATUS[id];
@@ -235,38 +305,48 @@ function applyStatus(f, id) {
   if (s.weak) { f.st.weakT = 6; f.st.weakK = s.weak; }
   if (s.burst) hitFoe(f, s.burst * P.buffK.dmg, { push: 1.4, straw: 10, skin: s.skin }, Math.sign(f.x - P.x) || 1);
 }
+function foeAttack(f) {          // 1 대 1 상대의 공격: 주인공과 같은 무기 동작을 그대로 쓴다(예고 동작이 있어 피할 수 있다)
+  const id = DUEL_MOVES[(Math.random() * DUEL_MOVES.length) | 0], mod = mods[id];
+  if (!mod) return;
+  const act = createAct(mod, { x: Math.round(f.x), y: FLOOR, flip: f.face < 0, seed: (Math.random() * 1e6) | 0 });
+  const rec = { act, id, x0: f.x, face: f.face, reach: Math.max(50, BYID[id].reach || 60) + 20, foe: f, enemy: true, lastHit: 0 };
+  act.onHit = (h) => {
+    if (h.target === false || rec.dead) return;
+    const rel = (P.x - rec.x0) * rec.face;
+    if (rel > -14 && rel < rec.reach && P.jy < 18) hurtPlayer(Math.round(5 + (h.push ?? 1.2) * 3), rec.face);
+  };
+  f.act = rec;
+  S.acts.push(rec);
+}
 function stepFoe(f, dt) {
   const st = f.st;
   for (const k of ["dotT", "stopT", "slowT", "awayT", "weakT"]) if (st[k] > 0) st[k] -= dt;
   if (st.dotT > 0) { st.acc = (st.acc ?? 0) + st.dot * dt; if (st.acc >= 3) { hitFoe(f, st.acc, { push: 0.3, straw: 2 }, 1); st.acc = 0; } }
   if (!(st.dotT > 0) && !(st.weakT > 0) && !(st.stopT > 0) && f.t.skin && f.t.skin !== "flash") f.t.skin = null;
   f.t.step(dt);
-  if (st.stopT > 0) return;
-  const slow = st.slowT > 0 ? 0.4 : 1, dir = Math.sign(P.x - f.x) * (st.awayT > 0 ? -1 : 1);
-  if (f.hop > 0) {          // 깡충: 0.35초 동안 포물선
-    f.hop -= dt * slow;
-    const u = 1 - Math.max(0, f.hop) / 0.35;
-    f.x = f.hopFrom + (f.hopTo - f.hopFrom) * u;
-    f.jy = Math.sin(Math.PI * u) * 7;
-    if (f.hop <= 0) { f.jy = 0; f.t.omega += 0.6 * (Math.random() < 0.5 ? 1 : -1); }
-    return;
-  }
+  f.moving = false;
+  if (f.stun > 0) { f.stun -= dt; return; }
+  if (st.stopT > 0 || f.ai === "still" || f.act || S.over) return;
+  const slow = st.slowT > 0 ? 0.4 : 1, away = st.awayT > 0, d = P.x - f.x, dist = Math.abs(d);
+  f.face = d >= 0 ? 1 : -1;
   f.cd -= dt * slow;
-  const dist = Math.abs(P.x - f.x);
-  if (dist < 26 && f.cd <= 0 && !(st.awayT > 0)) {          // 들이받기
-    f.cd = 1.6;
-    f.flip = P.x < f.x;
-    f.t.omega -= 3.2;
-    hurtPlayer(7 + S.wave, Math.sign(P.x - f.x) || 1);
-    return;
+  if (f.ai === "walk") {          // 마네킹: 천천히 걸어와 주먹을 뒤로 뺐다가(0.35초) 내지른다
+    if (f.wind > 0) { if ((f.wind -= dt) <= 0) { f.punch = 0.2; if (Math.abs(P.x - f.x) < 26 && P.jy < 16) hurtPlayer(6, f.face); } return; }
+    if (f.punch > 0) { f.punch -= dt; return; }
+    if (!away && dist < 20) { if (f.cd <= 0) { f.cd = 1.5; f.wind = 0.35; } return; }
+    f.moving = true;
+    f.walk += dt * 7 * slow;
+    f.x = clampF(f.x + (away ? -1 : 1) * f.face * 16 * slow * dt);
+  } else if (f.ai === "duel") {          // 상대: 쉬는 동안은 거리를 두고, 준비되면 다가와 벤다
+    if (!away && dist < f.range && f.cd <= 0) return foeAttack(f);
+    const want = f.cd > 0.45 ? 72 : f.range - 8, mv = away ? -1 : dist > want + 4 ? 1 : dist < want - 12 ? -1 : 0;
+    if (mv) { f.moving = true; f.walk += dt * 10 * slow; f.x = clampX(f.x + mv * f.face * 50 * slow * dt); }
   }
-  f.hopT -= dt * slow;
-  if (f.hopT <= 0 && dist > 22) {
-    f.hopT = 0.9 + Math.random() * 0.9;
-    f.hop = 0.35;
-    f.hopFrom = f.x;
-    f.hopTo = clampX(f.x + dir * (10 + Math.random() * 8));
-  }
+}
+function finish(title) {
+  S.over = true;
+  document.getElementById("otitle").textContent = title;
+  document.getElementById("over").hidden = false;
 }
 function hurtPlayer(d, dir) {
   if (P.inv > 0 || S.over) return;
@@ -275,7 +355,7 @@ function hurtPlayer(d, dir) {
   P.hurt = 0.25;
   P.inv = 0.7;
   if (!P.act) P.x = clampX(P.x + dir * 16);
-  if (P.hp <= 0) { S.over = true; document.getElementById("over").hidden = false; }
+  if (P.hp <= 0) finish("패배");
 }
 function heal(n) { P.hp = Math.min(P.max, P.hp + n); }
 function applyBuff(b) {
@@ -299,6 +379,7 @@ function tick(now) {
     const done = r.act.done();
     // 마지막 타격이 지나고 조금 뒤에는 움직여서 끊을 수 있다(효과는 제자리에서 마저 끝난다)
     const cancel = P.act === r && (S.input.l || S.input.r) && r.lastHit > 0 && r.act.t > r.lastHit + 0.25;
+    if (r.dead) { S.acts.splice(S.acts.indexOf(r), 1); continue; }
     if (done || cancel) { endAct(r); if (done) S.acts.splice(S.acts.indexOf(r), 1); else r.detached = true; }
   }
   if (!frozen) {
@@ -307,7 +388,7 @@ function tick(now) {
     if (P.inv > 0) P.inv -= dt;
     if (P.hurt > 0) P.hurt -= dt;
     if (P.cast > 0) P.cast -= dt;
-    if (!P.act && !S.over) {
+    if (!P.act && !S.over && S.mode !== "menu") {
       const mv = (S.input.r ? 1 : 0) - (S.input.l ? 1 : 0);
       if (mv) { P.face = mv; P.x = clampX(P.x + mv * 72 * P.buffK.speed * dt); P.walk += dt * 11 * P.buffK.speed; }
     }
@@ -332,7 +413,8 @@ function tick(now) {
     S.shots = S.shots.filter((s) => !s.hit && s.life > 0 && s.x > -40 && s.x < W + 40);
     for (const n of S.nums) n.t += dt;
     S.nums = S.nums.filter((n) => n.t < 0.8);
-    if (!S.foes.length && !S.over && (S.nextWave -= dt) <= 0) { S.nextWave = 99; spawnWave(); }
+    if (S.mode === "horde" && !S.over && S.left > 0 && (S.spawnT -= dt) <= 0 && S.foes.length < 6) { S.left--; S.spawnT = 2.4; makeFoe("man", W + 10, 34, { ai: "walk" }); }
+    if (S.mode === "duel" && !S.over && !S.foes.length && (S.nextT -= dt) <= 0) { S.nextT = 99; nextDuel(); }
   }
   if (toastT > 0 && (toastT -= dt) <= 0) document.getElementById("toast").style.opacity = 0;
   draw();
@@ -345,17 +427,7 @@ async function burst(x) {
 
 function draw() {
   clearFrame(frame);
-  // 적
-  for (const f of S.foes) {
-    shadowAt(f.x, FLOOR, 12);
-    f.t.draw(frame.color, W, H, Math.round(f.x), FLOOR - Math.round(f.jy ?? 0), f.flip);
-    f.t.drawStraw(frame.color, W, H, Math.round(f.x), FLOOR, f.flip);
-    const bw = 24, fill = Math.max(0, Math.round((bw * f.hp) / f.max)), y = FLOOR - 60 - Math.round(f.jy ?? 0);
-    for (let i = 0; i < bw; i++) for (let j = 0; j < 3; j++) {
-      const px = Math.round(f.x) - 12 + i, py = y + j;
-      if (px >= 0 && px < W) frame.color[py * W + px] = j === 0 || j === 2 ? hex("#0b0a10") : i < fill ? hex("#e0485a") : hex("#3a2430");
-    }
-  }
+  for (const f of S.foes) drawFoe(f);
   for (const r of S.fields) r.fx.draw(frame, "back");
   // 주인공(연기 중이 아니면 직접 그린다)
   if (!P.act) {
@@ -364,11 +436,11 @@ function draw() {
     if (!blink) plotPose(playerPose(), Math.round(P.x), FLOOR - Math.round(P.jy), P.face < 0, P.hurt > 0 ? hex("#ffffff") : 0);
     if (P.buff.shield > 0) ring(P.x, FLOOR - 19, 20, hex("#fff4c0"));
   }
-  for (const r of S.acts) r.act.draw(frame, { body: !r.detached, target: false });
+  for (const r of S.acts) r.act.draw(frame, { body: !r.detached && !r.enemy, target: false });
   for (const r of S.fields) r.fx.draw(frame, "front");
   for (const s of S.shots) s.fx.draw(frame);
   for (const n of S.nums) text(String(n.v), Math.round(n.x) - 4, Math.round(n.y - n.t * 22), n.v >= 25 ? hex("#ffe14a") : hex("#ffffff"));
-  composite(frame, img.data, bg);
+  composite(frame, img.data, S.mode === "menu" ? bgMenu : bg);
   let sx = 0, sy = 0;
   for (const r of S.acts) { const [a, b] = r.act.shake; sx += a; sy += b; }
   ctx.fillStyle = "#0b0a10";
@@ -377,7 +449,14 @@ function draw() {
   // 체력·정보
   document.getElementById("hpbar").style.width = (100 * P.hp) / P.max + "%";
   document.getElementById("hptxt").textContent = `${Math.ceil(P.hp)} / ${P.max}`;
-  document.getElementById("info").textContent = `${S.wave}회전 · 쓰러뜨림 ${S.ko}`;
+  let info = "";
+  if (S.mode === "practice") {
+    const now = performance.now() / 1000, R = S.stat.recent;
+    while (R.length && R[0][0] < now - 3) R.shift();
+    info = `방금 ${S.stat.last} · 합계 ${S.stat.sum} · 초당 ${Math.round(R.reduce((a, b) => a + b[1], 0) / 3)}`;
+  } else if (S.mode === "horde") info = `쓰러뜨림 ${S.ko} / 100`;
+  else if (S.mode === "duel") info = `${S.round}번째 상대 · 이긴 판 ${S.ko}`;
+  document.getElementById("info").textContent = info;
 }
 function ring(cx, cy, r, c) {
   for (let a = 0; a < 64; a++) {
@@ -388,12 +467,12 @@ function ring(cx, cy, r, c) {
 
 // ---- 조작
 function attack() {
-  if (P.act || S.over || P.jy > 0) return;
+  if (P.act || S.over || P.jy > 0 || S.mode === "menu") return;
   const w = weapon(), id = w.moves[P.combo % w.moves.length];
   P.combo++;
   perform(id, { as: w.as });
 }
-function jump() { if (P.jy === 0 && !P.act && !S.over) { P.vy = 165; P.jy = 0.01; } }
+function jump() { if (P.jy === 0 && !P.act && !S.over && S.mode !== "menu") { P.vy = 165; P.jy = 0.01; } }
 function hold(el, key) {
   const on = (e) => { e.preventDefault(); S.input[key] = true; el.classList.add("on"); };
   const off = (e) => { e.preventDefault(); S.input[key] = false; el.classList.remove("on"); };
@@ -405,7 +484,10 @@ hold(document.getElementById("br"), "r");
 tap(document.getElementById("bj"), jump);
 tap(document.getElementById("ba"), attack);
 tap(document.getElementById("bs"), castSelected);
-document.getElementById("over").addEventListener("pointerdown", restart);
+document.getElementById("oagain").onclick = () => startMode(S.mode);
+document.getElementById("omenu").onclick = () => showMenu();
+document.getElementById("bm").onclick = () => showMenu();
+for (const b of document.querySelectorAll("#menu [data-mode]")) b.onclick = () => startMode(b.dataset.mode);
 const KEYS = { ArrowLeft: "l", ArrowRight: "r" };
 addEventListener("keydown", (e) => {
   if (KEYS[e.key]) S.input[KEYS[e.key]] = true;
@@ -417,10 +499,28 @@ addEventListener("keydown", (e) => {
 });
 addEventListener("keyup", (e) => { if (KEYS[e.key]) S.input[KEYS[e.key]] = false; });
 
-function restart() {
-  Object.assign(S, { wave: 0, ko: 0, foes: [], acts: [], fields: [], shots: [], nums: [], over: false, nextWave: 1 });
-  Object.assign(P, { x: 110, hp: P.max, act: null, inv: 1, buff: { dmg: 0, speed: 0, shield: 0 }, buffK: { dmg: 1, speed: 1 } });
+function reset() {
+  for (const f of S.foes) f.dead = true;
+  Object.assign(S, { ko: 0, foes: [], acts: [], fields: [], shots: [], nums: [], over: false, left: 0, spawnT: 0, nextT: 99, round: 0, stat: { sum: 0, last: 0, recent: [] } });
+  Object.assign(P, { x: 110, face: 1, hp: P.max, act: null, inv: 0.6, jy: 0, vy: 0, buff: { dmg: 0, speed: 0, shield: 0 }, buffK: { dmg: 1, speed: 1 } });
   document.getElementById("over").hidden = true;
+}
+async function startMode(m) {
+  await Promise.all(["spawn/poof", "impacts/hit-spark", ...DUEL_MOVES].map(load));
+  reset();
+  S.mode = m;
+  document.getElementById("menu").hidden = true;
+  document.body.classList.remove("inmenu");
+  if (m === "practice") { makeFoe("dummy", 250, 1, { ai: "still" }); toast("연습 모드"); }
+  if (m === "horde") { S.left = 100; S.spawnT = 1; toast("1 대 100"); }
+  if (m === "duel") nextDuel();
+}
+function showMenu() {
+  reset();
+  S.mode = "menu";
+  makeFoe("dummy", 250, 1, { ai: "still" });
+  document.getElementById("menu").hidden = false;
+  document.body.classList.add("inmenu");
 }
 
 // ---- 무기·마법 고르기 창
@@ -473,6 +573,7 @@ document.getElementById("pclose").onclick = () => (picker.hidden = true);
 (async () => {
   await document.fonts.load("11px Galmuri11B");
   bg = buildBackdrop(W, H, FLOOR);
+  bgMenu = buildBackdrop(W, H, FLOOR, false);
   await setWeapon(1);
   let first = "moves/fireball-throw";
   try { first = localStorage.getItem("arena.spell") || first; } catch {}
@@ -481,6 +582,8 @@ document.getElementById("pclose").onclick = () => (picker.hidden = true);
   const q = new URLSearchParams(location.search);
   if (q.get("w")) await setWeapon(+q.get("w"));
   if (q.get("s") && BYID[q.get("s")]) setSpell(BYID[q.get("s")]);
-  window.__arena = { S, P, attack, castSelected, setWeapon, setSpell, BYID, perform, castFx, spawnWave };
+  window.__arena = { S, P, attack, castSelected, setWeapon, setSpell, BYID, perform, castFx, startMode, showMenu };
+  showMenu();
+  if (q.get("mode")) await startMode(q.get("mode"));
   requestAnimationFrame((t) => { last = t; tick(t); });
 })();

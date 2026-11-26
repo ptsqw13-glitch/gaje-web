@@ -2,7 +2,7 @@
 // 색은 pixelfx 처럼 몇 단계로 끊고, 글자는 반투명 가장자리를 잘라 도트로 만든다.
 const rnd = (() => { let s = 7; return () => ((s = (s * 1103515245 + 12345) & 0x7fffffff) / 0x7fffffff); })();
 
-export function buildBackdrop(W, H, FLOOR) {
+export function buildBackdrop(W, H, FLOOR, banner = true) {
   const cv = document.createElement("canvas");
   cv.width = W; cv.height = H;
   const g = cv.getContext("2d");
@@ -59,6 +59,7 @@ export function buildBackdrop(W, H, FLOOR) {
   brick(FLOOR + 15, 6, "#8a8480", "#827c78", "#5e5956");
   brick(FLOOR + 21, 5, "#9a3a32", "#8c342e", "#5c2420");
   for (let y = FLOOR + 26; y < H; y += 3) rect(0, y, W, 3, ["#6e5a48", "#7a6450", "#5e4c3e"][(y / 3) % 3 | 0]);
+  if (!banner) return new Uint32Array(g.getImageData(0, 0, W, H).data.buffer.slice(0));
   // 현수막: 장대 둘 + 흰 천 + "천하제일 무술대회"
   const L = 78, R = W - 78, top = 34, clothTop = 40, clothH = 26;
   for (const x of [L, R]) { rect(x - 2, top, 4, 128 - top, "#4e331f"); rect(x - 2, top, 1, 128 - top, "#724c2e"); rect(x - 4, top - 4, 8, 4, "#c9a26c"); }

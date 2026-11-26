@@ -10,7 +10,7 @@ body { display: flex; flex-direction: column; }
 .hp { position: relative; width: 150px; height: 14px; background: #2a1620; border: 2px solid #0b0a10; outline: 1px solid #c9a26c; }
 #hpbar { height: 100%; width: 100%; background: linear-gradient(#ff6a6a, #c4434f); }
 #hptxt { position: absolute; left: 0; right: 0; top: -2px; text-align: center; font-size: 11px; }
-#toast { position: absolute; top: 22%; left: 0; right: 0; text-align: center; font-size: 20px; color: #ffe9a0; text-shadow: 2px 2px 0 #000; pointer-events: none; opacity: 0; transition: opacity .25s; }
+#toast { position: absolute; top: 44%; left: 0; right: 0; text-align: center; font-size: 20px; color: #ffe9a0; text-shadow: 2px 2px 0 #000; pointer-events: none; opacity: 0; transition: opacity .25s; }
 #over { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,.55); text-align: center; }
 #over b { font-size: 32px; color: #ff7070; }
 #pad { display: flex; justify-content: space-between; align-items: flex-end; gap: 8px; padding: 6px max(10px, env(safe-area-inset-right)) max(10px, env(safe-area-inset-bottom)) max(10px, env(safe-area-inset-left)); }
@@ -49,3 +49,28 @@ button:active, button.on { transform: translateY(2px); filter: brightness(1.3); 
 #plist button { padding: 8px 6px; font-size: 13px; text-align: left; min-height: 44px; }
 #plist button small { display: block; font-family: "Galmuri9", sans-serif; font-size: 10px; color: #a99bc0; margin-top: 2px; }
 #plist button.sel { background: #6a4a20; }
+/* 위쪽 정보와 메뉴 단추 */
+.hr { display: flex; align-items: center; gap: 8px; }
+#bm { pointer-events: auto; padding: 3px 8px; font-size: 11px; }
+#over p { margin-top: 14px; }
+#over button { padding: 10px 16px; font-size: 15px; }
+#over b { color: #ffe9a0; }
+/* 시작 화면(큐브 게임처럼: 배경 그림 위 금빛 제목, 아래 어두운 띠에 글자 메뉴) */
+#menu { position: fixed; inset: 0; z-index: 8; display: flex; flex-direction: column; justify-content: space-between; align-items: center;
+  background: linear-gradient(rgba(11,10,16,.55) 0%, rgba(11,10,16,0) 26%, rgba(11,10,16,0) 48%, rgba(11,10,16,.94) 70%, #0b0a10 100%);
+  padding: max(14px, env(safe-area-inset-top)) 16px max(18px, env(safe-area-inset-bottom)); }
+.mtop { text-align: center; }
+.orn { display: flex; align-items: center; justify-content: center; gap: 8px; color: #ffd97a; font-size: 14px; }
+.orn i { width: 70px; height: 2px; background: linear-gradient(90deg, transparent, #c9a26c); } .orn i:last-child { transform: scaleX(-1); }
+#menu h1 { margin: 4px 0 2px; font-size: clamp(26px, 8vw, 46px); font-weight: normal; color: #ffd97a; text-shadow: 0 3px 0 #7a3a10, 0 0 14px rgba(255,190,80,.55), 3px 3px 0 #2a1848; letter-spacing: 2px; }
+.sub { margin: 0; font-size: 13px; color: #f4ead2; text-shadow: 1px 1px 0 #000; }
+.mlist { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.mlist button { background: none; border: 0; box-shadow: none; font-size: 22px; padding: 6px 20px; color: #f4ead2; text-shadow: 2px 2px 0 #000; }
+.mlist button small { display: block; font-family: "Galmuri9", sans-serif; font-size: 11px; color: #a99bc0; }
+.mlist button:active { color: #ffd97a; transform: none; }
+body.inmenu #pad, body.inmenu #hud { visibility: hidden; }
+@media (orientation: landscape) and (max-height: 520px) {
+  #menu { background: linear-gradient(rgba(11,10,16,.45) 0%, rgba(11,10,16,0) 40%, rgba(11,10,16,0) 100%); }
+  .mlist { align-self: flex-end; background: rgba(11,10,16,.72); border-radius: 8px; padding: 4px 2px; }
+  .mlist button { font-size: 18px; padding: 3px 14px; }
+}
