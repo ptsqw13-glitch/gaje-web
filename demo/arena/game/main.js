@@ -2,10 +2,10 @@
 // 주인공은 pixelfx 의 뼈대 인형(rig), 적은 pixelfx 의 지푸라기 과녁(Target). 효과 244개를 모두 마법으로, 무기 12종을 모두 공격으로 쓴다.
 // 그림은 전부 pixelfx 가 점 단위로 그린다(색 판 + 빛 판 → composite). 화면은 384×216 점을 화면 크기에 맞춰 키운다.
 import { createAct, createFx, createFrame, clearFrame, composite, posed, setSkin, Target, READY, STAND, SKINS, stockActor, hex, mix, luma } from "../pixelfx/core/index.js";
-import { SETS, SLOTS, SHAPE_RANGE, buildSkin } from "./looks.js?v=18";
-import { createCastle } from "./castle.js?v=18";
+import { SETS, SLOTS, SHAPE_RANGE, buildSkin } from "./looks.js?v=19";
+import { createCastle } from "./castle.js?v=19";
 import { rasterText } from "../pixelfx/core/font.js";
-import { FX, CATS } from "./fxlist.js?v=18";
+import { FX, CATS } from "./fxlist.js?v=19";
 import { buildBackdrop } from "./backdrop.js";
 
 const W = 384, H = 216, FLOOR = 188, LEFT = 22, RIGHT = W - 22, W2 = W * 2, H2 = H * 2;
@@ -630,12 +630,13 @@ function reset() {
 }
 async function startMode(m) {
   await Promise.all(["spawn/poof", "impacts/hit-spark", ...DUEL_MOVES].map(load));
+  if (m === "castle") { toast("불러오는 중…"); await castle.preload(); }          // 성 지키기 그림을 다 불러온 뒤에 화면을 바꾼다
   reset();
   S.mode = m;
   document.getElementById("menu").hidden = true;
   document.body.classList.remove("inmenu");
   document.body.classList.toggle("castle", m === "castle");
-  if (m === "castle") { await castle.enter(); toast("성 지키기"); } else { castle.exit(); cv.width = W2; cv.height = H2; }
+  if (m === "castle") { castle.show(); toast("성 지키기"); } else { castle.exit(); cv.width = W2; cv.height = H2; }
   if (m === "practice") { makeFoe("dummy", 250, 1, { ai: "still" }); toast("연습 모드"); }
   if (m === "horde") { S.left = 100; S.spawnT = 1; toast("1 대 100"); }
   if (m === "duel") nextDuel();

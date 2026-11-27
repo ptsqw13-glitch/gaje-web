@@ -3,9 +3,9 @@
 // 왕은 손가락으로 끌어 옮기고 스킬 단추 3개, 기력으로 손패(마법·강화)를 전투 중에 낸다. 건물은 진화·합치기.
 // 층: 보통 층 240×432(바탕·건물·적·병사·탄을 높이 순서로) → 왕 인형만 두 배 층 480×864 → 앞 층(효과·숫자·막대). 카메라는 화면에 잘라 키워 그린다.
 import { createFrame, clearFrame, composite, hex, poseAt, skeleton } from "../pixelfx/core/index.js";
-import { kingDeco, capePaint, CAPE_RAMPS } from "./kingdeco.js?v=18";
+import { kingDeco, capePaint, CAPE_RAMPS } from "./kingdeco.js?v=19";
 import { rasterText } from "../pixelfx/core/font.js";
-import { ramp } from "./looks.js?v=18";
+import { ramp } from "./looks.js?v=19";
 
 export const W = 240, H = 432, W2 = 480, H2 = 864;
 const LANE_X = [50, 120, 190], ROW_Y = [372, 346, 320, 294], CASTLE_Y = 394, FIELD_TOP = 18, FIELD_BOT = 282;
@@ -104,10 +104,10 @@ export function createCastle(api) {
   const SPR = {};
   async function loadSprites() {
     let list = {};
-    try { list = await (await fetch("assets/castle/sprites.json?v=18")).json(); } catch { return; }
+    try { list = await (await fetch("assets/castle/sprites.json?v=19")).json(); } catch { return; }
     await Promise.all(Object.entries(list).map(async ([name, info]) => {
       try {
-        const im = new Image(); im.src = "assets/castle/" + info.file + "?v=18";
+        const im = new Image(); im.src = "assets/castle/" + info.file + "?v=19";
         await im.decode();
         const c = document.createElement("canvas"); c.width = im.width; c.height = im.height;
         const g = c.getContext("2d"); g.drawImage(im, 0, 0);
@@ -830,8 +830,8 @@ export function createCastle(api) {
     await Promise.all([...ids].map(load));
     if (!Object.keys(SPR).length) await loadSprites();
   }
-  async function enter() {
-    await preload();
+  async function enter() { await preload(); show(); }
+  function show() {          // 미리 불러온 뒤 한 번에 바꾼다(불러오는 동안 옛 가로 화면이 보이지 않게)
     cv.width = W2; cv.height = H2;
     Object.assign(G, { on: true, phase: "king", king: null, kingU: null, units: [], foes: [], queue: [], fields: [], shots: [], fx: [], flash: [], cards: [], wave: 0, speed: 1, cam: { x: W / 2, y: H / 2, z: 1, tx: W / 2, ty: H / 2, tz: 1, hold: 0 } });
     $("c3speed").textContent = "1배";
@@ -841,5 +841,5 @@ export function createCastle(api) {
   }
   function exit() { G.on = false; ui.hidden = true; }
   function info() { return G.king ? `${G.wave}/${MAX_WAVE}웨이브 · 성 ${Math.ceil(G.hp)}/${G.max}${G.phase === "fight" ? ` · 남은 적 ${G.queue.length + G.foes.length}` : ""}` : "성 지키기"; }
-  return { G, SPR, enter, exit, step: (dt) => { step(dt); hud(); }, render, info, begin, startWave, chooseCard, applyCard, validFor, between, panel, plotAt, playCard, useSkill, awaken, finishRun, merges, doMerge, levelUp, focus };
+  return { G, SPR, enter, preload, show, exit, step: (dt) => { step(dt); hud(); }, render, info, begin, startWave, chooseCard, applyCard, validFor, between, panel, plotAt, playCard, useSkill, awaken, finishRun, merges, doMerge, levelUp, focus };
 }
