@@ -3,9 +3,9 @@
 // 왕은 손가락으로 끌어 옮기고 스킬 단추 3개, 기력으로 손패(마법·강화)를 전투 중에 낸다. 건물은 진화·합치기.
 // 층: 보통 층 240×432(바탕·건물·적·병사·탄을 높이 순서로) → 왕 인형만 두 배 층 480×864 → 앞 층(효과·숫자·막대). 카메라는 화면에 잘라 키워 그린다.
 import { createFrame, clearFrame, composite, hex, poseAt, skeleton } from "../pixelfx/core/index.js";
-import { kingDeco } from "./kingdeco.js?v=17";
+import { kingDeco, capePaint, CAPE_RAMPS } from "./kingdeco.js?v=18";
 import { rasterText } from "../pixelfx/core/font.js";
-import { ramp } from "./looks.js?v=17";
+import { ramp } from "./looks.js?v=18";
 
 export const W = 240, H = 432, W2 = 480, H2 = 864;
 const LANE_X = [50, 120, 190], ROW_Y = [372, 346, 320, 294], CASTLE_Y = 394, FIELD_TOP = 18, FIELD_BOT = 282;
@@ -104,10 +104,10 @@ export function createCastle(api) {
   const SPR = {};
   async function loadSprites() {
     let list = {};
-    try { list = await (await fetch("assets/castle/sprites.json?v=17")).json(); } catch { return; }
+    try { list = await (await fetch("assets/castle/sprites.json?v=18")).json(); } catch { return; }
     await Promise.all(Object.entries(list).map(async ([name, info]) => {
       try {
-        const im = new Image(); im.src = "assets/castle/" + info.file + "?v=17";
+        const im = new Image(); im.src = "assets/castle/" + info.file + "?v=18";
         await im.decode();
         const c = document.createElement("canvas"); c.width = im.width; c.height = im.height;
         const g = c.getContext("2d"); g.drawImage(im, 0, 0);
@@ -143,6 +143,9 @@ export function createCastle(api) {
     base.ramps.crown = ramp(G.king === "elf" ? "#f0c040" : "#2a2230");
     base.ramps.crownGem = ramp(G.king === "elf" ? "#80ff90" : "#ff2a3a");
     if (!mine) base.ramps.cape = base.ramps.cloth = ramp(K.cape);
+    base.ramps.cape ??= base.ramps.cloth;
+    base.paint = { ...base.paint, cape: capePaint(G.king) };          // 망토 테두리·주름·문장
+    for (const [n, c] of Object.entries(CAPE_RAMPS[G.king])) base.ramps[n] = ramp(c);
     kingSkinKey = key;
     return (kingSkinCache = base);
   }
