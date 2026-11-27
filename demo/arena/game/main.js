@@ -2,10 +2,10 @@
 // 주인공은 pixelfx 의 뼈대 인형(rig), 적은 pixelfx 의 지푸라기 과녁(Target). 효과 244개를 모두 마법으로, 무기 12종을 모두 공격으로 쓴다.
 // 그림은 전부 pixelfx 가 점 단위로 그린다(색 판 + 빛 판 → composite). 화면은 384×216 점을 화면 크기에 맞춰 키운다.
 import { createAct, createFx, createFrame, clearFrame, composite, posed, setSkin, Target, READY, STAND, SKINS, stockActor, hex, mix, luma } from "../pixelfx/core/index.js";
-import { SETS, SLOTS, SHAPE_RANGE, buildSkin } from "./looks.js?v=14";
-import { createCastle } from "./castle.js?v=14";
+import { SETS, SLOTS, SHAPE_RANGE, buildSkin } from "./looks.js?v=16";
+import { createCastle } from "./castle.js?v=16";
 import { rasterText } from "../pixelfx/core/font.js";
-import { FX, CATS } from "./fxlist.js?v=14";
+import { FX, CATS } from "./fxlist.js?v=16";
 import { buildBackdrop } from "./backdrop.js";
 
 const W = 384, H = 216, FLOOR = 188, LEFT = 22, RIGHT = W - 22, W2 = W * 2, H2 = H * 2;

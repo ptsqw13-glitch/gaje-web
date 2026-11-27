@@ -1,0 +1,154 @@
+{
+ "alpha_wolf": {
+  "file": "alpha_wolf.png",
+  "fw": 32,
+  "fh": 40,
+  "cols": 11,
+  "ax": 16,
+  "ay": 38
+ },
+ "b_altar": {
+  "file": "b_altar.png",
+  "ax": 18,
+  "ay": 42
+ },
+ "b_atower": {
+  "file": "b_atower.png",
+  "ax": 18,
+  "ay": 42
+ },
+ "b_barracks": {
+  "file": "b_barracks.png",
+  "ax": 18,
+  "ay": 42
+ },
+ "b_citadel": {
+  "file": "b_citadel.png",
+  "ax": 18,
+  "ay": 42
+ },
+ "b_dtower": {
+  "file": "b_dtower.png",
+  "ax": 18,
+  "ay": 42
+ },
+ "b_grave": {
+  "file": "b_grave.png",
+  "ax": 18,
+  "ay": 42
+ },
+ "b_hellgate": {
+  "file": "b_hellgate.png",
+  "ax": 18,
+  "ay": 42
+ },
+ "b_kennel": {
+  "file": "b_kennel.png",
+  "ax": 18,
+  "ay": 42
+ },
+ "b_lodge": {
+  "file": "b_lodge.png",
+  "ax": 18,
+  "ay": 42
+ },
+ "b_obelisk": {
+  "file": "b_obelisk.png",
+  "ax": 18,
+  "ay": 42
+ },
+ "b_rangerhq": {
+  "file": "b_rangerhq.png",
+  "ax": 18,
+  "ay": 42
+ },
+ "b_spring": {
+  "file": "b_spring.png",
+  "ax": 18,
+  "ay": 42
+ },
+ "b_tree": {
+  "file": "b_tree.png",
+  "ax": 18,
+  "ay": 42
+ },
+ "b_voidspire": {
+  "file": "b_voidspire.png",
+  "ax": 18,
+  "ay": 42
+ },
+ "b_wolfden": {
+  "file": "b_wolfden.png",
+  "ax": 18,
+  "ay": 42
+ },
+ "b_worldtower": {
+  "file": "b_worldtower.png",
+  "ax": 18,
+  "ay": 42
+ },
+ "elf_archer": {
+  "file": "elf_archer.png",
+  "fw": 32,
+  "fh": 40,
+  "cols": 11,
+  "ax": 13,
+  "ay": 38
+ },
+ "hellhound": {
+  "file": "hellhound.png",
+  "fw": 32,
+  "fh": 40,
+  "cols": 11,
+  "ax": 16,
+  "ay": 38
+ },
+ "hound": {
+  "file": "hound.png",
+  "fw": 32,
+  "fh": 40,
+  "cols": 11,
+  "ax": 16,
+  "ay": 38
+ },
+ "ranger": {
+  "file": "ranger.png",
+  "fw": 32,
+  "fh": 40,
+  "cols": 11,
+  "ax": 13,
+  "ay": 38
+ },
+ "skeleton": {
+  "file": "skeleton.png",
+  "fw": 32,
+  "fh": 40,
+  "cols": 11,
+  "ax": 13,
+  "ay": 38
+ },
+ "skel_knight": {
+  "file": "skel_knight.png",
+  "fw": 32,
+  "fh": 40,
+  "cols": 11,
+  "ax": 13,
+  "ay": 38
+ },
+ "spirit": {
+  "file": "spirit.png",
+  "fw": 32,
+  "fh": 40,
+  "cols": 11,
+  "ax": 16,
+  "ay": 36
+ },
+ "wolf": {
+  "file": "wolf.png",
+  "fw": 32,
+  "fh": 40,
+  "cols": 11,
+  "ax": 16,
+  "ay": 38
+ }
+}
