@@ -2,9 +2,10 @@
 // 세로 화면에 딱 맞는 무대. 적은 위에서 아래로 3줄을 따라 내려오고, 성은 맨 아래, 왕국 칸 구역은 아래 3분의 1.
 // 왕은 손가락으로 끌어 옮기고 스킬 단추 3개, 기력으로 손패(마법·강화)를 전투 중에 낸다. 건물은 진화·합치기.
 // 층: 보통 층 240×432(바탕·건물·적·병사·탄을 높이 순서로) → 왕 인형만 두 배 층 480×864 → 앞 층(효과·숫자·막대). 카메라는 화면에 잘라 키워 그린다.
-import { createFrame, clearFrame, composite, hex, poseAt } from "../pixelfx/core/index.js";
+import { createFrame, clearFrame, composite, hex, poseAt, skeleton } from "../pixelfx/core/index.js";
+import { kingDeco } from "./kingdeco.js?v=17";
 import { rasterText } from "../pixelfx/core/font.js";
-import { ramp } from "./looks.js?v=16";
+import { ramp } from "./looks.js?v=17";
 
 export const W = 240, H = 432, W2 = 480, H2 = 864;
 const LANE_X = [50, 120, 190], ROW_Y = [372, 346, 320, 294], CASTLE_Y = 394, FIELD_TOP = 18, FIELD_BOT = 282;
@@ -103,10 +104,10 @@ export function createCastle(api) {
   const SPR = {};
   async function loadSprites() {
     let list = {};
-    try { list = await (await fetch("assets/castle/sprites.json?v=16")).json(); } catch { return; }
+    try { list = await (await fetch("assets/castle/sprites.json?v=17")).json(); } catch { return; }
     await Promise.all(Object.entries(list).map(async ([name, info]) => {
       try {
-        const im = new Image(); im.src = "assets/castle/" + info.file + "?v=16";
+        const im = new Image(); im.src = "assets/castle/" + info.file + "?v=17";
         await im.decode();
         const c = document.createElement("canvas"); c.width = im.width; c.height = im.height;
         const g = c.getContext("2d"); g.drawImage(im, 0, 0);
@@ -138,7 +139,7 @@ export function createCastle(api) {
     if (kingSkinKey === key) return kingSkinCache;
     const set = SETS[K.set], mine = L.set === K.set;
     const base = buildSkin(set, mine ? L.color : {}, mine ? L.shape : {}, 2 * 1.2);
-    base.extras = { ...set.extras, crown: K.crown, crownBig: G.awaken, cloak: true };
+    base.extras = { ...set.extras, crown: false, cloak: true };          // 왕관은 손 도트(kingdeco.js)
     base.ramps.crown = ramp(G.king === "elf" ? "#f0c040" : "#2a2230");
     base.ramps.crownGem = ramp(G.king === "elf" ? "#80ff90" : "#ff2a3a");
     if (!mine) base.ramps.cape = base.ramps.cloth = ramp(K.cape);
@@ -601,15 +602,17 @@ export function createCastle(api) {
       }
     }
   }
-  function figure(skin, q, x, y, mirror, colorFn) {
+  function figure(skin, q, x, y, mirror, colorFn, deco) {
     setSkin(skin);
-    const r = posed(q), bx = Math.round(x * 2), by = Math.round(y * 2);
-    for (let i = 0; i < r.n; i++) {
-      const X = mirror ? bx - r.xs[i] - 1 : bx + r.xs[i], Y = by + r.ys[i];
-      if (X < 0 || Y < 0 || X >= W2 || Y >= H2) continue;
-      out32[Y * W2 + X] = colorFn ? colorFn(r.color[i]) : r.color[i];
-    }
+    const r = posed(q), bx = Math.round(x * 2), by = Math.round(y * 2), sk = deco ? skeleton(q) : null;
+    const put = (dx, dy, c) => {
+      const X = mirror ? bx - dx - 1 : bx + dx, Y = by + dy;
+      if (X < 0 || Y < 0 || X >= W2 || Y >= H2) return;
+      out32[Y * W2 + X] = colorFn ? colorFn(c) : c;
+    };
+    for (let i = 0; i < r.n; i++) put(r.xs[i], r.ys[i], r.color[i]);
     setSkin(null);
+    if (deco) kingDeco(deco.king, deco.aw, sk, skin.scale, put);          // 손 도트 왕관·어깨 갑옷
   }
   const bigFrames = {};
   function bigFx(f) {          // 보스: 소환수를 따로 그려 몇 배로 키워 얹는다(두 배 층)
@@ -667,7 +670,7 @@ export function createCastle(api) {
     if (k) {          // 왕(두 배 층)
       const q = k.act ? k.act.act.pose ?? STAND : k.down ? { ...STAND, crouch: 9, lean: 6 } : kingIdle();
       const flip = k.act ? k.face < 0 : k.face < 0;
-      figure(kingSkin(), k.moving ? walkPose(q, k.step) : q, k.x + (k.act ? (q.x ?? 0) * (flip ? -1 : 1) : 0), k.y + (k.act ? q.y ?? 0 : 0), flip, k.down ? (c) => (c & 0xff000000) | ((c >>> 1) & 0x7f7f7f) : null);
+      figure(kingSkin(), k.moving ? walkPose(q, k.step) : q, k.x + (k.act ? (q.x ?? 0) * (flip ? -1 : 1) : 0), k.y + (k.act ? q.y ?? 0 : 0), flip, k.down ? (c) => (c & 0xff000000) | ((c >>> 1) & 0x7f7f7f) : null, { king: G.king, aw: G.awaken });
     }
     // 앞 층
     clearFrame(frame);
