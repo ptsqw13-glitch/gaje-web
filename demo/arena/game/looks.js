@@ -93,7 +93,7 @@ export const SETS = [
 export const SHAPE_RANGE = { bulk: [0.8, 1.35, "덩치"], arm: [0.8, 1.35, "팔 굵기"], leg: [0.8, 1.3, "다리 굵기"], head: [0.85, 1.35, "머리 크기"] };
 
 // 기준색 하나 → 밝은 쪽부터 네 단계. 어두운 쪽은 살짝 푸른 보라로 기울여 도트 느낌을 낸다
-function ramp(h) {
+export function ramp(h) {
   const c = hex(h), r = c & 255, g = (c >>> 8) & 255, b = (c >>> 16) & 255;
   const to = (k, shift) => "#" + [r, g, b].map((v, i) => Math.max(0, Math.min(255, Math.round(v * k + (i === 2 ? shift : -shift * 0.3))))).map((v) => v.toString(16).padStart(2, "0")).join("");
   const lit = (k) => "#" + [r, g, b].map((v) => Math.round(v + (255 - v) * k)).map((v) => v.toString(16).padStart(2, "0")).join("");
